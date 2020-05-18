@@ -1,0 +1,16 @@
+C:\dev\MicsWeb\AMB\obj\Debug\90\android\assets\AMB.dll
+C:\dev\MicsWeb\AMB\obj\Debug\90\android\assets\Java.Interop.dll
+C:\dev\MicsWeb\AMB\obj\Debug\90\android\assets\Mono.Android.dll
+C:\dev\MicsWeb\AMB\obj\Debug\90\android\assets\mscorlib.dll
+C:\dev\MicsWeb\AMB\obj\Debug\90\android\assets\System.Core.dll
+C:\dev\MicsWeb\AMB\obj\Debug\90\android\assets\System.dll
+C:\dev\MicsWeb\AMB\obj\Debug\90\android\assets\System.Runtime.dll
+C:\dev\MicsWeb\AMB\obj\Debug\90\android\assets\System.Xml.dll
+C:\dev\MicsWeb\AMB\obj\Debug\90\android\assets\System.Xml.Linq.dll
+C:\dev\MicsWeb\AMB\obj\Debug\90\android\assets\System.Net.Http.dll
+C:\dev\MicsWeb\AMB\obj\Debug\90\android\assets\System.Drawing.Common.dll
+C:\dev\MicsWeb\AMB\obj\Debug\90\android\assets\System.Runtime.Serialization.dll
+C:\dev\MicsWeb\AMB\obj\Debug\90\android\assets\System.ServiceModel.Internals.dll
+C:\dev\MicsWeb\AMB\obj\Debug\90\android\assets\Mono.Security.dll
+C:\dev\MicsWeb\AMB\obj\Debug\90\android\assets\System.Numerics.dll
+C:\dev\MicsWeb\AMB\obj\Debug\90\android\assets\System.ComponentModel.Composition.dll

@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+    <CodeSnippet Format="1.0.0">
+        <Header>
+            <Title>CustomerDataService class</Title>
+        </Header>
+        <Snippet>
+            <Code Language="CSharp">
+                <![CDATA[public class CustomerDataService : IDataStore<Mics.Web.Api.Customer>
+    {
+        HttpClient client;
+        IEnumerable<CustomerView> custview;
+        IEnumerable<Customer> customers;
+
+        bool IsConnected => Connectivity.NetworkAccess == NetworkAccess.Internet;
+        public CustomerDataService()
+        {
+            client = new HttpClient();
+            client.BaseAddress = new Uri($"{App.BackendUrl}/");
+            custview = new List<CustomerView>();
+            customers = new List<Customer>();
+        }
+        public Task<bool> AddItemAsync(Customer item)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> DeleteItemAsync(string id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Customer> GetItemAsync(string id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<IEnumerable<Customer>> GetItemsAsync(bool forceRefresh = false)
+        {
+            if (forceRefresh && IsConnected)
+            {
+                var json = await client.GetStringAsync($"micswebapi/api/customers").ConfigureAwait(false);
+                customers = await Task.Run(() => JsonConvert.DeserializeObject<IEnumerable<Customer>>(json)).ConfigureAwait(false);
+            }
+            return customers;
+        }
+
+        public Task<bool> UpdateItemAsync(Customer item)
+        {
+            throw new NotImplementedException();
+        }
+    }]]>
+            </Code>
+        </Snippet>
+    </CodeSnippet>
+</CodeSnippets>

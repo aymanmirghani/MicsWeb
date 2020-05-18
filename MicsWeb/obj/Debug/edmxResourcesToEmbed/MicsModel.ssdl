@@ -1,0 +1,2429 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="mics_serverModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Address">
+    <Key>
+      <PropertyRef Name="AddressID" />
+    </Key>
+    <Property Name="AddressID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AddressLine1" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="AddressLine2" Type="nvarchar" MaxLength="60" />
+    <Property Name="City" Type="nvarchar" MaxLength="30" />
+    <Property Name="StateProvince" Type="nvarchar" MaxLength="2" />
+    <Property Name="PostalCode" Type="nvarchar" MaxLength="15" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Name="CustomerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TerritoryID" Type="int" />
+    <Property Name="AddressID" Type="int" />
+    <Property Name="AccountNumber" Type="nvarchar" MaxLength="25" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="30" />
+    <Property Name="SecondPhone" Type="nchar" MaxLength="30" />
+    <Property Name="Fax" Type="nvarchar" MaxLength="30" />
+    <Property Name="CreditLimit" Type="money" />
+    <Property Name="DeliveryDay" Type="smallint" />
+    <Property Name="CustomerType" Type="nchar" MaxLength="1" />
+    <Property Name="ContactName" Type="nchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="BillingAddressID" Type="int" />
+    <Property Name="ActiveFlag" Type="bit" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="EmployeeID" />
+    </Key>
+    <Property Name="EmployeeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="MiddleName" Type="nchar" MaxLength="50" />
+    <Property Name="Login" Type="nchar" MaxLength="20" />
+    <Property Name="AddressID" Type="int" Nullable="false" />
+    <Property Name="WorkPhone" Type="nchar" MaxLength="20" />
+    <Property Name="HomePhone" Type="nchar" MaxLength="20" />
+    <Property Name="CellPhone" Type="nchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="Location">
+    <Key>
+      <PropertyRef Name="LocationID" />
+    </Key>
+    <Property Name="LocationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AddressID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nchar" MaxLength="60" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OrderNumber">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="today" Type="datetime" Nullable="false" />
+    <Property Name="SeqNumber" Type="int" Nullable="false" />
+    <Property Name="OrderType" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OrderStatus">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Payment">
+    <Key>
+      <PropertyRef Name="PaymentID" />
+    </Key>
+    <Property Name="PaymentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InvoiceID" Type="int" />
+    <Property Name="PaymentType" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="PaymentDate" Type="datetime" Nullable="false" />
+    <Property Name="Amount" Type="money" Nullable="false" />
+    <Property Name="Comments" Type="varchar" MaxLength="255" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="CheckNumber" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="PaymentMethod">
+    <Key>
+      <PropertyRef Name="PaymentMethodID" />
+    </Key>
+    <Property Name="PaymentMethodID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Description" Type="nchar" MaxLength="100" />
+    <Property Name="ProductNumber" Type="nvarchar" MaxLength="25" />
+    <Property Name="MakeFlag" Type="bit" />
+    <Property Name="FinishedGoodsFlag" Type="bit" />
+    <Property Name="Color" Type="nvarchar" MaxLength="15" />
+    <Property Name="SafetyStockLevel" Type="smallint" />
+    <Property Name="ReorderPoint" Type="smallint" Nullable="false" />
+    <Property Name="StandardCost" Type="money" Nullable="false" />
+    <Property Name="ListPrice" Type="money" Nullable="false" />
+    <Property Name="Size" Type="nvarchar" MaxLength="5" />
+    <Property Name="SizeUnitMeasureCode" Type="nchar" MaxLength="3" />
+    <Property Name="WeightUnitMeasureCode" Type="nchar" MaxLength="3" />
+    <Property Name="Weight" Type="numeric" Precision="8" Scale="2" />
+    <Property Name="DaysToManufacture" Type="int" />
+    <Property Name="ProductLine" Type="nchar" MaxLength="2" />
+    <Property Name="Class" Type="nchar" MaxLength="2" />
+    <Property Name="Style" Type="nchar" MaxLength="2" />
+    <Property Name="ProductSubcategoryID" Type="int" />
+    <Property Name="ProductModelID" Type="int" />
+    <Property Name="SellStartDate" Type="datetime" />
+    <Property Name="SellEndDate" Type="datetime" />
+    <Property Name="DiscontinuedDate" Type="datetime" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="PrimaryVendorId" Type="int" />
+    <Property Name="SecondaryVendorId" Type="int" />
+    <Property Name="ActiveFlag" Type="bit" />
+    <Property Name="Comments" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="ProductAdjustmentHistory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="AdjustedQuantity" Type="int" Nullable="false" />
+    <Property Name="Reason" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductCategory">
+    <Key>
+      <PropertyRef Name="ProductCategoryID" />
+    </Key>
+    <Property Name="ProductCategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductCostHistory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="StartDate" Type="datetime" Nullable="false" />
+    <Property Name="EndDate" Type="datetime" />
+    <Property Name="StandardCost" Type="money" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductInventory">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="LocationID" Type="int" />
+    <Property Name="Shelf" Type="nvarchar" MaxLength="10" />
+    <Property Name="Bin" Type="tinyint" />
+    <Property Name="Quantity" Type="bigint" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductListPriceHistory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="StartDate" Type="datetime" Nullable="false" />
+    <Property Name="EndDate" Type="datetime" />
+    <Property Name="ListPrice" Type="money" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductSubcategory">
+    <Key>
+      <PropertyRef Name="ProductSubcategoryID" />
+    </Key>
+    <Property Name="ProductSubcategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductCategoryID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductVendor">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="VendorID" Type="int" Nullable="false" />
+    <Property Name="AverageLeadTime" Type="int" Nullable="false" />
+    <Property Name="StandardPrice" Type="money" Nullable="false" />
+    <Property Name="LastReceiptCost" Type="money" />
+    <Property Name="LastReceiptDate" Type="datetime" />
+    <Property Name="MinOrderQty" Type="int" Nullable="false" />
+    <Property Name="MaxOrderQty" Type="int" Nullable="false" />
+    <Property Name="OnOrderQty" Type="int" />
+    <Property Name="UnitMeasureCode" Type="nchar" MaxLength="3" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PurchaseInvoiceDetail">
+    <Key>
+      <PropertyRef Name="InvoiceDetailID" />
+    </Key>
+    <Property Name="InvoiceID" Type="int" Nullable="false" />
+    <Property Name="InvoiceDetailID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="UnitPrice" Type="money" Nullable="false" />
+    <Property Name="Quantity" Type="bigint" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PurchaseInvoiceHeader">
+    <Key>
+      <PropertyRef Name="InvoiceID" />
+    </Key>
+    <Property Name="InvoiceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InvoiceNumber" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="PurchaseOrderID" Type="int" />
+    <Property Name="Status" Type="tinyint" Nullable="false" />
+    <Property Name="EmployeeID" Type="int" Nullable="false" />
+    <Property Name="VendorID" Type="int" Nullable="false" />
+    <Property Name="InvoiceDate" Type="datetime" />
+    <Property Name="SubTotal" Type="money" Nullable="false" />
+    <Property Name="TaxAmt" Type="money" Nullable="false" />
+    <Property Name="Freight" Type="money" />
+    <Property Name="TotalDue" Type="money" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PurchaseOrderDetail">
+    <Key>
+      <PropertyRef Name="PurchaseOrderDetailID" />
+    </Key>
+    <Property Name="PurchaseOrderID" Type="int" Nullable="false" />
+    <Property Name="PurchaseOrderDetailID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DueDate" Type="datetime" />
+    <Property Name="OrderQty" Type="smallint" Nullable="false" />
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="UnitPrice" Type="money" Nullable="false" />
+    <Property Name="NumberOfCases" Type="float" />
+    <Property Name="UnitPerCase" Type="int" />
+    <Property Name="ReceivedQty" Type="bigint" Nullable="false" />
+    <Property Name="RejectedQty" Type="bigint" Nullable="false" />
+    <Property Name="StockedQty" Type="bigint" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PurchaseOrderHeader">
+    <Key>
+      <PropertyRef Name="PurchaseOrderID" />
+    </Key>
+    <Property Name="PurchaseOrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RevisionNumber" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Status" Type="tinyint" Nullable="false" />
+    <Property Name="EmployeeID" Type="int" Nullable="false" />
+    <Property Name="VendorID" Type="int" Nullable="false" />
+    <Property Name="ShipMethodID" Type="int" Nullable="false" />
+    <Property Name="OrderDate" Type="datetime" Nullable="false" />
+    <Property Name="ShipDate" Type="datetime" />
+    <Property Name="SubTotal" Type="money" Nullable="false" />
+    <Property Name="TaxAmt" Type="money" Nullable="false" />
+    <Property Name="Freight" Type="money" Nullable="false" />
+    <Property Name="TotalDue" Type="money" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SalesInvoiceDetail">
+    <Key>
+      <PropertyRef Name="InvoiceDetailID" />
+    </Key>
+    <Property Name="InvoiceDetailID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InvoiceID" Type="int" Nullable="false" />
+    <Property Name="Quantity" Type="smallint" Nullable="false" />
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="SpecialOfferID" Type="int" Nullable="false" />
+    <Property Name="UnitPrice" Type="money" Nullable="false" />
+    <Property Name="UnitPriceDiscount" Type="money" Nullable="false" />
+    <Property Name="LineTotal" Type="money" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SalesInvoiceHeader">
+    <Key>
+      <PropertyRef Name="InvoiceID" />
+    </Key>
+    <Property Name="InvoiceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InvoiceNumber" Type="varchar" MaxLength="20" />
+    <Property Name="InvoiceDate" Type="datetime" Nullable="false" />
+    <Property Name="DueDate" Type="datetime" Nullable="false" />
+    <Property Name="Status" Type="tinyint" Nullable="false" />
+    <Property Name="AccountNumber" Type="nvarchar" MaxLength="25" />
+    <Property Name="SaleOrderID" Type="int" Nullable="false" />
+    <Property Name="SalesPersonID" Type="int" />
+    <Property Name="TerritoryID" Type="int" />
+    <Property Name="BillToAddressID" Type="int" Nullable="false" />
+    <Property Name="ShipToAddressID" Type="int" Nullable="false" />
+    <Property Name="PaymentMethodID" Type="int" Nullable="false" />
+    <Property Name="SubTotal" Type="money" Nullable="false" />
+    <Property Name="TaxAmt" Type="money" />
+    <Property Name="Freight" Type="money" />
+    <Property Name="TotalDue" Type="money" Nullable="false" />
+    <Property Name="Comment" Type="nvarchar" MaxLength="128" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SalesOrderDetail">
+    <Key>
+      <PropertyRef Name="SalesOrderDetailID" />
+    </Key>
+    <Property Name="SalesOrderDetailID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SalesOrderID" Type="int" Nullable="false" />
+    <Property Name="CarrierTrackingNumber" Type="nvarchar" MaxLength="25" />
+    <Property Name="OrderQty" Type="smallint" Nullable="false" />
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="SpecialOfferID" Type="int" Nullable="false" />
+    <Property Name="UnitPrice" Type="money" Nullable="false" />
+    <Property Name="UnitPriceDiscount" Type="money" Nullable="false" />
+    <Property Name="LineTotal" Type="money" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SalesOrderHeader">
+    <Key>
+      <PropertyRef Name="SalesOrderID" />
+    </Key>
+    <Property Name="SalesOrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderDate" Type="datetime" Nullable="false" />
+    <Property Name="DueDate" Type="datetime" Nullable="false" />
+    <Property Name="ShipDate" Type="datetime" />
+    <Property Name="Status" Type="tinyint" Nullable="false" />
+    <Property Name="OnlineOrderFlag" Type="bit" />
+    <Property Name="SalesOrderNumber" Type="nvarchar" MaxLength="25" />
+    <Property Name="PurchaseOrderNumber" Type="nvarchar" MaxLength="25" />
+    <Property Name="CustomerID" Type="int" Nullable="false" />
+    <Property Name="SalesPersonID" Type="int" />
+    <Property Name="BillToAddressID" Type="int" Nullable="false" />
+    <Property Name="ShipToAddressID" Type="int" Nullable="false" />
+    <Property Name="ShipMethodID" Type="int" />
+    <Property Name="PaymentMethodID" Type="int" Nullable="false" />
+    <Property Name="CurrencyRateID" Type="int" />
+    <Property Name="SubTotal" Type="money" Nullable="false" />
+    <Property Name="TaxAmt" Type="money" Nullable="false" />
+    <Property Name="Freight" Type="money" Nullable="false" />
+    <Property Name="TotalDue" Type="money" />
+    <Property Name="Comment" Type="nvarchar" MaxLength="128" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SalesPerson">
+    <Key>
+      <PropertyRef Name="SalesPersonID" />
+    </Key>
+    <Property Name="SalesPersonID" Type="int" Nullable="false" />
+    <Property Name="TerritoryID" Type="int" />
+    <Property Name="SalesQuota" Type="money" />
+    <Property Name="Bonus" Type="money" Nullable="false" />
+    <Property Name="CommissionPct" Type="money" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'mics_server.dbo.SalesPersonQuotaHistory' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="SalesPersonQuotaHistory">
+    <Key>
+      <PropertyRef Name="SalesPersonID" />
+      <PropertyRef Name="QuotaDate" />
+      <PropertyRef Name="SalesQuota" />
+      <PropertyRef Name="ModifiedDate" />
+    </Key>
+    <Property Name="SalesPersonID" Type="int" Nullable="false" />
+    <Property Name="QuotaDate" Type="datetime" Nullable="false" />
+    <Property Name="SalesQuota" Type="money" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SalesTaxRate">
+    <Key>
+      <PropertyRef Name="SalesTaxRateID" />
+    </Key>
+    <Property Name="SalesTaxRateID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StateProvinceID" Type="nvarchar" MaxLength="2" Nullable="false" />
+    <Property Name="TaxType" Type="tinyint" Nullable="false" />
+    <Property Name="TaxRate" Type="money" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SalesTerritory">
+    <Key>
+      <PropertyRef Name="TerritoryID" />
+    </Key>
+    <Property Name="TerritoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="CountryRegionCode" Type="nvarchar" MaxLength="3" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SalesTerritoryHistory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SalesPersonID" Type="int" Nullable="false" />
+    <Property Name="TerritoryID" Type="int" Nullable="false" />
+    <Property Name="StartDate" Type="datetime" Nullable="false" />
+    <Property Name="EndDate" Type="datetime" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ShipMethod">
+    <Key>
+      <PropertyRef Name="ShipMethodID" />
+    </Key>
+    <Property Name="ShipMethodID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="ShipBase" Type="money" Nullable="false" />
+    <Property Name="ShipRate" Type="money" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SpecialOffer">
+    <Key>
+      <PropertyRef Name="SpecialOfferID" />
+    </Key>
+    <Property Name="SpecialOfferID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="DiscountPct" Type="money" Nullable="false" />
+    <Property Name="Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Category" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="StartDate" Type="datetime" Nullable="false" />
+    <Property Name="EndDate" Type="datetime" Nullable="false" />
+    <Property Name="MinQty" Type="int" Nullable="false" />
+    <Property Name="MaxQty" Type="int" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SpecialOfferProduct">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SpecialOfferID" Type="int" Nullable="false" />
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeID" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="40" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Vendor">
+    <Key>
+      <PropertyRef Name="VendorID" />
+    </Key>
+    <Property Name="VendorID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AddressID" Type="int" Nullable="false" />
+    <Property Name="AccountNumber" Type="nvarchar" MaxLength="25" />
+    <Property Name="Name" Type="nvarchar" MaxLength="80" Nullable="false" />
+    <Property Name="ContactName" Type="nchar" MaxLength="60" />
+    <Property Name="CreditRating" Type="tinyint" Nullable="false" />
+    <Property Name="PreferredVendorStatus" Type="bit" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="Fax" Type="nvarchar" MaxLength="30" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="ActiveFlag" Type="bit" Nullable="false" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="false" />
+    <Property Name="AltPhone" Type="nvarchar" MaxLength="30" />
+    <Property Name="Terms" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'mics_server.dbo.Employee_Address_View' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Employee_Address_View">
+    <Key>
+      <PropertyRef Name="EmployeeID" />
+      <PropertyRef Name="FirstName" />
+      <PropertyRef Name="LastName" />
+      <PropertyRef Name="AddressLine1" />
+      <PropertyRef Name="City" />
+      <PropertyRef Name="AddressID" />
+      <PropertyRef Name="StateProvince" />
+      <PropertyRef Name="PostalCode" />
+    </Key>
+    <Property Name="EmployeeID" Type="int" Nullable="false" />
+    <Property Name="FirstName" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="MiddleName" Type="nchar" MaxLength="50" />
+    <Property Name="Login" Type="nchar" MaxLength="20" />
+    <Property Name="AddressLine1" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="AddressLine2" Type="nvarchar" MaxLength="60" />
+    <Property Name="City" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="AddressID" Type="int" Nullable="false" />
+    <Property Name="StateProvince" Type="nvarchar" MaxLength="2" Nullable="false" />
+    <Property Name="PostalCode" Type="nvarchar" MaxLength="15" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'mics_server.dbo.InvoicesBalance_View' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="InvoicesBalance_View">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Name="InvoiceID" Type="int" />
+    <Property Name="CustomerID" Type="int" Nullable="false" />
+    <Property Name="InvoiceNumber" Type="varchar" MaxLength="10" />
+    <Property Name="InvoiceDate" Type="datetime" />
+    <Property Name="InvoiceTotal" Type="money" />
+    <Property Name="TotalPayments" Type="money" />
+    <Property Name="Balance" Type="money" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'mics_server.dbo.SaleOrder_View' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="SaleOrder_View">
+    <Key>
+      <PropertyRef Name="SalesOrderID" />
+      <PropertyRef Name="OrderQty" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="ProductID" />
+      <PropertyRef Name="UnitPrice" />
+      <PropertyRef Name="UnitPriceDiscount" />
+      <PropertyRef Name="RevisionNumber" />
+      <PropertyRef Name="OrderDate" />
+      <PropertyRef Name="DueDate" />
+    </Key>
+    <Property Name="SalesOrderID" Type="int" Nullable="false" />
+    <Property Name="CarrierTrackingNumber" Type="nvarchar" MaxLength="25" />
+    <Property Name="OrderQty" Type="smallint" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="UnitPrice" Type="money" Nullable="false" />
+    <Property Name="UnitPriceDiscount" Type="money" Nullable="false" />
+    <Property Name="LineTotal" Type="money" />
+    <Property Name="RevisionNumber" Type="tinyint" Nullable="false" />
+    <Property Name="OrderDate" Type="datetime" Nullable="false" />
+    <Property Name="DueDate" Type="datetime" Nullable="false" />
+    <Property Name="ShipDate" Type="datetime" />
+    <Property Name="AccountNumber" Type="nvarchar" MaxLength="25" />
+    <Property Name="PurchaseOrderNumber" Type="nvarchar" MaxLength="25" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'mics_server.dbo.SalesPerson_view' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="SalesPerson_view">
+    <Key>
+      <PropertyRef Name="FirstName" />
+      <PropertyRef Name="LastName" />
+      <PropertyRef Name="SalesPersonID" />
+      <PropertyRef Name="Bonus" />
+      <PropertyRef Name="CommissionPct" />
+    </Key>
+    <Property Name="FirstName" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="MiddleName" Type="nchar" MaxLength="50" />
+    <Property Name="SalesPersonID" Type="int" Nullable="false" />
+    <Property Name="Bonus" Type="money" Nullable="false" />
+    <Property Name="SalesQuota" Type="money" />
+    <Property Name="CommissionPct" Type="money" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'mics_server.dbo.SalesTerritoryList_View' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="SalesTerritoryList_View">
+    <Key>
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="FirstName" />
+      <PropertyRef Name="LastName" />
+      <PropertyRef Name="SalesPersonID" />
+      <PropertyRef Name="TerritoryID" />
+      <PropertyRef Name="StartDate" />
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="Name" Type="nvarchar" MaxLength="25" Nullable="false" />
+    <Property Name="FirstName" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="nchar" MaxLength="50" Nullable="false" />
+    <Property Name="MiddleName" Type="nchar" MaxLength="50" />
+    <Property Name="SalesPersonID" Type="int" Nullable="false" />
+    <Property Name="TerritoryID" Type="int" Nullable="false" />
+    <Property Name="StartDate" Type="datetime" Nullable="false" />
+    <Property Name="EndDate" Type="datetime" />
+    <Property Name="ID" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Customer_SalesTerritory">
+    <End Role="SalesTerritory" Type="Self.SalesTerritory" Multiplicity="0..1" />
+    <End Role="Customer" Type="Self.Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SalesTerritory">
+        <PropertyRef Name="TerritoryID" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="TerritoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_ProductSubcategory">
+    <End Role="ProductSubcategory" Type="Self.ProductSubcategory" Multiplicity="0..1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductSubcategory">
+        <PropertyRef Name="ProductSubcategoryID" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="ProductSubcategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductSubcategory_ProductCategory">
+    <End Role="ProductCategory" Type="Self.ProductCategory" Multiplicity="1" />
+    <End Role="ProductSubcategory" Type="Self.ProductSubcategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductCategory">
+        <PropertyRef Name="ProductCategoryID" />
+      </Principal>
+      <Dependent Role="ProductSubcategory">
+        <PropertyRef Name="ProductCategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SalesOrderDetail_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="SalesOrderDetail" Type="Self.SalesOrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="SalesOrderDetail">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SalesOrderDetail_SalesOrderDetail">
+    <End Role="SalesOrderDetail" Type="Self.SalesOrderDetail" Multiplicity="1" />
+    <End Role="SalesOrderDetail1" Type="Self.SalesOrderDetail" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="SalesOrderDetail">
+        <PropertyRef Name="SalesOrderDetailID" />
+      </Principal>
+      <Dependent Role="SalesOrderDetail1">
+        <PropertyRef Name="SalesOrderDetailID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SalesOrderDetail_SalesOrderHeader">
+    <End Role="SalesOrderHeader" Type="Self.SalesOrderHeader" Multiplicity="1" />
+    <End Role="SalesOrderDetail" Type="Self.SalesOrderDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SalesOrderHeader">
+        <PropertyRef Name="SalesOrderID" />
+      </Principal>
+      <Dependent Role="SalesOrderDetail">
+        <PropertyRef Name="SalesOrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SalesOrderHeader_Customer">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+    <End Role="SalesOrderHeader" Type="Self.SalesOrderHeader" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="SalesOrderHeader">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SpecialOfferProduct_Product">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="SpecialOfferProduct" Type="Self.SpecialOfferProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="SpecialOfferProduct">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="DeleteAddress" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="AddressID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeleteAddressesDynamic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="WhereCondition" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="DeleteCustomer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CustomerID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeleteCustomersDynamic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="WhereCondition" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="DeleteEmployee" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EmployeeID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeleteEmployeesDynamic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="WhereCondition" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="DeleteLocation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="LocationID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeleteLocationsDynamic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="WhereCondition" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="DeleteOrderNumber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeleteOrderNumbersDynamic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="WhereCondition" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="DeletePayment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PaymentID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeletePaymentMethod" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PaymentMethodID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeletePaymentMethodsDynamic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="WhereCondition" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="DeletePaymentsDynamic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="WhereCondition" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="DeleteProduct" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProductID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeleteProductAdjustmentHistoriesDynamic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="WhereCondition" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="DeleteProductAdjustmentHistory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeleteProductCategoriesDynamic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="WhereCondition" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="DeleteProductCategory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProductCategoryID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeleteProductCostHistoriesDynamic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="WhereCondition" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="DeleteProductCostHistory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeleteProductInventoriesDynamic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="WhereCondition" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="DeleteProductInventory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProductID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeleteProductListPriceHistoriesDynamic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="WhereCondition" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="DeleteProductListPriceHistory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeleteProductsDynamic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="WhereCondition" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="DeleteProductSubcategoriesDynamic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="WhereCondition" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="DeleteProductSubcategory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProductSubcategoryID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeleteProductVendor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProductID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeleteProductVendorsDynamic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="WhereCondition" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="DeletePurchaseInvoiceDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="InvoiceDetailID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeletePurchaseInvoiceDetailsDynamic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="WhereCondition" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="DeletePurchaseInvoiceHeader" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="InvoiceID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeletePurchaseInvoiceHeadersDynamic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="WhereCondition" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="DeletePurchaseOrderDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PurchaseOrderID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeletePurchaseOrderDetailsDynamic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="WhereCondition" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="DeletePurchaseOrderHeader" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PurchaseOrderID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeletePurchaseOrderHeadersDynamic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="WhereCondition" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="DeleteSalesInvoiceDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="InvoiceDetailID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeleteSalesInvoiceDetailsDynamic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="WhereCondition" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="DeleteSalesInvoiceHeader" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="InvoiceID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeleteSalesInvoiceHeadersDynamic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="WhereCondition" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="DeleteSalesOrderDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SalesOrderID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeleteSalesOrderDetailsDynamic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="WhereCondition" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="DeleteSalesOrderHeader" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SalesOrderID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeleteSalesOrderHeadersDynamic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="WhereCondition" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="DeleteSalesPerson" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SalesPersonID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeleteSalesPersonQuotaHistoriesDynamic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="WhereCondition" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="DeleteSalesPersonQuotaHistory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SalesPersonID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeleteSalesPersonsDynamic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="WhereCondition" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="DeleteSalesTaxRate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SalesTaxRateID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeleteSalesTaxRatesDynamic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="WhereCondition" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="DeleteSalesTerritoriesDynamic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="WhereCondition" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="DeleteSalesTerritory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TerritoryID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeleteSalesTerritoryHistoriesDynamic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="WhereCondition" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="DeleteSalesTerritoryHistory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SalesPersonID" Type="int" Mode="In" />
+    <Parameter Name="EndDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="DeleteShipMethod" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ShipMethodID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeleteShipMethodsDynamic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="WhereCondition" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="DeleteSpecialOffer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SpecialOfferID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeleteSpecialOfferProduct" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SpecialOfferID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeleteSpecialOfferProductsDynamic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="WhereCondition" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="DeleteSpecialOffersDynamic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="WhereCondition" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="DeleteUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeleteUsersDynamic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="WhereCondition" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="DeleteVendor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="VendorID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeleteVendorsDynamic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="WhereCondition" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="FixAddress" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="InsertAddress" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="AddressLine1" Type="nvarchar" Mode="In" />
+    <Parameter Name="AddressLine2" Type="nvarchar" Mode="In" />
+    <Parameter Name="City" Type="nvarchar" Mode="In" />
+    <Parameter Name="StateProvince" Type="nvarchar" Mode="In" />
+    <Parameter Name="PostalCode" Type="nvarchar" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+    <Parameter Name="AddressID" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="InsertCustomer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TerritoryID" Type="int" Mode="In" />
+    <Parameter Name="AddressID" Type="int" Mode="In" />
+    <Parameter Name="AccountNumber" Type="nvarchar" Mode="In" />
+    <Parameter Name="CreditLimit" Type="money" Mode="In" />
+    <Parameter Name="DeliveryDay" Type="smallint" Mode="In" />
+    <Parameter Name="CustomerType" Type="nchar" Mode="In" />
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="ContactName" Type="nchar" Mode="In" />
+    <Parameter Name="Email" Type="nvarchar" Mode="In" />
+    <Parameter Name="Phone" Type="nvarchar" Mode="In" />
+    <Parameter Name="SecondPhone" Type="nchar" Mode="In" />
+    <Parameter Name="Fax" Type="nvarchar" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+    <Parameter Name="BillingAddressID" Type="int" Mode="In" />
+    <Parameter Name="CustomerID" Type="int" Mode="InOut" />
+    <Parameter Name="ActiveFlag" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="InsertEmployee" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FirstName" Type="nchar" Mode="In" />
+    <Parameter Name="LastName" Type="nchar" Mode="In" />
+    <Parameter Name="MiddleName" Type="nchar" Mode="In" />
+    <Parameter Name="Login" Type="nchar" Mode="In" />
+    <Parameter Name="AddressID" Type="int" Mode="In" />
+    <Parameter Name="WorkPhone" Type="nchar" Mode="In" />
+    <Parameter Name="HomePhone" Type="nchar" Mode="In" />
+    <Parameter Name="CellPhone" Type="nchar" Mode="In" />
+    <Parameter Name="EmployeeID" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="InsertLocation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="AddressID" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="nchar" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+    <Parameter Name="LocationID" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="InsertOrderNumber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="today" Type="datetime" Mode="In" />
+    <Parameter Name="SeqNumber" Type="int" Mode="In" />
+    <Parameter Name="OrderType" Type="int" Mode="In" />
+    <Parameter Name="id" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="InsertPayment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="InvoiceID" Type="int" Mode="In" />
+    <Parameter Name="PaymentType" Type="char" Mode="In" />
+    <Parameter Name="PaymentDate" Type="datetime" Mode="In" />
+    <Parameter Name="Amount" Type="money" Mode="In" />
+    <Parameter Name="Comments" Type="varchar" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+    <Parameter Name="CheckNumber" Type="varchar" Mode="In" />
+    <Parameter Name="PaymentID" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="InsertPaymentMethod" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="PaymentMethodID" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="InsertProduct" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="Description" Type="nchar" Mode="In" />
+    <Parameter Name="ProductNumber" Type="nvarchar" Mode="In" />
+    <Parameter Name="MakeFlag" Type="bit" Mode="In" />
+    <Parameter Name="FinishedGoodsFlag" Type="bit" Mode="In" />
+    <Parameter Name="Color" Type="nvarchar" Mode="In" />
+    <Parameter Name="SafetyStockLevel" Type="smallint" Mode="In" />
+    <Parameter Name="ReorderPoint" Type="smallint" Mode="In" />
+    <Parameter Name="StandardCost" Type="money" Mode="In" />
+    <Parameter Name="ListPrice" Type="money" Mode="In" />
+    <Parameter Name="Size" Type="nvarchar" Mode="In" />
+    <Parameter Name="SizeUnitMeasureCode" Type="nchar" Mode="In" />
+    <Parameter Name="WeightUnitMeasureCode" Type="nchar" Mode="In" />
+    <Parameter Name="Weight" Type="numeric" Mode="In" />
+    <Parameter Name="DaysToManufacture" Type="int" Mode="In" />
+    <Parameter Name="ProductLine" Type="nchar" Mode="In" />
+    <Parameter Name="Class" Type="nchar" Mode="In" />
+    <Parameter Name="Style" Type="nchar" Mode="In" />
+    <Parameter Name="ProductSubcategoryID" Type="int" Mode="In" />
+    <Parameter Name="ProductModelID" Type="int" Mode="In" />
+    <Parameter Name="SellStartDate" Type="datetime" Mode="In" />
+    <Parameter Name="SellEndDate" Type="datetime" Mode="In" />
+    <Parameter Name="DiscontinuedDate" Type="datetime" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+    <Parameter Name="ProductID" Type="int" Mode="InOut" />
+    <Parameter Name="PrimaryVendorId" Type="int" Mode="In" />
+    <Parameter Name="SecondaryVendorId" Type="int" Mode="In" />
+    <Parameter Name="ActiveFlag" Type="bit" Mode="In" />
+    <Parameter Name="Comments" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="InsertProductAdjustmentHistory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProductID" Type="int" Mode="In" />
+    <Parameter Name="AdjustedQuantity" Type="int" Mode="In" />
+    <Parameter Name="Reason" Type="varchar" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+    <Parameter Name="ID" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="InsertProductCategory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+    <Parameter Name="ProductCategoryID" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="InsertProductCostHistory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProductID" Type="int" Mode="In" />
+    <Parameter Name="StartDate" Type="datetime" Mode="In" />
+    <Parameter Name="EndDate" Type="datetime" Mode="In" />
+    <Parameter Name="StandardCost" Type="money" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+    <Parameter Name="ID" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="InsertProductInventory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProductID" Type="int" Mode="In" />
+    <Parameter Name="LocationID" Type="int" Mode="In" />
+    <Parameter Name="Shelf" Type="nvarchar" Mode="In" />
+    <Parameter Name="Bin" Type="tinyint" Mode="In" />
+    <Parameter Name="Quantity" Type="smallint" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="InsertProductListPriceHistory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="InOut" />
+    <Parameter Name="ProductID" Type="int" Mode="In" />
+    <Parameter Name="StartDate" Type="datetime" Mode="In" />
+    <Parameter Name="EndDate" Type="datetime" Mode="In" />
+    <Parameter Name="ListPrice" Type="money" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="InsertProductSubcategory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProductCategoryID" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+    <Parameter Name="ProductSubcategoryID" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="InsertProductVendor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProductID" Type="int" Mode="In" />
+    <Parameter Name="VendorID" Type="int" Mode="In" />
+    <Parameter Name="AverageLeadTime" Type="int" Mode="In" />
+    <Parameter Name="StandardPrice" Type="money" Mode="In" />
+    <Parameter Name="LastReceiptCost" Type="money" Mode="In" />
+    <Parameter Name="LastReceiptDate" Type="datetime" Mode="In" />
+    <Parameter Name="MinOrderQty" Type="int" Mode="In" />
+    <Parameter Name="MaxOrderQty" Type="int" Mode="In" />
+    <Parameter Name="OnOrderQty" Type="int" Mode="In" />
+    <Parameter Name="UnitMeasureCode" Type="nchar" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="InsertPurchaseInvoiceDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="InvoiceID" Type="int" Mode="In" />
+    <Parameter Name="ProductID" Type="int" Mode="In" />
+    <Parameter Name="UnitPrice" Type="money" Mode="In" />
+    <Parameter Name="Quantity" Type="bigint" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+    <Parameter Name="InvoiceDetailID" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="InsertPurchaseInvoiceHeader" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="InvoiceNumber" Type="varchar" Mode="In" />
+    <Parameter Name="Status" Type="tinyint" Mode="In" />
+    <Parameter Name="EmployeeID" Type="int" Mode="In" />
+    <Parameter Name="PurchaseOrderID" Type="int" Mode="In" />
+    <Parameter Name="VendorID" Type="int" Mode="In" />
+    <Parameter Name="InvoiceDate" Type="datetime" Mode="In" />
+    <Parameter Name="SubTotal" Type="money" Mode="In" />
+    <Parameter Name="TaxAmt" Type="money" Mode="In" />
+    <Parameter Name="Freight" Type="money" Mode="In" />
+    <Parameter Name="TotalDue" Type="money" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+    <Parameter Name="InvoiceID" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="InsertPurchaseOrderDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PurchaseOrderID" Type="int" Mode="In" />
+    <Parameter Name="PurchaseOrderDetailID" Type="int" Mode="InOut" />
+    <Parameter Name="DueDate" Type="datetime" Mode="In" />
+    <Parameter Name="OrderQty" Type="smallint" Mode="In" />
+    <Parameter Name="ProductID" Type="int" Mode="In" />
+    <Parameter Name="UnitPrice" Type="money" Mode="In" />
+    <Parameter Name="NumberOfCases" Type="float" Mode="In" />
+    <Parameter Name="UnitPerCase" Type="int" Mode="In" />
+    <Parameter Name="ReceivedQty" Type="bigint" Mode="In" />
+    <Parameter Name="RejectedQty" Type="bigint" Mode="In" />
+    <Parameter Name="StockedQty" Type="bigint" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="InsertPurchaseOrderHeader" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="RevisionNumber" Type="varchar" Mode="In" />
+    <Parameter Name="Status" Type="tinyint" Mode="In" />
+    <Parameter Name="EmployeeID" Type="int" Mode="In" />
+    <Parameter Name="VendorID" Type="int" Mode="In" />
+    <Parameter Name="ShipMethodID" Type="int" Mode="In" />
+    <Parameter Name="OrderDate" Type="datetime" Mode="In" />
+    <Parameter Name="ShipDate" Type="datetime" Mode="In" />
+    <Parameter Name="SubTotal" Type="money" Mode="In" />
+    <Parameter Name="TaxAmt" Type="money" Mode="In" />
+    <Parameter Name="Freight" Type="money" Mode="In" />
+    <Parameter Name="TotalDue" Type="money" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+    <Parameter Name="PurchaseOrderID" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="InsertSalesInvoiceDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="InvoiceID" Type="int" Mode="In" />
+    <Parameter Name="Quantity" Type="smallint" Mode="In" />
+    <Parameter Name="ProductID" Type="int" Mode="In" />
+    <Parameter Name="SpecialOfferID" Type="int" Mode="In" />
+    <Parameter Name="UnitPrice" Type="money" Mode="In" />
+    <Parameter Name="UnitPriceDiscount" Type="money" Mode="In" />
+    <Parameter Name="LineTotal" Type="money" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+    <Parameter Name="InvoiceDetailID" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="InsertSalesInvoiceHeader" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="InvoiceNumber" Type="nvarchar" Mode="In" />
+    <Parameter Name="InvoiceDate" Type="datetime" Mode="In" />
+    <Parameter Name="DueDate" Type="datetime" Mode="In" />
+    <Parameter Name="Status" Type="tinyint" Mode="In" />
+    <Parameter Name="AccountNumber" Type="nvarchar" Mode="In" />
+    <Parameter Name="SaleOrderID" Type="int" Mode="In" />
+    <Parameter Name="SalesPersonID" Type="int" Mode="In" />
+    <Parameter Name="TerritoryID" Type="int" Mode="In" />
+    <Parameter Name="BillToAddressID" Type="int" Mode="In" />
+    <Parameter Name="ShipToAddressID" Type="int" Mode="In" />
+    <Parameter Name="PaymentMethodID" Type="int" Mode="In" />
+    <Parameter Name="SubTotal" Type="money" Mode="In" />
+    <Parameter Name="TaxAmt" Type="money" Mode="In" />
+    <Parameter Name="Freight" Type="money" Mode="In" />
+    <Parameter Name="TotalDue" Type="money" Mode="In" />
+    <Parameter Name="Comment" Type="nvarchar" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+    <Parameter Name="InvoiceID" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="InsertSalesOrderDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SalesOrderID" Type="int" Mode="In" />
+    <Parameter Name="SalesOrderDetailID" Type="int" Mode="InOut" />
+    <Parameter Name="CarrierTrackingNumber" Type="nvarchar" Mode="In" />
+    <Parameter Name="OrderQty" Type="smallint" Mode="In" />
+    <Parameter Name="ProductID" Type="int" Mode="In" />
+    <Parameter Name="SpecialOfferID" Type="int" Mode="In" />
+    <Parameter Name="UnitPrice" Type="money" Mode="In" />
+    <Parameter Name="UnitPriceDiscount" Type="money" Mode="In" />
+    <Parameter Name="LineTotal" Type="money" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="InsertSalesOrderHeader" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OrderDate" Type="datetime" Mode="In" />
+    <Parameter Name="DueDate" Type="datetime" Mode="In" />
+    <Parameter Name="ShipDate" Type="datetime" Mode="In" />
+    <Parameter Name="Status" Type="tinyint" Mode="In" />
+    <Parameter Name="OnlineOrderFlag" Type="bit" Mode="In" />
+    <Parameter Name="SalesOrderNumber" Type="nvarchar" Mode="In" />
+    <Parameter Name="PurchaseOrderNumber" Type="nvarchar" Mode="In" />
+    <Parameter Name="CustomerID" Type="int" Mode="In" />
+    <Parameter Name="SalesPersonID" Type="int" Mode="In" />
+    <Parameter Name="BillToAddressID" Type="int" Mode="In" />
+    <Parameter Name="ShipToAddressID" Type="int" Mode="In" />
+    <Parameter Name="ShipMethodID" Type="int" Mode="In" />
+    <Parameter Name="PaymentMethodID" Type="int" Mode="In" />
+    <Parameter Name="CurrencyRateID" Type="int" Mode="In" />
+    <Parameter Name="SubTotal" Type="money" Mode="In" />
+    <Parameter Name="TaxAmt" Type="money" Mode="In" />
+    <Parameter Name="Freight" Type="money" Mode="In" />
+    <Parameter Name="TotalDue" Type="money" Mode="In" />
+    <Parameter Name="Comment" Type="nvarchar" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+    <Parameter Name="SalesOrderID" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="InsertSalesPerson" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SalesPersonID" Type="int" Mode="In" />
+    <Parameter Name="TerritoryID" Type="int" Mode="In" />
+    <Parameter Name="SalesQuota" Type="money" Mode="In" />
+    <Parameter Name="Bonus" Type="money" Mode="In" />
+    <Parameter Name="CommissionPct" Type="money" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="InsertSalesPersonQuotaHistory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SalesPersonID" Type="int" Mode="In" />
+    <Parameter Name="QuotaDate" Type="datetime" Mode="In" />
+    <Parameter Name="SalesQuota" Type="money" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="InsertSalesTaxRate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="StateProvinceID" Type="nvarchar" Mode="In" />
+    <Parameter Name="TaxType" Type="tinyint" Mode="In" />
+    <Parameter Name="TaxRate" Type="money" Mode="In" />
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+    <Parameter Name="SalesTaxRateID" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="InsertSalesTerritory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="CountryRegionCode" Type="nvarchar" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+    <Parameter Name="TerritoryID" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="InsertSalesTerritoryHistory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SalesPersonID" Type="int" Mode="In" />
+    <Parameter Name="TerritoryID" Type="int" Mode="In" />
+    <Parameter Name="StartDate" Type="datetime" Mode="In" />
+    <Parameter Name="EndDate" Type="datetime" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="InsertShipMethod" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="ShipBase" Type="money" Mode="In" />
+    <Parameter Name="ShipRate" Type="money" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+    <Parameter Name="ShipMethodID" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="InsertSpecialOffer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Description" Type="nvarchar" Mode="In" />
+    <Parameter Name="DiscountPct" Type="money" Mode="In" />
+    <Parameter Name="Type" Type="nvarchar" Mode="In" />
+    <Parameter Name="Category" Type="nvarchar" Mode="In" />
+    <Parameter Name="StartDate" Type="datetime" Mode="In" />
+    <Parameter Name="EndDate" Type="datetime" Mode="In" />
+    <Parameter Name="MinQty" Type="int" Mode="In" />
+    <Parameter Name="MaxQty" Type="int" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+    <Parameter Name="SpecialOfferID" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="InsertSpecialOfferProduct" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SpecialOfferID" Type="int" Mode="In" />
+    <Parameter Name="ProductID" Type="int" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="InsertUpdateAddress" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="AddressID" Type="int" Mode="InOut" />
+    <Parameter Name="AddressLine1" Type="nvarchar" Mode="In" />
+    <Parameter Name="AddressLine2" Type="nvarchar" Mode="In" />
+    <Parameter Name="City" Type="nvarchar" Mode="In" />
+    <Parameter Name="StateProvince" Type="nvarchar" Mode="In" />
+    <Parameter Name="PostalCode" Type="nvarchar" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="InsertUpdateCustomer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CustomerID" Type="int" Mode="In" />
+    <Parameter Name="TerritoryID" Type="int" Mode="In" />
+    <Parameter Name="AddressID" Type="int" Mode="In" />
+    <Parameter Name="AccountNumber" Type="nvarchar" Mode="In" />
+    <Parameter Name="CreditLimit" Type="money" Mode="In" />
+    <Parameter Name="DeliveryDay" Type="smallint" Mode="In" />
+    <Parameter Name="CustomerType" Type="nchar" Mode="In" />
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="ContactName" Type="nchar" Mode="In" />
+    <Parameter Name="Email" Type="nvarchar" Mode="In" />
+    <Parameter Name="Phone" Type="nvarchar" Mode="In" />
+    <Parameter Name="SecondPhone" Type="nchar" Mode="In" />
+    <Parameter Name="Fax" Type="nvarchar" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+    <Parameter Name="BillingAddressID" Type="int" Mode="In" />
+    <Parameter Name="ActiveFlag" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="InsertUpdateEmployee" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EmployeeID" Type="int" Mode="In" />
+    <Parameter Name="FirstName" Type="nchar" Mode="In" />
+    <Parameter Name="LastName" Type="nchar" Mode="In" />
+    <Parameter Name="MiddleName" Type="nchar" Mode="In" />
+    <Parameter Name="Login" Type="nchar" Mode="In" />
+    <Parameter Name="WorkPhone" Type="nchar" Mode="In" />
+    <Parameter Name="HomePhone" Type="nchar" Mode="In" />
+    <Parameter Name="CellPhone" Type="nchar" Mode="In" />
+    <Parameter Name="AddressID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="InsertUpdateLocation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="LocationID" Type="int" Mode="In" />
+    <Parameter Name="AddressID" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="nchar" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="InsertUpdateOrderNumber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="today" Type="datetime" Mode="In" />
+    <Parameter Name="SeqNumber" Type="int" Mode="In" />
+    <Parameter Name="OrderType" Type="int" Mode="In" />
+  </Function>
+  <Function Name="InsertUpdatePayment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PaymentID" Type="int" Mode="In" />
+    <Parameter Name="OrderID" Type="int" Mode="In" />
+    <Parameter Name="PaymentType" Type="char" Mode="In" />
+    <Parameter Name="PaymentDate" Type="datetime" Mode="In" />
+    <Parameter Name="Amount" Type="money" Mode="In" />
+    <Parameter Name="Comments" Type="varchar" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="InsertUpdatePaymentMethod" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PaymentMethodID" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="InsertUpdateProduct" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProductID" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="Description" Type="nchar" Mode="In" />
+    <Parameter Name="ProductNumber" Type="nvarchar" Mode="In" />
+    <Parameter Name="MakeFlag" Type="bit" Mode="In" />
+    <Parameter Name="FinishedGoodsFlag" Type="bit" Mode="In" />
+    <Parameter Name="Color" Type="nvarchar" Mode="In" />
+    <Parameter Name="SafetyStockLevel" Type="smallint" Mode="In" />
+    <Parameter Name="ReorderPoint" Type="smallint" Mode="In" />
+    <Parameter Name="StandardCost" Type="money" Mode="In" />
+    <Parameter Name="ListPrice" Type="money" Mode="In" />
+    <Parameter Name="Size" Type="nvarchar" Mode="In" />
+    <Parameter Name="SizeUnitMeasureCode" Type="nchar" Mode="In" />
+    <Parameter Name="WeightUnitMeasureCode" Type="nchar" Mode="In" />
+    <Parameter Name="Weight" Type="numeric" Mode="In" />
+    <Parameter Name="DaysToManufacture" Type="int" Mode="In" />
+    <Parameter Name="ProductLine" Type="nchar" Mode="In" />
+    <Parameter Name="Class" Type="nchar" Mode="In" />
+    <Parameter Name="Style" Type="nchar" Mode="In" />
+    <Parameter Name="ProductSubcategoryID" Type="int" Mode="In" />
+    <Parameter Name="ProductModelID" Type="int" Mode="In" />
+    <Parameter Name="SellStartDate" Type="datetime" Mode="In" />
+    <Parameter Name="SellEndDate" Type="datetime" Mode="In" />
+    <Parameter Name="DiscontinuedDate" Type="datetime" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+    <Parameter Name="PrimaryVendorId" Type="int" Mode="In" />
+    <Parameter Name="SecondaryVendorId" Type="int" Mode="In" />
+    <Parameter Name="ActiveFlag" Type="bit" Mode="In" />
+    <Parameter Name="Comments" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="InsertUpdateProductAdjustmentHistory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+    <Parameter Name="ProductID" Type="int" Mode="In" />
+    <Parameter Name="AdjustedQuantity" Type="int" Mode="In" />
+    <Parameter Name="Reason" Type="varchar" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="InsertUpdateProductCategory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProductCategoryID" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="InsertUpdateProductCostHistory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProductID" Type="int" Mode="In" />
+    <Parameter Name="StartDate" Type="datetime" Mode="In" />
+    <Parameter Name="EndDate" Type="datetime" Mode="In" />
+    <Parameter Name="StandardCost" Type="money" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="InsertUpdateProductInventory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProductID" Type="int" Mode="In" />
+    <Parameter Name="LocationID" Type="int" Mode="In" />
+    <Parameter Name="Shelf" Type="nvarchar" Mode="In" />
+    <Parameter Name="Bin" Type="tinyint" Mode="In" />
+    <Parameter Name="Quantity" Type="smallint" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="InsertUpdateProductListPriceHistory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProductID" Type="int" Mode="In" />
+    <Parameter Name="StartDate" Type="datetime" Mode="In" />
+    <Parameter Name="EndDate" Type="datetime" Mode="In" />
+    <Parameter Name="ListPrice" Type="money" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="InsertUpdateProductSubcategory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProductSubcategoryID" Type="int" Mode="In" />
+    <Parameter Name="ProductCategoryID" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="InsertUpdateProductVendor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProductID" Type="int" Mode="In" />
+    <Parameter Name="VendorID" Type="int" Mode="In" />
+    <Parameter Name="AverageLeadTime" Type="int" Mode="In" />
+    <Parameter Name="StandardPrice" Type="money" Mode="In" />
+    <Parameter Name="LastReceiptCost" Type="money" Mode="In" />
+    <Parameter Name="LastReceiptDate" Type="datetime" Mode="In" />
+    <Parameter Name="MinOrderQty" Type="int" Mode="In" />
+    <Parameter Name="MaxOrderQty" Type="int" Mode="In" />
+    <Parameter Name="OnOrderQty" Type="int" Mode="In" />
+    <Parameter Name="UnitMeasureCode" Type="nchar" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="InsertUpdatePurchaseInvoiceDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="InvoiceID" Type="int" Mode="In" />
+    <Parameter Name="InvoiceDetailID" Type="int" Mode="In" />
+    <Parameter Name="ProductID" Type="int" Mode="In" />
+    <Parameter Name="UnitPrice" Type="money" Mode="In" />
+    <Parameter Name="Quantity" Type="bigint" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="InsertUpdatePurchaseInvoiceHeader" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="InvoiceID" Type="int" Mode="In" />
+    <Parameter Name="InvoiceNumber" Type="tinyint" Mode="In" />
+    <Parameter Name="Status" Type="tinyint" Mode="In" />
+    <Parameter Name="EmployeeID" Type="int" Mode="In" />
+    <Parameter Name="VendorID" Type="int" Mode="In" />
+    <Parameter Name="InvoiceDate" Type="datetime" Mode="In" />
+    <Parameter Name="SubTotal" Type="money" Mode="In" />
+    <Parameter Name="TaxAmt" Type="money" Mode="In" />
+    <Parameter Name="Freight" Type="money" Mode="In" />
+    <Parameter Name="TotalDue" Type="money" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="InsertUpdatePurchaseOrderHeader" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PurchaseOrderID" Type="int" Mode="In" />
+    <Parameter Name="RevisionNumber" Type="tinyint" Mode="In" />
+    <Parameter Name="Status" Type="tinyint" Mode="In" />
+    <Parameter Name="EmployeeID" Type="int" Mode="In" />
+    <Parameter Name="VendorID" Type="int" Mode="In" />
+    <Parameter Name="ShipMethodID" Type="int" Mode="In" />
+    <Parameter Name="OrderDate" Type="datetime" Mode="In" />
+    <Parameter Name="ShipDate" Type="datetime" Mode="In" />
+    <Parameter Name="SubTotal" Type="money" Mode="In" />
+    <Parameter Name="TaxAmt" Type="money" Mode="In" />
+    <Parameter Name="Freight" Type="money" Mode="In" />
+    <Parameter Name="TotalDue" Type="money" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="InsertUpdateSalesInvoiceDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="InvoiceDetailID" Type="int" Mode="In" />
+    <Parameter Name="InvoiceID" Type="int" Mode="In" />
+    <Parameter Name="Quantity" Type="smallint" Mode="In" />
+    <Parameter Name="ProductID" Type="int" Mode="In" />
+    <Parameter Name="SpecialOfferID" Type="int" Mode="In" />
+    <Parameter Name="UnitPrice" Type="money" Mode="In" />
+    <Parameter Name="UnitPriceDiscount" Type="money" Mode="In" />
+    <Parameter Name="LineTotal" Type="money" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="InsertUpdateSalesInvoiceHeader" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="InvoiceID" Type="int" Mode="In" />
+    <Parameter Name="InvoiceNumber" Type="nvarchar" Mode="In" />
+    <Parameter Name="InvoiceDate" Type="datetime" Mode="In" />
+    <Parameter Name="DueDate" Type="datetime" Mode="In" />
+    <Parameter Name="Status" Type="tinyint" Mode="In" />
+    <Parameter Name="AccountNumber" Type="nvarchar" Mode="In" />
+    <Parameter Name="SaleOrderID" Type="int" Mode="In" />
+    <Parameter Name="SalesPersonID" Type="int" Mode="In" />
+    <Parameter Name="TerritoryID" Type="int" Mode="In" />
+    <Parameter Name="BillToAddressID" Type="int" Mode="In" />
+    <Parameter Name="ShipToAddressID" Type="int" Mode="In" />
+    <Parameter Name="PaymentMethodID" Type="int" Mode="In" />
+    <Parameter Name="SubTotal" Type="money" Mode="In" />
+    <Parameter Name="TaxAmt" Type="money" Mode="In" />
+    <Parameter Name="Freight" Type="money" Mode="In" />
+    <Parameter Name="TotalDue" Type="money" Mode="In" />
+    <Parameter Name="Comment" Type="nvarchar" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="InsertUpdateSalesOrderHeader" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SalesOrderID" Type="int" Mode="In" />
+    <Parameter Name="RevisionNumber" Type="tinyint" Mode="In" />
+    <Parameter Name="OrderDate" Type="datetime" Mode="In" />
+    <Parameter Name="DueDate" Type="datetime" Mode="In" />
+    <Parameter Name="ShipDate" Type="datetime" Mode="In" />
+    <Parameter Name="Status" Type="tinyint" Mode="In" />
+    <Parameter Name="OnlineOrderFlag" Type="bit" Mode="In" />
+    <Parameter Name="SalesOrderNumber" Type="nvarchar" Mode="In" />
+    <Parameter Name="PurchaseOrderNumber" Type="nvarchar" Mode="In" />
+    <Parameter Name="AccountNumber" Type="nvarchar" Mode="In" />
+    <Parameter Name="CustomerID" Type="int" Mode="In" />
+    <Parameter Name="SalesPersonID" Type="int" Mode="In" />
+    <Parameter Name="TerritoryID" Type="int" Mode="In" />
+    <Parameter Name="BillToAddressID" Type="int" Mode="In" />
+    <Parameter Name="ShipToAddressID" Type="int" Mode="In" />
+    <Parameter Name="ShipMethodID" Type="int" Mode="In" />
+    <Parameter Name="PaymentMethodID" Type="int" Mode="In" />
+    <Parameter Name="CurrencyRateID" Type="int" Mode="In" />
+    <Parameter Name="SubTotal" Type="money" Mode="In" />
+    <Parameter Name="TaxAmt" Type="money" Mode="In" />
+    <Parameter Name="Freight" Type="money" Mode="In" />
+    <Parameter Name="TotalDue" Type="money" Mode="In" />
+    <Parameter Name="Comment" Type="nvarchar" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="InsertUpdateSalesPerson" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SalesPersonID" Type="int" Mode="In" />
+    <Parameter Name="TerritoryID" Type="int" Mode="In" />
+    <Parameter Name="SalesQuota" Type="money" Mode="In" />
+    <Parameter Name="Bonus" Type="money" Mode="In" />
+    <Parameter Name="CommissionPct" Type="money" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="InsertUpdateSalesPersonQuotaHistory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SalesPersonID" Type="int" Mode="In" />
+    <Parameter Name="QuotaDate" Type="datetime" Mode="In" />
+    <Parameter Name="SalesQuota" Type="money" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="InsertUpdateSalesTaxRate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SalesTaxRateID" Type="int" Mode="In" />
+    <Parameter Name="StateProvinceID" Type="nvarchar" Mode="In" />
+    <Parameter Name="TaxType" Type="tinyint" Mode="In" />
+    <Parameter Name="TaxRate" Type="money" Mode="In" />
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="InsertUpdateSalesTerritory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TerritoryID" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="CountryRegionCode" Type="nvarchar" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="InsertUpdateSalesTerritoryHistory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+    <Parameter Name="SalesPersonID" Type="int" Mode="In" />
+    <Parameter Name="TerritoryID" Type="int" Mode="In" />
+    <Parameter Name="StartDate" Type="datetime" Mode="In" />
+    <Parameter Name="EndDate" Type="datetime" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="InsertUpdateShipMethod" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ShipMethodID" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="ShipBase" Type="money" Mode="In" />
+    <Parameter Name="ShipRate" Type="money" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="InsertUpdateSpecialOffer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SpecialOfferID" Type="int" Mode="In" />
+    <Parameter Name="Description" Type="nvarchar" Mode="In" />
+    <Parameter Name="DiscountPct" Type="money" Mode="In" />
+    <Parameter Name="Type" Type="nvarchar" Mode="In" />
+    <Parameter Name="Category" Type="nvarchar" Mode="In" />
+    <Parameter Name="StartDate" Type="datetime" Mode="In" />
+    <Parameter Name="EndDate" Type="datetime" Mode="In" />
+    <Parameter Name="MinQty" Type="int" Mode="In" />
+    <Parameter Name="MaxQty" Type="int" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="InsertUpdateSpecialOfferProduct" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SpecialOfferID" Type="int" Mode="In" />
+    <Parameter Name="ProductID" Type="int" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="InsertUpdateUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+    <Parameter Name="EmployeeID" Type="int" Mode="In" />
+    <Parameter Name="UserName" Type="varchar" Mode="In" />
+    <Parameter Name="Password" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="InsertUpdateVendor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="VendorID" Type="int" Mode="In" />
+    <Parameter Name="AccountNumber" Type="nvarchar" Mode="In" />
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="ContactName" Type="nchar" Mode="In" />
+    <Parameter Name="CreditRating" Type="tinyint" Mode="In" />
+    <Parameter Name="PreferredVendorStatus" Type="bit" Mode="In" />
+    <Parameter Name="Phone" Type="nvarchar" Mode="In" />
+    <Parameter Name="Fax" Type="nvarchar" Mode="In" />
+    <Parameter Name="Email" Type="nvarchar" Mode="In" />
+    <Parameter Name="ActiveFlag" Type="bit" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+    <Parameter Name="AddressID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="InsertUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EmployeeID" Type="int" Mode="In" />
+    <Parameter Name="UserName" Type="varchar" Mode="In" />
+    <Parameter Name="Password" Type="varchar" Mode="In" />
+    <Parameter Name="ID" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="InsertVendor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="AccountNumber" Type="nvarchar" Mode="In" />
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="ContactName" Type="nchar" Mode="In" />
+    <Parameter Name="CreditRating" Type="tinyint" Mode="In" />
+    <Parameter Name="PreferredVendorStatus" Type="bit" Mode="In" />
+    <Parameter Name="Phone" Type="nvarchar" Mode="In" />
+    <Parameter Name="Fax" Type="nvarchar" Mode="In" />
+    <Parameter Name="Email" Type="nvarchar" Mode="In" />
+    <Parameter Name="ActiveFlag" Type="bit" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+    <Parameter Name="VendorID" Type="int" Mode="InOut" />
+    <Parameter Name="AddressID" Type="int" Mode="In" />
+    <Parameter Name="AltPhone" Type="nvarchar" Mode="In" />
+    <Parameter Name="Terms" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SelectAddress" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="AddressID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SelectAddressesAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectAddressesDynamic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="WhereCondition" Type="nvarchar" Mode="In" />
+    <Parameter Name="OrderByExpression" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SelectAddressesPaged" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectCustomer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CustomerID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SelectCustomerByName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="name" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SelectCustomerExists" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SelectCustomersAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectCustomersDynamic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="WhereCondition" Type="nvarchar" Mode="In" />
+    <Parameter Name="OrderByExpression" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SelectCustomersPaged" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectEmployee" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EmployeeID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SelectEmployeesAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectEmployeesDynamic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="WhereCondition" Type="nvarchar" Mode="In" />
+    <Parameter Name="OrderByExpression" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SelectEmployeesPaged" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectLocation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="LocationID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SelectLocationByName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SelectLocationsAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectLocationsDynamic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="WhereCondition" Type="nvarchar" Mode="In" />
+    <Parameter Name="OrderByExpression" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SelectLocationsPaged" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectOrderNumber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SelectOrderNumbersAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectOrderNumbersDynamic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="WhereCondition" Type="nvarchar" Mode="In" />
+    <Parameter Name="OrderByExpression" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SelectOrderNumbersPaged" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectPayment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PaymentID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SelectPaymentMethod" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PaymentMethodID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SelectPaymentMethodByName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SelectPaymentMethodsAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectPaymentMethodsDynamic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="WhereCondition" Type="nvarchar" Mode="In" />
+    <Parameter Name="OrderByExpression" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SelectPaymentMethodsPaged" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectPaymentsAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectPaymentsDynamic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="WhereCondition" Type="nvarchar" Mode="In" />
+    <Parameter Name="OrderByExpression" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SelectPaymentsPaged" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectProduct" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProductID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SelectProductAdjustmentHistoriesAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectProductAdjustmentHistoriesDynamic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="WhereCondition" Type="nvarchar" Mode="In" />
+    <Parameter Name="OrderByExpression" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SelectProductAdjustmentHistoriesPaged" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectProductAdjustmentHistory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SelectProductCategoriesAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectProductCategoriesDynamic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="WhereCondition" Type="nvarchar" Mode="In" />
+    <Parameter Name="OrderByExpression" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SelectProductCategoriesPaged" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectProductCategory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProductCategoryID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SelectProductCategoryExists" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SelectProductCostHistoriesAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectProductCostHistoriesDynamic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="WhereCondition" Type="nvarchar" Mode="In" />
+    <Parameter Name="OrderByExpression" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SelectProductCostHistoriesPaged" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectProductCostHistory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SelectProductExists" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="Description" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SelectProductInventoriesAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectProductInventoriesDynamic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="WhereCondition" Type="nvarchar" Mode="In" />
+    <Parameter Name="OrderByExpression" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SelectProductInventoriesPaged" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectProductInventory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProductID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SelectProductListPriceHistoriesAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectProductListPriceHistoriesDynamic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="WhereCondition" Type="nvarchar" Mode="In" />
+    <Parameter Name="OrderByExpression" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SelectProductListPriceHistoriesPaged" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectProductListPriceHistory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SelectProductsAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectProductsDynamic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="WhereCondition" Type="nvarchar" Mode="In" />
+    <Parameter Name="OrderByExpression" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SelectProductsLike" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="LikeCondition" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SelectProductsPaged" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectProductsPicker" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectProductsSubCategoryPicker" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="productCategoryid" Type="int" Mode="In" />
+    <Parameter Name="productSubCategoryid" Type="int" Mode="In" />
+    <Parameter Name="productName" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SelectProductSubcategoriesAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectProductSubcategoriesDynamic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="WhereCondition" Type="nvarchar" Mode="In" />
+    <Parameter Name="OrderByExpression" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SelectProductSubcategoriesPaged" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectProductSubcategory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProductSubcategoryID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SelectProductSubcategoryExists" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SelectProductVendor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProductID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SelectProductVendorsAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectProductVendorsDynamic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="WhereCondition" Type="nvarchar" Mode="In" />
+    <Parameter Name="OrderByExpression" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SelectProductVendorsPaged" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectPurchaseInvoiceDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="InvoiceDetailID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SelectPurchaseInvoiceDetailsAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectPurchaseInvoiceDetailsDynamic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="WhereCondition" Type="nvarchar" Mode="In" />
+    <Parameter Name="OrderByExpression" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SelectPurchaseInvoiceDetailsGrid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="WhereCondition" Type="nvarchar" Mode="In" />
+    <Parameter Name="OrderByExpression" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SelectPurchaseInvoiceDetailsPaged" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectPurchaseInvoiceHeader" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="InvoiceID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SelectPurchaseInvoiceHeadersAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectPurchaseInvoiceHeadersDynamic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="WhereCondition" Type="nvarchar" Mode="In" />
+    <Parameter Name="OrderByExpression" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SelectPurchaseInvoiceHeadersPaged" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectPurchaseOrderDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PurchaseOrderID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SelectPurchaseOrderDetailByOrderID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PurchaseOrderlID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SelectPurchaseOrderDetailsAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectPurchaseOrderDetailsDynamic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="WhereCondition" Type="nvarchar" Mode="In" />
+    <Parameter Name="OrderByExpression" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SelectPurchaseOrderDetailsPaged" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectPurchaseOrderHeader" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PurchaseOrderID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SelectPurchaseOrderHeadersAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectPurchaseOrderHeadersDynamic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="WhereCondition" Type="nvarchar" Mode="In" />
+    <Parameter Name="OrderByExpression" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SelectPurchaseOrderHeadersPaged" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectSalesInvoiceDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="InvoiceDetailID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SelectSalesInvoiceDetailsAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectSalesInvoiceDetailsDynamic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="WhereCondition" Type="nvarchar" Mode="In" />
+    <Parameter Name="OrderByExpression" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SelectSalesInvoiceDetailsPaged" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectSalesInvoiceHeader" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="InvoiceID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SelectSalesInvoiceHeadersAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectSalesInvoiceHeadersDynamic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="WhereCondition" Type="nvarchar" Mode="In" />
+    <Parameter Name="OrderByExpression" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SelectSalesInvoiceHeadersPaged" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectSalesOrderDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SalesOrderID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SelectSalesOrderDetailsAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectSalesOrderDetailsDynamic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="WhereCondition" Type="nvarchar" Mode="In" />
+    <Parameter Name="OrderByExpression" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SelectSalesOrderDetailsPaged" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectSalesOrderHeader" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SalesOrderID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SelectSalesOrderHeadersAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectSalesOrderHeadersDynamic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="WhereCondition" Type="nvarchar" Mode="In" />
+    <Parameter Name="OrderByExpression" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SelectSalesOrderHeadersPaged" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectSalesPerson" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SalesPersonID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SelectSalesPersonQuotaHistoriesAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectSalesPersonQuotaHistoriesDynamic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="WhereCondition" Type="nvarchar" Mode="In" />
+    <Parameter Name="OrderByExpression" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SelectSalesPersonQuotaHistoriesPaged" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectSalesPersonQuotaHistory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SalesPersonID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SelectSalesPersonsAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectSalesPersonsDynamic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="WhereCondition" Type="nvarchar" Mode="In" />
+    <Parameter Name="OrderByExpression" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SelectSalesPersonsPaged" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectSalesTaxRate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SalesTaxRateID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SelectSalesTaxRatesAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectSalesTaxRatesDynamic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="WhereCondition" Type="nvarchar" Mode="In" />
+    <Parameter Name="OrderByExpression" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SelectSalesTaxRatesPaged" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectSalesTerritoriesAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectSalesTerritoriesDynamic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="WhereCondition" Type="nvarchar" Mode="In" />
+    <Parameter Name="OrderByExpression" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SelectSalesTerritoriesPaged" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectSalesTerritory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TerritoryID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SelectSalesTerritoryAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectSalesTerritoryHistoriesAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectSalesTerritoryHistoriesDynamic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="WhereCondition" Type="nvarchar" Mode="In" />
+    <Parameter Name="OrderByExpression" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SelectSalesTerritoryHistoriesPaged" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectSalesTerritoryHistory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SelectShipMethod" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ShipMethodID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SelectShipMethodsAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectShipMethodsDynamic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="WhereCondition" Type="nvarchar" Mode="In" />
+    <Parameter Name="OrderByExpression" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SelectShipMethodsPaged" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectSpecialOffer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SpecialOfferID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SelectSpecialOfferProduct" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SpecialOfferID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SelectSpecialOfferProductsAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectSpecialOfferProductsDynamic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="WhereCondition" Type="nvarchar" Mode="In" />
+    <Parameter Name="OrderByExpression" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SelectSpecialOfferProductsPaged" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectSpecialOffersAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectSpecialOffersDynamic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="WhereCondition" Type="nvarchar" Mode="In" />
+    <Parameter Name="OrderByExpression" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SelectSpecialOffersPaged" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SelectUsersAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectUsersDynamic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="WhereCondition" Type="nvarchar" Mode="In" />
+    <Parameter Name="OrderByExpression" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SelectUsersPaged" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectVendor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="VendorID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SelectVendorExists" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SelectVendorsAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SelectVendorsDynamic" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="WhereCondition" Type="nvarchar" Mode="In" />
+    <Parameter Name="OrderByExpression" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SelectVendorsPaged" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_generate_inserts" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="table_name" Type="varchar" Mode="In" />
+    <Parameter Name="target_table" Type="varchar" Mode="In" />
+    <Parameter Name="include_column_list" Type="bit" Mode="In" />
+    <Parameter Name="from" Type="varchar" Mode="In" />
+    <Parameter Name="include_timestamp" Type="bit" Mode="In" />
+    <Parameter Name="debug_mode" Type="bit" Mode="In" />
+    <Parameter Name="owner" Type="varchar" Mode="In" />
+    <Parameter Name="ommit_images" Type="bit" Mode="In" />
+    <Parameter Name="ommit_identity" Type="bit" Mode="In" />
+    <Parameter Name="top" Type="int" Mode="In" />
+    <Parameter Name="cols_to_include" Type="varchar" Mode="In" />
+    <Parameter Name="cols_to_exclude" Type="varchar" Mode="In" />
+    <Parameter Name="disable_constraints" Type="bit" Mode="In" />
+    <Parameter Name="ommit_computed_cols" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="UpdateAddress" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="AddressID" Type="int" Mode="In" />
+    <Parameter Name="AddressLine1" Type="nvarchar" Mode="In" />
+    <Parameter Name="AddressLine2" Type="nvarchar" Mode="In" />
+    <Parameter Name="City" Type="nvarchar" Mode="In" />
+    <Parameter Name="StateProvince" Type="nvarchar" Mode="In" />
+    <Parameter Name="PostalCode" Type="nvarchar" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="UpdateCustomer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CustomerID" Type="int" Mode="In" />
+    <Parameter Name="TerritoryID" Type="int" Mode="In" />
+    <Parameter Name="AddressID" Type="int" Mode="In" />
+    <Parameter Name="AccountNumber" Type="nvarchar" Mode="In" />
+    <Parameter Name="CreditLimit" Type="money" Mode="In" />
+    <Parameter Name="DeliveryDay" Type="smallint" Mode="In" />
+    <Parameter Name="CustomerType" Type="nchar" Mode="In" />
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="ContactName" Type="nchar" Mode="In" />
+    <Parameter Name="Email" Type="nvarchar" Mode="In" />
+    <Parameter Name="Phone" Type="nvarchar" Mode="In" />
+    <Parameter Name="SecondPhone" Type="nchar" Mode="In" />
+    <Parameter Name="Fax" Type="nvarchar" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+    <Parameter Name="BillingAddressID" Type="int" Mode="In" />
+    <Parameter Name="ActiveFlag" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="UpdateEmployee" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EmployeeID" Type="int" Mode="In" />
+    <Parameter Name="FirstName" Type="nchar" Mode="In" />
+    <Parameter Name="LastName" Type="nchar" Mode="In" />
+    <Parameter Name="MiddleName" Type="nchar" Mode="In" />
+    <Parameter Name="Login" Type="nchar" Mode="In" />
+    <Parameter Name="AddressID" Type="int" Mode="In" />
+    <Parameter Name="WorkPhone" Type="nchar" Mode="In" />
+    <Parameter Name="HomePhone" Type="nchar" Mode="In" />
+    <Parameter Name="CellPhone" Type="nchar" Mode="In" />
+  </Function>
+  <Function Name="UpdateInventory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProductID" Type="int" Mode="In" />
+    <Parameter Name="Quantity" Type="smallint" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="UpdateLocation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="LocationID" Type="int" Mode="In" />
+    <Parameter Name="AddressID" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="nchar" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="UpdateOrderNumber" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+    <Parameter Name="today" Type="datetime" Mode="In" />
+    <Parameter Name="SeqNumber" Type="int" Mode="In" />
+    <Parameter Name="OrderType" Type="int" Mode="In" />
+  </Function>
+  <Function Name="UpdatePayment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PaymentID" Type="int" Mode="In" />
+    <Parameter Name="InvoiceID" Type="int" Mode="In" />
+    <Parameter Name="PaymentType" Type="char" Mode="In" />
+    <Parameter Name="PaymentDate" Type="datetime" Mode="In" />
+    <Parameter Name="Amount" Type="money" Mode="In" />
+    <Parameter Name="Comments" Type="varchar" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+    <Parameter Name="CheckNumber" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="UpdatePaymentMethod" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PaymentMethodID" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="UpdateProduct" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProductID" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="Description" Type="nchar" Mode="In" />
+    <Parameter Name="ProductNumber" Type="nvarchar" Mode="In" />
+    <Parameter Name="MakeFlag" Type="bit" Mode="In" />
+    <Parameter Name="FinishedGoodsFlag" Type="bit" Mode="In" />
+    <Parameter Name="Color" Type="nvarchar" Mode="In" />
+    <Parameter Name="SafetyStockLevel" Type="smallint" Mode="In" />
+    <Parameter Name="ReorderPoint" Type="smallint" Mode="In" />
+    <Parameter Name="StandardCost" Type="money" Mode="In" />
+    <Parameter Name="ListPrice" Type="money" Mode="In" />
+    <Parameter Name="Size" Type="nvarchar" Mode="In" />
+    <Parameter Name="SizeUnitMeasureCode" Type="nchar" Mode="In" />
+    <Parameter Name="WeightUnitMeasureCode" Type="nchar" Mode="In" />
+    <Parameter Name="Weight" Type="numeric" Mode="In" />
+    <Parameter Name="DaysToManufacture" Type="int" Mode="In" />
+    <Parameter Name="ProductLine" Type="nchar" Mode="In" />
+    <Parameter Name="Class" Type="nchar" Mode="In" />
+    <Parameter Name="Style" Type="nchar" Mode="In" />
+    <Parameter Name="ProductSubcategoryID" Type="int" Mode="In" />
+    <Parameter Name="ProductModelID" Type="int" Mode="In" />
+    <Parameter Name="SellStartDate" Type="datetime" Mode="In" />
+    <Parameter Name="SellEndDate" Type="datetime" Mode="In" />
+    <Parameter Name="DiscontinuedDate" Type="datetime" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+    <Parameter Name="PrimaryVendorId" Type="int" Mode="In" />
+    <Parameter Name="SecondaryVendorId" Type="int" Mode="In" />
+    <Parameter Name="ActiveFlag" Type="bit" Mode="In" />
+    <Parameter Name="Comments" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="UpdateProductAdjustmentHistory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+    <Parameter Name="ProductID" Type="int" Mode="In" />
+    <Parameter Name="AdjustedQuantity" Type="int" Mode="In" />
+    <Parameter Name="Reason" Type="varchar" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="UpdateProductCategory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProductCategoryID" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="UpdateProductCostHistory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+    <Parameter Name="ProductID" Type="int" Mode="In" />
+    <Parameter Name="StartDate" Type="datetime" Mode="In" />
+    <Parameter Name="EndDate" Type="datetime" Mode="In" />
+    <Parameter Name="StandardCost" Type="money" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="UpdateProductInventory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProductID" Type="int" Mode="In" />
+    <Parameter Name="LocationID" Type="int" Mode="In" />
+    <Parameter Name="Shelf" Type="nvarchar" Mode="In" />
+    <Parameter Name="Bin" Type="tinyint" Mode="In" />
+    <Parameter Name="Quantity" Type="smallint" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="UpdateProductListPriceHistory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProductID" Type="int" Mode="In" />
+    <Parameter Name="StartDate" Type="datetime" Mode="In" />
+    <Parameter Name="EndDate" Type="datetime" Mode="In" />
+    <Parameter Name="ListPrice" Type="money" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="UpdateProductSubcategory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProductSubcategoryID" Type="int" Mode="In" />
+    <Parameter Name="ProductCategoryID" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="UpdateProductVendor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ProductID" Type="int" Mode="In" />
+    <Parameter Name="VendorID" Type="int" Mode="In" />
+    <Parameter Name="AverageLeadTime" Type="int" Mode="In" />
+    <Parameter Name="StandardPrice" Type="money" Mode="In" />
+    <Parameter Name="LastReceiptCost" Type="money" Mode="In" />
+    <Parameter Name="LastReceiptDate" Type="datetime" Mode="In" />
+    <Parameter Name="MinOrderQty" Type="int" Mode="In" />
+    <Parameter Name="MaxOrderQty" Type="int" Mode="In" />
+    <Parameter Name="OnOrderQty" Type="int" Mode="In" />
+    <Parameter Name="UnitMeasureCode" Type="nchar" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="UpdatePurchaseInvoiceDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="InvoiceID" Type="int" Mode="In" />
+    <Parameter Name="InvoiceDetailID" Type="int" Mode="In" />
+    <Parameter Name="ProductID" Type="int" Mode="In" />
+    <Parameter Name="UnitPrice" Type="money" Mode="In" />
+    <Parameter Name="Quantity" Type="bigint" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="UpdatePurchaseInvoiceHeader" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="InvoiceID" Type="int" Mode="In" />
+    <Parameter Name="InvoiceNumber" Type="varchar" Mode="In" />
+    <Parameter Name="Status" Type="tinyint" Mode="In" />
+    <Parameter Name="EmployeeID" Type="int" Mode="In" />
+    <Parameter Name="PurchaseOrderID" Type="int" Mode="In" />
+    <Parameter Name="VendorID" Type="int" Mode="In" />
+    <Parameter Name="InvoiceDate" Type="datetime" Mode="In" />
+    <Parameter Name="SubTotal" Type="money" Mode="In" />
+    <Parameter Name="TaxAmt" Type="money" Mode="In" />
+    <Parameter Name="Freight" Type="money" Mode="In" />
+    <Parameter Name="TotalDue" Type="money" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="UpdatePurchaseOrderDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PurchaseOrderID" Type="int" Mode="In" />
+    <Parameter Name="PurchaseOrderDetailID" Type="int" Mode="In" />
+    <Parameter Name="DueDate" Type="datetime" Mode="In" />
+    <Parameter Name="OrderQty" Type="smallint" Mode="In" />
+    <Parameter Name="ProductID" Type="int" Mode="In" />
+    <Parameter Name="UnitPrice" Type="money" Mode="In" />
+    <Parameter Name="NumberOfCases" Type="float" Mode="In" />
+    <Parameter Name="UnitPerCase" Type="int" Mode="In" />
+    <Parameter Name="ReceivedQty" Type="bigint" Mode="In" />
+    <Parameter Name="RejectedQty" Type="bigint" Mode="In" />
+    <Parameter Name="StockedQty" Type="bigint" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="UpdatePurchaseOrderHeader" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PurchaseOrderID" Type="int" Mode="In" />
+    <Parameter Name="RevisionNumber" Type="varchar" Mode="In" />
+    <Parameter Name="Status" Type="tinyint" Mode="In" />
+    <Parameter Name="EmployeeID" Type="int" Mode="In" />
+    <Parameter Name="VendorID" Type="int" Mode="In" />
+    <Parameter Name="ShipMethodID" Type="int" Mode="In" />
+    <Parameter Name="OrderDate" Type="datetime" Mode="In" />
+    <Parameter Name="ShipDate" Type="datetime" Mode="In" />
+    <Parameter Name="SubTotal" Type="money" Mode="In" />
+    <Parameter Name="TaxAmt" Type="money" Mode="In" />
+    <Parameter Name="Freight" Type="money" Mode="In" />
+    <Parameter Name="TotalDue" Type="money" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="UpdateSalesInvoiceDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="InvoiceDetailID" Type="int" Mode="In" />
+    <Parameter Name="InvoiceID" Type="int" Mode="In" />
+    <Parameter Name="Quantity" Type="smallint" Mode="In" />
+    <Parameter Name="ProductID" Type="int" Mode="In" />
+    <Parameter Name="SpecialOfferID" Type="int" Mode="In" />
+    <Parameter Name="UnitPrice" Type="money" Mode="In" />
+    <Parameter Name="UnitPriceDiscount" Type="money" Mode="In" />
+    <Parameter Name="LineTotal" Type="money" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="UpdateSalesInvoiceHeader" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="InvoiceID" Type="int" Mode="In" />
+    <Parameter Name="InvoiceNumber" Type="nvarchar" Mode="In" />
+    <Parameter Name="InvoiceDate" Type="datetime" Mode="In" />
+    <Parameter Name="DueDate" Type="datetime" Mode="In" />
+    <Parameter Name="Status" Type="tinyint" Mode="In" />
+    <Parameter Name="AccountNumber" Type="nvarchar" Mode="In" />
+    <Parameter Name="SaleOrderID" Type="int" Mode="In" />
+    <Parameter Name="SalesPersonID" Type="int" Mode="In" />
+    <Parameter Name="TerritoryID" Type="int" Mode="In" />
+    <Parameter Name="BillToAddressID" Type="int" Mode="In" />
+    <Parameter Name="ShipToAddressID" Type="int" Mode="In" />
+    <Parameter Name="PaymentMethodID" Type="int" Mode="In" />
+    <Parameter Name="SubTotal" Type="money" Mode="In" />
+    <Parameter Name="TaxAmt" Type="money" Mode="In" />
+    <Parameter Name="Freight" Type="money" Mode="In" />
+    <Parameter Name="TotalDue" Type="money" Mode="In" />
+    <Parameter Name="Comment" Type="nvarchar" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="UpdateSalesOrderDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SalesOrderID" Type="int" Mode="In" />
+    <Parameter Name="SalesOrderDetailID" Type="int" Mode="In" />
+    <Parameter Name="CarrierTrackingNumber" Type="nvarchar" Mode="In" />
+    <Parameter Name="OrderQty" Type="smallint" Mode="In" />
+    <Parameter Name="ProductID" Type="int" Mode="In" />
+    <Parameter Name="SpecialOfferID" Type="int" Mode="In" />
+    <Parameter Name="UnitPrice" Type="money" Mode="In" />
+    <Parameter Name="UnitPriceDiscount" Type="money" Mode="In" />
+    <Parameter Name="LineTotal" Type="money" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="UpdateSalesOrderHeader" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SalesOrderID" Type="int" Mode="In" />
+    <Parameter Name="OrderDate" Type="datetime" Mode="In" />
+    <Parameter Name="DueDate" Type="datetime" Mode="In" />
+    <Parameter Name="ShipDate" Type="datetime" Mode="In" />
+    <Parameter Name="Status" Type="tinyint" Mode="In" />
+    <Parameter Name="OnlineOrderFlag" Type="bit" Mode="In" />
+    <Parameter Name="SalesOrderNumber" Type="nvarchar" Mode="In" />
+    <Parameter Name="PurchaseOrderNumber" Type="nvarchar" Mode="In" />
+    <Parameter Name="CustomerID" Type="int" Mode="In" />
+    <Parameter Name="SalesPersonID" Type="int" Mode="In" />
+    <Parameter Name="BillToAddressID" Type="int" Mode="In" />
+    <Parameter Name="ShipToAddressID" Type="int" Mode="In" />
+    <Parameter Name="ShipMethodID" Type="int" Mode="In" />
+    <Parameter Name="PaymentMethodID" Type="int" Mode="In" />
+    <Parameter Name="CurrencyRateID" Type="int" Mode="In" />
+    <Parameter Name="SubTotal" Type="money" Mode="In" />
+    <Parameter Name="TaxAmt" Type="money" Mode="In" />
+    <Parameter Name="Freight" Type="money" Mode="In" />
+    <Parameter Name="TotalDue" Type="money" Mode="In" />
+    <Parameter Name="Comment" Type="nvarchar" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="UpdateSalesPerson" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SalesPersonID" Type="int" Mode="In" />
+    <Parameter Name="TerritoryID" Type="int" Mode="In" />
+    <Parameter Name="SalesQuota" Type="money" Mode="In" />
+    <Parameter Name="Bonus" Type="money" Mode="In" />
+    <Parameter Name="CommissionPct" Type="money" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="UpdateSalesPersonQuotaHistory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SalesPersonID" Type="int" Mode="In" />
+    <Parameter Name="QuotaDate" Type="datetime" Mode="In" />
+    <Parameter Name="SalesQuota" Type="money" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="UpdateSalesTaxRate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SalesTaxRateID" Type="int" Mode="In" />
+    <Parameter Name="StateProvinceID" Type="nvarchar" Mode="In" />
+    <Parameter Name="TaxType" Type="tinyint" Mode="In" />
+    <Parameter Name="TaxRate" Type="money" Mode="In" />
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="UpdateSalesTerritory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TerritoryID" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="CountryRegionCode" Type="nvarchar" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="UpdateSalesTerritoryHistory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+    <Parameter Name="EndDate" Type="datetime" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="UpdateShipMethod" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ShipMethodID" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="ShipBase" Type="money" Mode="In" />
+    <Parameter Name="ShipRate" Type="money" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="UpdateSpecialOffer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SpecialOfferID" Type="int" Mode="In" />
+    <Parameter Name="Description" Type="nvarchar" Mode="In" />
+    <Parameter Name="DiscountPct" Type="money" Mode="In" />
+    <Parameter Name="Type" Type="nvarchar" Mode="In" />
+    <Parameter Name="Category" Type="nvarchar" Mode="In" />
+    <Parameter Name="StartDate" Type="datetime" Mode="In" />
+    <Parameter Name="EndDate" Type="datetime" Mode="In" />
+    <Parameter Name="MinQty" Type="int" Mode="In" />
+    <Parameter Name="MaxQty" Type="int" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="UpdateSpecialOfferProduct" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SpecialOfferID" Type="int" Mode="In" />
+    <Parameter Name="ProductID" Type="int" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="UpdateUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ID" Type="int" Mode="In" />
+    <Parameter Name="EmployeeID" Type="int" Mode="In" />
+    <Parameter Name="UserName" Type="varchar" Mode="In" />
+    <Parameter Name="Password" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="UpdateVendor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="VendorID" Type="int" Mode="In" />
+    <Parameter Name="AccountNumber" Type="nvarchar" Mode="In" />
+    <Parameter Name="Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="ContactName" Type="nchar" Mode="In" />
+    <Parameter Name="CreditRating" Type="tinyint" Mode="In" />
+    <Parameter Name="PreferredVendorStatus" Type="bit" Mode="In" />
+    <Parameter Name="Phone" Type="nvarchar" Mode="In" />
+    <Parameter Name="Fax" Type="nvarchar" Mode="In" />
+    <Parameter Name="Email" Type="nvarchar" Mode="In" />
+    <Parameter Name="ActiveFlag" Type="bit" Mode="In" />
+    <Parameter Name="ModifiedDate" Type="datetime" Mode="In" />
+    <Parameter Name="AddressID" Type="int" Mode="In" />
+    <Parameter Name="AltPhone" Type="nvarchar" Mode="In" />
+    <Parameter Name="Terms" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="ViewSalesPersonsAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="ViewSalesTerritoryList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="mics_serverModelStoreContainer">
+    <EntitySet Name="Address" EntityType="Self.Address" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Location" EntityType="Self.Location" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderNumber" EntityType="Self.OrderNumber" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderStatus" EntityType="Self.OrderStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Payment" EntityType="Self.Payment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PaymentMethod" EntityType="Self.PaymentMethod" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductAdjustmentHistory" EntityType="Self.ProductAdjustmentHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductCategory" EntityType="Self.ProductCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductCostHistory" EntityType="Self.ProductCostHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductInventory" EntityType="Self.ProductInventory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductListPriceHistory" EntityType="Self.ProductListPriceHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductSubcategory" EntityType="Self.ProductSubcategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductVendor" EntityType="Self.ProductVendor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PurchaseInvoiceDetail" EntityType="Self.PurchaseInvoiceDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PurchaseInvoiceHeader" EntityType="Self.PurchaseInvoiceHeader" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PurchaseOrderDetail" EntityType="Self.PurchaseOrderDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PurchaseOrderHeader" EntityType="Self.PurchaseOrderHeader" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SalesInvoiceDetail" EntityType="Self.SalesInvoiceDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SalesInvoiceHeader" EntityType="Self.SalesInvoiceHeader" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SalesOrderDetail" EntityType="Self.SalesOrderDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SalesOrderHeader" EntityType="Self.SalesOrderHeader" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SalesPerson" EntityType="Self.SalesPerson" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SalesTaxRate" EntityType="Self.SalesTaxRate" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SalesTerritory" EntityType="Self.SalesTerritory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SalesTerritoryHistory" EntityType="Self.SalesTerritoryHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ShipMethod" EntityType="Self.ShipMethod" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SpecialOffer" EntityType="Self.SpecialOffer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SpecialOfferProduct" EntityType="Self.SpecialOfferProduct" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vendor" EntityType="Self.Vendor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SalesPersonQuotaHistory" EntityType="Self.SalesPersonQuotaHistory" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [SalesPersonQuotaHistory].[SalesPersonID] AS [SalesPersonID], 
+    [SalesPersonQuotaHistory].[QuotaDate] AS [QuotaDate], 
+    [SalesPersonQuotaHistory].[SalesQuota] AS [SalesQuota], 
+    [SalesPersonQuotaHistory].[ModifiedDate] AS [ModifiedDate]
+    FROM [dbo].[SalesPersonQuotaHistory] AS [SalesPersonQuotaHistory]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Employee_Address_View" EntityType="Self.Employee_Address_View" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Employee_Address_View].[EmployeeID] AS [EmployeeID], 
+    [Employee_Address_View].[FirstName] AS [FirstName], 
+    [Employee_Address_View].[LastName] AS [LastName], 
+    [Employee_Address_View].[MiddleName] AS [MiddleName], 
+    [Employee_Address_View].[Login] AS [Login], 
+    [Employee_Address_View].[AddressLine1] AS [AddressLine1], 
+    [Employee_Address_View].[AddressLine2] AS [AddressLine2], 
+    [Employee_Address_View].[City] AS [City], 
+    [Employee_Address_View].[AddressID] AS [AddressID], 
+    [Employee_Address_View].[StateProvince] AS [StateProvince], 
+    [Employee_Address_View].[PostalCode] AS [PostalCode]
+    FROM [dbo].[Employee_Address_View] AS [Employee_Address_View]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="InvoicesBalance_View" EntityType="Self.InvoicesBalance_View" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [InvoicesBalance_View].[InvoiceID] AS [InvoiceID], 
+    [InvoicesBalance_View].[CustomerID] AS [CustomerID], 
+    [InvoicesBalance_View].[InvoiceNumber] AS [InvoiceNumber], 
+    [InvoicesBalance_View].[InvoiceDate] AS [InvoiceDate], 
+    [InvoicesBalance_View].[InvoiceTotal] AS [InvoiceTotal], 
+    [InvoicesBalance_View].[TotalPayments] AS [TotalPayments], 
+    [InvoicesBalance_View].[Balance] AS [Balance]
+    FROM [dbo].[InvoicesBalance_View] AS [InvoicesBalance_View]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="SaleOrder_View" EntityType="Self.SaleOrder_View" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [SaleOrder_View].[SalesOrderID] AS [SalesOrderID], 
+    [SaleOrder_View].[CarrierTrackingNumber] AS [CarrierTrackingNumber], 
+    [SaleOrder_View].[OrderQty] AS [OrderQty], 
+    [SaleOrder_View].[Name] AS [Name], 
+    [SaleOrder_View].[ProductID] AS [ProductID], 
+    [SaleOrder_View].[UnitPrice] AS [UnitPrice], 
+    [SaleOrder_View].[UnitPriceDiscount] AS [UnitPriceDiscount], 
+    [SaleOrder_View].[LineTotal] AS [LineTotal], 
+    [SaleOrder_View].[RevisionNumber] AS [RevisionNumber], 
+    [SaleOrder_View].[OrderDate] AS [OrderDate], 
+    [SaleOrder_View].[DueDate] AS [DueDate], 
+    [SaleOrder_View].[ShipDate] AS [ShipDate], 
+    [SaleOrder_View].[AccountNumber] AS [AccountNumber], 
+    [SaleOrder_View].[PurchaseOrderNumber] AS [PurchaseOrderNumber]
+    FROM [dbo].[SaleOrder_View] AS [SaleOrder_View]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="SalesPerson_view" EntityType="Self.SalesPerson_view" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [SalesPerson_view].[FirstName] AS [FirstName], 
+    [SalesPerson_view].[LastName] AS [LastName], 
+    [SalesPerson_view].[MiddleName] AS [MiddleName], 
+    [SalesPerson_view].[SalesPersonID] AS [SalesPersonID], 
+    [SalesPerson_view].[Bonus] AS [Bonus], 
+    [SalesPerson_view].[SalesQuota] AS [SalesQuota], 
+    [SalesPerson_view].[CommissionPct] AS [CommissionPct]
+    FROM [dbo].[SalesPerson_view] AS [SalesPerson_view]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="SalesTerritoryList_View" EntityType="Self.SalesTerritoryList_View" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [SalesTerritoryList_View].[Name] AS [Name], 
+    [SalesTerritoryList_View].[FirstName] AS [FirstName], 
+    [SalesTerritoryList_View].[LastName] AS [LastName], 
+    [SalesTerritoryList_View].[MiddleName] AS [MiddleName], 
+    [SalesTerritoryList_View].[SalesPersonID] AS [SalesPersonID], 
+    [SalesTerritoryList_View].[TerritoryID] AS [TerritoryID], 
+    [SalesTerritoryList_View].[StartDate] AS [StartDate], 
+    [SalesTerritoryList_View].[EndDate] AS [EndDate], 
+    [SalesTerritoryList_View].[ID] AS [ID]
+    FROM [dbo].[SalesTerritoryList_View] AS [SalesTerritoryList_View]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_Customer_SalesTerritory" Association="Self.FK_Customer_SalesTerritory">
+      <End Role="SalesTerritory" EntitySet="SalesTerritory" />
+      <End Role="Customer" EntitySet="Customer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_ProductSubcategory" Association="Self.FK_Product_ProductSubcategory">
+      <End Role="ProductSubcategory" EntitySet="ProductSubcategory" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductSubcategory_ProductCategory" Association="Self.FK_ProductSubcategory_ProductCategory">
+      <End Role="ProductCategory" EntitySet="ProductCategory" />
+      <End Role="ProductSubcategory" EntitySet="ProductSubcategory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SalesOrderDetail_Product" Association="Self.FK_SalesOrderDetail_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="SalesOrderDetail" EntitySet="SalesOrderDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SalesOrderDetail_SalesOrderDetail" Association="Self.FK_SalesOrderDetail_SalesOrderDetail">
+      <End Role="SalesOrderDetail" EntitySet="SalesOrderDetail" />
+      <End Role="SalesOrderDetail1" EntitySet="SalesOrderDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SalesOrderDetail_SalesOrderHeader" Association="Self.FK_SalesOrderDetail_SalesOrderHeader">
+      <End Role="SalesOrderHeader" EntitySet="SalesOrderHeader" />
+      <End Role="SalesOrderDetail" EntitySet="SalesOrderDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SalesOrderHeader_Customer" Association="Self.FK_SalesOrderHeader_Customer">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="SalesOrderHeader" EntitySet="SalesOrderHeader" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SpecialOfferProduct_Product" Association="Self.FK_SpecialOfferProduct_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="SpecialOfferProduct" EntitySet="SpecialOfferProduct" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

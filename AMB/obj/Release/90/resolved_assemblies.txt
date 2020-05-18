@@ -1,0 +1,7 @@
+C:\dev\MicsWeb\AMB\obj\Release\90\android\assets\AMB.dll
+C:\dev\MicsWeb\AMB\obj\Release\90\android\assets\Java.Interop.dll
+C:\dev\MicsWeb\AMB\obj\Release\90\android\assets\Mono.Android.dll
+C:\dev\MicsWeb\AMB\obj\Release\90\android\assets\mscorlib.dll
+C:\dev\MicsWeb\AMB\obj\Release\90\android\assets\System.Core.dll
+C:\dev\MicsWeb\AMB\obj\Release\90\android\assets\System.dll
+C:\dev\MicsWeb\AMB\obj\Release\90\android\assets\System.Runtime.Serialization.dll

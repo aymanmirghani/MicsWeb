@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Title="Download Data"
+             x:Class="Mics.Mobile.Views.DownloadPage">
+    <ContentPage.Content>
+        <StackLayout Padding="10" Spacing="5">
+             <StackLayout Orientation="Horizontal" Spacing="0" VerticalOptions="Start"  HorizontalOptions="StartAndExpand">
+                <Switch x:Name="toggleDownloadCustomers" IsToggled="{Binding SyncCustomers}" OnColor="Orange" ThumbColor="Green">
+                </Switch>
+                <Label Text="Synch Customers"></Label>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Spacing="0" VerticalOptions="Start" HorizontalOptions="StartAndExpand">
+                <Switch x:Name="toggleDownloadProducts" IsToggled="{Binding SyncCustomers}" OnColor="Orange" ThumbColor="Green">
+                </Switch>
+                <Label Text="Synch Products"></Label>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Spacing="0" VerticalOptions="Start" HorizontalOptions="StartAndExpand">
+                <Switch x:Name="toggleDownloadOrders" IsToggled="{Binding SyncCustomers}" OnColor="Orange" ThumbColor="Green">
+                </Switch>
+                <Label Text="Synch Orders"></Label>
+            </StackLayout>
+            <Button x:Name="buttonDownloadData" Text="Download Data" Clicked="buttonDownloadData_Clicked"
+                    VerticalOptions="Start" HorizontalOptions="FillAndExpand" BackgroundColor="OrangeRed" TextColor="White">
+                
+            </Button>
+            <ProgressBar x:Name="progressBarDownload" ProgressColor="Orange" Progress="{Binding DownloadProgress, Mode=TwoWay}"></ProgressBar>
+           
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

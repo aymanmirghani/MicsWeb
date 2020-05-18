@@ -1,0 +1,5 @@
+int drawable icon 0x7f010000
+int id MyButton 0x7f020000
+int layout main 0x7f030000
+int string ApplicationName 0x7f040000
+int string Hello 0x7f040001

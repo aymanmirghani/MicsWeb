@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="264a4a9618224b64a8738d344f62531d" Name="Diagram1">
+        <EntityTypeShape EntityType="MicsModel.Address" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MicsModel.Customer" Width="1.5" PointX="3" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MicsModel.Employee" Width="1.5" PointX="9.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MicsModel.Location" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MicsModel.OrderNumber" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MicsModel.OrderStatu" Width="1.5" PointX="9.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MicsModel.Payment" Width="1.5" PointX="11.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MicsModel.PaymentMethod" Width="1.5" PointX="11.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MicsModel.Product" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MicsModel.ProductAdjustmentHistory" Width="1.5" PointX="11.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MicsModel.ProductCategory" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MicsModel.ProductCostHistory" Width="1.5" PointX="7.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MicsModel.ProductInventory" Width="1.5" PointX="9.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MicsModel.ProductListPriceHistory" Width="1.5" PointX="11.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MicsModel.ProductSubcategory" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MicsModel.ProductVendor" Width="1.5" PointX="13.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MicsModel.PurchaseInvoiceDetail" Width="1.5" PointX="13.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MicsModel.PurchaseInvoiceHeader" Width="1.5" PointX="13.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MicsModel.PurchaseOrderDetail" Width="1.5" PointX="11.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MicsModel.PurchaseOrderHeader" Width="1.5" PointX="13.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MicsModel.SalesInvoiceDetail" Width="1.5" PointX="0.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MicsModel.SalesInvoiceHeader" Width="1.5" PointX="7.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MicsModel.SalesOrderDetail" Width="1.5" PointX="7.5" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="MicsModel.SalesOrderHeader" Width="1.5" PointX="5.25" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="MicsModel.SalesPerson" Width="1.5" PointX="15.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MicsModel.SalesTaxRate" Width="1.5" PointX="2.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MicsModel.SalesTerritory" Width="1.5" PointX="0.75" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MicsModel.SalesTerritoryHistory" Width="1.5" PointX="15.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MicsModel.ShipMethod" Width="1.5" PointX="4.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MicsModel.SpecialOffer" Width="1.5" PointX="15.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MicsModel.SpecialOfferProduct" Width="1.5" PointX="7.5" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MicsModel.sysdiagram" Width="1.5" PointX="15.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MicsModel.User" Width="1.5" PointX="15.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MicsModel.Vendor" Width="1.5" PointX="15.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MicsModel.SalesPersonQuotaHistory" Width="1.5" PointX="17.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MicsModel.CustomerView" Width="1.5" PointX="17.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MicsModel.Employee_Address_View" Width="1.5" PointX="17.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MicsModel.InvoicesBalance_View" Width="1.5" PointX="17.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MicsModel.SaleOrder_View" Width="1.5" PointX="0.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MicsModel.SalesPerson_view" Width="1.5" PointX="2.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MicsModel.SalesTerritoryList_View" Width="1.5" PointX="4.75" PointY="18.75" IsExpanded="true" />
+        <AssociationConnector Association="MicsModel.FK_Customer_SalesTerritory" ManuallyRouted="false" />
+        <AssociationConnector Association="MicsModel.FK_SalesOrderHeader_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="MicsModel.FK_Product_ProductSubcategory" ManuallyRouted="false" />
+        <AssociationConnector Association="MicsModel.FK_SalesOrderDetail_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="MicsModel.FK_SpecialOfferProduct_Product" ManuallyRouted="false" />
+        <AssociationConnector Association="MicsModel.FK_ProductSubcategory_ProductCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="MicsModel.FK_SalesOrderDetail_SalesOrderDetail" ManuallyRouted="false" />
+        <AssociationConnector Association="MicsModel.FK_SalesOrderDetail_SalesOrderHeader" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

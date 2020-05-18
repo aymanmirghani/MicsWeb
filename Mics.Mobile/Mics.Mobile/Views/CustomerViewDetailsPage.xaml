@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Mics.Mobile.Views.CustomerViewDetailsPage"
+             Title="{Binding Title}">
+    <ContentPage.Content>
+        <StackLayout Spacing="20" Padding="15">
+            <Label Text="{Binding Item.Name}"  FontSize="Large" HorizontalOptions="FillAndExpand"/>
+            <Label Text="{Binding Item.AddressLine1}"  FontSize="Medium" HorizontalOptions="FillAndExpand"/>
+            <Label Text="{Binding Item.TerritoryName}"  FontSize="Medium" HorizontalOptions="FillAndExpand"/>
+            <Button x:Name="NewOrder" Text="New Order" HorizontalOptions="FillAndExpand" Clicked="NewOrder_Clicked"></Button>
+            <Button x:Name="ViewOrders" Text=" View Orders" HorizontalOptions="FillAndExpand" Clicked="ViewOrders_Clicked"></Button>
+            <Button x:Name="Payments" Text="Payments" HorizontalOptions="FillAndExpand" Clicked="Payments_Clicked"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

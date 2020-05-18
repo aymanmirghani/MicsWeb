@@ -1,0 +1,2459 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="mics_serverModelStoreContainer" CdmEntityContainer="mics_serverEntities">
+    <EntitySetMapping Name="Addresses">
+      <EntityTypeMapping TypeName="mics_serverModel.Address">
+        <MappingFragment StoreEntitySet="Address">
+          <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+          <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
+          <ScalarProperty Name="AddressLine2" ColumnName="AddressLine2" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="StateProvince" ColumnName="StateProvince" />
+          <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="mics_serverModel.Customer">
+        <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="TerritoryID" ColumnName="TerritoryID" />
+          <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+          <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="SecondPhone" ColumnName="SecondPhone" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="CreditLimit" ColumnName="CreditLimit" />
+          <ScalarProperty Name="DeliveryDay" ColumnName="DeliveryDay" />
+          <ScalarProperty Name="CustomerType" ColumnName="CustomerType" />
+          <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="BillingAddressID" ColumnName="BillingAddressID" />
+          <ScalarProperty Name="ActiveFlag" ColumnName="ActiveFlag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="mics_serverModel.Employee">
+        <MappingFragment StoreEntitySet="Employee">
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+          <ScalarProperty Name="WorkPhone" ColumnName="WorkPhone" />
+          <ScalarProperty Name="HomePhone" ColumnName="HomePhone" />
+          <ScalarProperty Name="CellPhone" ColumnName="CellPhone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Locations">
+      <EntityTypeMapping TypeName="mics_serverModel.Location">
+        <MappingFragment StoreEntitySet="Location">
+          <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+          <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderNumbers">
+      <EntityTypeMapping TypeName="mics_serverModel.OrderNumber">
+        <MappingFragment StoreEntitySet="OrderNumber">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="today" ColumnName="today" />
+          <ScalarProperty Name="SeqNumber" ColumnName="SeqNumber" />
+          <ScalarProperty Name="OrderType" ColumnName="OrderType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderStatus">
+      <EntityTypeMapping TypeName="mics_serverModel.OrderStatu">
+        <MappingFragment StoreEntitySet="OrderStatus">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Payments">
+      <EntityTypeMapping TypeName="mics_serverModel.Payment">
+        <MappingFragment StoreEntitySet="Payment">
+          <ScalarProperty Name="PaymentID" ColumnName="PaymentID" />
+          <ScalarProperty Name="InvoiceID" ColumnName="InvoiceID" />
+          <ScalarProperty Name="PaymentType" ColumnName="PaymentType" />
+          <ScalarProperty Name="PaymentDate" ColumnName="PaymentDate" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CheckNumber" ColumnName="CheckNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PaymentMethods">
+      <EntityTypeMapping TypeName="mics_serverModel.PaymentMethod">
+        <MappingFragment StoreEntitySet="PaymentMethod">
+          <ScalarProperty Name="PaymentMethodID" ColumnName="PaymentMethodID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="mics_serverModel.Product">
+        <MappingFragment StoreEntitySet="Product">
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ProductNumber" ColumnName="ProductNumber" />
+          <ScalarProperty Name="MakeFlag" ColumnName="MakeFlag" />
+          <ScalarProperty Name="FinishedGoodsFlag" ColumnName="FinishedGoodsFlag" />
+          <ScalarProperty Name="Color" ColumnName="Color" />
+          <ScalarProperty Name="SafetyStockLevel" ColumnName="SafetyStockLevel" />
+          <ScalarProperty Name="ReorderPoint" ColumnName="ReorderPoint" />
+          <ScalarProperty Name="StandardCost" ColumnName="StandardCost" />
+          <ScalarProperty Name="ListPrice" ColumnName="ListPrice" />
+          <ScalarProperty Name="Size" ColumnName="Size" />
+          <ScalarProperty Name="SizeUnitMeasureCode" ColumnName="SizeUnitMeasureCode" />
+          <ScalarProperty Name="WeightUnitMeasureCode" ColumnName="WeightUnitMeasureCode" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="DaysToManufacture" ColumnName="DaysToManufacture" />
+          <ScalarProperty Name="ProductLine" ColumnName="ProductLine" />
+          <ScalarProperty Name="Class" ColumnName="Class" />
+          <ScalarProperty Name="Style" ColumnName="Style" />
+          <ScalarProperty Name="ProductSubcategoryID" ColumnName="ProductSubcategoryID" />
+          <ScalarProperty Name="ProductModelID" ColumnName="ProductModelID" />
+          <ScalarProperty Name="SellStartDate" ColumnName="SellStartDate" />
+          <ScalarProperty Name="SellEndDate" ColumnName="SellEndDate" />
+          <ScalarProperty Name="DiscontinuedDate" ColumnName="DiscontinuedDate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="PrimaryVendorId" ColumnName="PrimaryVendorId" />
+          <ScalarProperty Name="SecondaryVendorId" ColumnName="SecondaryVendorId" />
+          <ScalarProperty Name="ActiveFlag" ColumnName="ActiveFlag" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductAdjustmentHistories">
+      <EntityTypeMapping TypeName="mics_serverModel.ProductAdjustmentHistory">
+        <MappingFragment StoreEntitySet="ProductAdjustmentHistory">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="AdjustedQuantity" ColumnName="AdjustedQuantity" />
+          <ScalarProperty Name="Reason" ColumnName="Reason" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductCategories">
+      <EntityTypeMapping TypeName="mics_serverModel.ProductCategory">
+        <MappingFragment StoreEntitySet="ProductCategory">
+          <ScalarProperty Name="ProductCategoryID" ColumnName="ProductCategoryID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductCostHistories">
+      <EntityTypeMapping TypeName="mics_serverModel.ProductCostHistory">
+        <MappingFragment StoreEntitySet="ProductCostHistory">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="StandardCost" ColumnName="StandardCost" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductInventories">
+      <EntityTypeMapping TypeName="mics_serverModel.ProductInventory">
+        <MappingFragment StoreEntitySet="ProductInventory">
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+          <ScalarProperty Name="Shelf" ColumnName="Shelf" />
+          <ScalarProperty Name="Bin" ColumnName="Bin" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductListPriceHistories">
+      <EntityTypeMapping TypeName="mics_serverModel.ProductListPriceHistory">
+        <MappingFragment StoreEntitySet="ProductListPriceHistory">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="ListPrice" ColumnName="ListPrice" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductSubcategories">
+      <EntityTypeMapping TypeName="mics_serverModel.ProductSubcategory">
+        <MappingFragment StoreEntitySet="ProductSubcategory">
+          <ScalarProperty Name="ProductSubcategoryID" ColumnName="ProductSubcategoryID" />
+          <ScalarProperty Name="ProductCategoryID" ColumnName="ProductCategoryID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductVendors">
+      <EntityTypeMapping TypeName="mics_serverModel.ProductVendor">
+        <MappingFragment StoreEntitySet="ProductVendor">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="VendorID" ColumnName="VendorID" />
+          <ScalarProperty Name="AverageLeadTime" ColumnName="AverageLeadTime" />
+          <ScalarProperty Name="StandardPrice" ColumnName="StandardPrice" />
+          <ScalarProperty Name="LastReceiptCost" ColumnName="LastReceiptCost" />
+          <ScalarProperty Name="LastReceiptDate" ColumnName="LastReceiptDate" />
+          <ScalarProperty Name="MinOrderQty" ColumnName="MinOrderQty" />
+          <ScalarProperty Name="MaxOrderQty" ColumnName="MaxOrderQty" />
+          <ScalarProperty Name="OnOrderQty" ColumnName="OnOrderQty" />
+          <ScalarProperty Name="UnitMeasureCode" ColumnName="UnitMeasureCode" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PurchaseInvoiceDetails">
+      <EntityTypeMapping TypeName="mics_serverModel.PurchaseInvoiceDetail">
+        <MappingFragment StoreEntitySet="PurchaseInvoiceDetail">
+          <ScalarProperty Name="InvoiceID" ColumnName="InvoiceID" />
+          <ScalarProperty Name="InvoiceDetailID" ColumnName="InvoiceDetailID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PurchaseInvoiceHeaders">
+      <EntityTypeMapping TypeName="mics_serverModel.PurchaseInvoiceHeader">
+        <MappingFragment StoreEntitySet="PurchaseInvoiceHeader">
+          <ScalarProperty Name="InvoiceID" ColumnName="InvoiceID" />
+          <ScalarProperty Name="InvoiceNumber" ColumnName="InvoiceNumber" />
+          <ScalarProperty Name="PurchaseOrderID" ColumnName="PurchaseOrderID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="VendorID" ColumnName="VendorID" />
+          <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+          <ScalarProperty Name="SubTotal" ColumnName="SubTotal" />
+          <ScalarProperty Name="TaxAmt" ColumnName="TaxAmt" />
+          <ScalarProperty Name="Freight" ColumnName="Freight" />
+          <ScalarProperty Name="TotalDue" ColumnName="TotalDue" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PurchaseOrderDetails">
+      <EntityTypeMapping TypeName="mics_serverModel.PurchaseOrderDetail">
+        <MappingFragment StoreEntitySet="PurchaseOrderDetail">
+          <ScalarProperty Name="PurchaseOrderID" ColumnName="PurchaseOrderID" />
+          <ScalarProperty Name="PurchaseOrderDetailID" ColumnName="PurchaseOrderDetailID" />
+          <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+          <ScalarProperty Name="OrderQty" ColumnName="OrderQty" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+          <ScalarProperty Name="NumberOfCases" ColumnName="NumberOfCases" />
+          <ScalarProperty Name="UnitPerCase" ColumnName="UnitPerCase" />
+          <ScalarProperty Name="ReceivedQty" ColumnName="ReceivedQty" />
+          <ScalarProperty Name="RejectedQty" ColumnName="RejectedQty" />
+          <ScalarProperty Name="StockedQty" ColumnName="StockedQty" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PurchaseOrderHeaders">
+      <EntityTypeMapping TypeName="mics_serverModel.PurchaseOrderHeader">
+        <MappingFragment StoreEntitySet="PurchaseOrderHeader">
+          <ScalarProperty Name="PurchaseOrderID" ColumnName="PurchaseOrderID" />
+          <ScalarProperty Name="RevisionNumber" ColumnName="RevisionNumber" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="VendorID" ColumnName="VendorID" />
+          <ScalarProperty Name="ShipMethodID" ColumnName="ShipMethodID" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="ShipDate" ColumnName="ShipDate" />
+          <ScalarProperty Name="SubTotal" ColumnName="SubTotal" />
+          <ScalarProperty Name="TaxAmt" ColumnName="TaxAmt" />
+          <ScalarProperty Name="Freight" ColumnName="Freight" />
+          <ScalarProperty Name="TotalDue" ColumnName="TotalDue" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SalesInvoiceDetails">
+      <EntityTypeMapping TypeName="mics_serverModel.SalesInvoiceDetail">
+        <MappingFragment StoreEntitySet="SalesInvoiceDetail">
+          <ScalarProperty Name="InvoiceDetailID" ColumnName="InvoiceDetailID" />
+          <ScalarProperty Name="InvoiceID" ColumnName="InvoiceID" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="SpecialOfferID" ColumnName="SpecialOfferID" />
+          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+          <ScalarProperty Name="UnitPriceDiscount" ColumnName="UnitPriceDiscount" />
+          <ScalarProperty Name="LineTotal" ColumnName="LineTotal" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SalesInvoiceHeaders">
+      <EntityTypeMapping TypeName="mics_serverModel.SalesInvoiceHeader">
+        <MappingFragment StoreEntitySet="SalesInvoiceHeader">
+          <ScalarProperty Name="InvoiceID" ColumnName="InvoiceID" />
+          <ScalarProperty Name="InvoiceNumber" ColumnName="InvoiceNumber" />
+          <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+          <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+          <ScalarProperty Name="SaleOrderID" ColumnName="SaleOrderID" />
+          <ScalarProperty Name="SalesPersonID" ColumnName="SalesPersonID" />
+          <ScalarProperty Name="TerritoryID" ColumnName="TerritoryID" />
+          <ScalarProperty Name="BillToAddressID" ColumnName="BillToAddressID" />
+          <ScalarProperty Name="ShipToAddressID" ColumnName="ShipToAddressID" />
+          <ScalarProperty Name="PaymentMethodID" ColumnName="PaymentMethodID" />
+          <ScalarProperty Name="SubTotal" ColumnName="SubTotal" />
+          <ScalarProperty Name="TaxAmt" ColumnName="TaxAmt" />
+          <ScalarProperty Name="Freight" ColumnName="Freight" />
+          <ScalarProperty Name="TotalDue" ColumnName="TotalDue" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SalesOrderDetails">
+      <EntityTypeMapping TypeName="mics_serverModel.SalesOrderDetail">
+        <MappingFragment StoreEntitySet="SalesOrderDetail">
+          <ScalarProperty Name="SalesOrderDetailID" ColumnName="SalesOrderDetailID" />
+          <ScalarProperty Name="SalesOrderID" ColumnName="SalesOrderID" />
+          <ScalarProperty Name="CarrierTrackingNumber" ColumnName="CarrierTrackingNumber" />
+          <ScalarProperty Name="OrderQty" ColumnName="OrderQty" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="SpecialOfferID" ColumnName="SpecialOfferID" />
+          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+          <ScalarProperty Name="UnitPriceDiscount" ColumnName="UnitPriceDiscount" />
+          <ScalarProperty Name="LineTotal" ColumnName="LineTotal" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SalesOrderHeaders">
+      <EntityTypeMapping TypeName="mics_serverModel.SalesOrderHeader">
+        <MappingFragment StoreEntitySet="SalesOrderHeader">
+          <ScalarProperty Name="SalesOrderID" ColumnName="SalesOrderID" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+          <ScalarProperty Name="ShipDate" ColumnName="ShipDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="OnlineOrderFlag" ColumnName="OnlineOrderFlag" />
+          <ScalarProperty Name="SalesOrderNumber" ColumnName="SalesOrderNumber" />
+          <ScalarProperty Name="PurchaseOrderNumber" ColumnName="PurchaseOrderNumber" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="SalesPersonID" ColumnName="SalesPersonID" />
+          <ScalarProperty Name="BillToAddressID" ColumnName="BillToAddressID" />
+          <ScalarProperty Name="ShipToAddressID" ColumnName="ShipToAddressID" />
+          <ScalarProperty Name="ShipMethodID" ColumnName="ShipMethodID" />
+          <ScalarProperty Name="PaymentMethodID" ColumnName="PaymentMethodID" />
+          <ScalarProperty Name="CurrencyRateID" ColumnName="CurrencyRateID" />
+          <ScalarProperty Name="SubTotal" ColumnName="SubTotal" />
+          <ScalarProperty Name="TaxAmt" ColumnName="TaxAmt" />
+          <ScalarProperty Name="Freight" ColumnName="Freight" />
+          <ScalarProperty Name="TotalDue" ColumnName="TotalDue" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SalesPersons">
+      <EntityTypeMapping TypeName="mics_serverModel.SalesPerson">
+        <MappingFragment StoreEntitySet="SalesPerson">
+          <ScalarProperty Name="SalesPersonID" ColumnName="SalesPersonID" />
+          <ScalarProperty Name="TerritoryID" ColumnName="TerritoryID" />
+          <ScalarProperty Name="SalesQuota" ColumnName="SalesQuota" />
+          <ScalarProperty Name="Bonus" ColumnName="Bonus" />
+          <ScalarProperty Name="CommissionPct" ColumnName="CommissionPct" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SalesTaxRates">
+      <EntityTypeMapping TypeName="mics_serverModel.SalesTaxRate">
+        <MappingFragment StoreEntitySet="SalesTaxRate">
+          <ScalarProperty Name="SalesTaxRateID" ColumnName="SalesTaxRateID" />
+          <ScalarProperty Name="StateProvinceID" ColumnName="StateProvinceID" />
+          <ScalarProperty Name="TaxType" ColumnName="TaxType" />
+          <ScalarProperty Name="TaxRate" ColumnName="TaxRate" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SalesTerritories">
+      <EntityTypeMapping TypeName="mics_serverModel.SalesTerritory">
+        <MappingFragment StoreEntitySet="SalesTerritory">
+          <ScalarProperty Name="TerritoryID" ColumnName="TerritoryID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CountryRegionCode" ColumnName="CountryRegionCode" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SalesTerritoryHistories">
+      <EntityTypeMapping TypeName="mics_serverModel.SalesTerritoryHistory">
+        <MappingFragment StoreEntitySet="SalesTerritoryHistory">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="SalesPersonID" ColumnName="SalesPersonID" />
+          <ScalarProperty Name="TerritoryID" ColumnName="TerritoryID" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ShipMethods">
+      <EntityTypeMapping TypeName="mics_serverModel.ShipMethod">
+        <MappingFragment StoreEntitySet="ShipMethod">
+          <ScalarProperty Name="ShipMethodID" ColumnName="ShipMethodID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ShipBase" ColumnName="ShipBase" />
+          <ScalarProperty Name="ShipRate" ColumnName="ShipRate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SpecialOffers">
+      <EntityTypeMapping TypeName="mics_serverModel.SpecialOffer">
+        <MappingFragment StoreEntitySet="SpecialOffer">
+          <ScalarProperty Name="SpecialOfferID" ColumnName="SpecialOfferID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="DiscountPct" ColumnName="DiscountPct" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="MinQty" ColumnName="MinQty" />
+          <ScalarProperty Name="MaxQty" ColumnName="MaxQty" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SpecialOfferProducts">
+      <EntityTypeMapping TypeName="mics_serverModel.SpecialOfferProduct">
+        <MappingFragment StoreEntitySet="SpecialOfferProduct">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="SpecialOfferID" ColumnName="SpecialOfferID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="mics_serverModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="mics_serverModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vendors">
+      <EntityTypeMapping TypeName="mics_serverModel.Vendor">
+        <MappingFragment StoreEntitySet="Vendor">
+          <ScalarProperty Name="VendorID" ColumnName="VendorID" />
+          <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+          <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+          <ScalarProperty Name="CreditRating" ColumnName="CreditRating" />
+          <ScalarProperty Name="PreferredVendorStatus" ColumnName="PreferredVendorStatus" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="ActiveFlag" ColumnName="ActiveFlag" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="AltPhone" ColumnName="AltPhone" />
+          <ScalarProperty Name="Terms" ColumnName="Terms" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SalesPersonQuotaHistories">
+      <EntityTypeMapping TypeName="mics_serverModel.SalesPersonQuotaHistory">
+        <MappingFragment StoreEntitySet="SalesPersonQuotaHistory">
+          <ScalarProperty Name="SalesPersonID" ColumnName="SalesPersonID" />
+          <ScalarProperty Name="QuotaDate" ColumnName="QuotaDate" />
+          <ScalarProperty Name="SalesQuota" ColumnName="SalesQuota" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employee_Address_View">
+      <EntityTypeMapping TypeName="mics_serverModel.Employee_Address_View">
+        <MappingFragment StoreEntitySet="Employee_Address_View">
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
+          <ScalarProperty Name="AddressLine2" ColumnName="AddressLine2" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+          <ScalarProperty Name="StateProvince" ColumnName="StateProvince" />
+          <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InvoicesBalance_View">
+      <EntityTypeMapping TypeName="mics_serverModel.InvoicesBalance_View">
+        <MappingFragment StoreEntitySet="InvoicesBalance_View">
+          <ScalarProperty Name="InvoiceID" ColumnName="InvoiceID" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="InvoiceNumber" ColumnName="InvoiceNumber" />
+          <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+          <ScalarProperty Name="InvoiceTotal" ColumnName="InvoiceTotal" />
+          <ScalarProperty Name="TotalPayments" ColumnName="TotalPayments" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SaleOrder_View">
+      <EntityTypeMapping TypeName="mics_serverModel.SaleOrder_View">
+        <MappingFragment StoreEntitySet="SaleOrder_View">
+          <ScalarProperty Name="SalesOrderID" ColumnName="SalesOrderID" />
+          <ScalarProperty Name="CarrierTrackingNumber" ColumnName="CarrierTrackingNumber" />
+          <ScalarProperty Name="OrderQty" ColumnName="OrderQty" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+          <ScalarProperty Name="UnitPriceDiscount" ColumnName="UnitPriceDiscount" />
+          <ScalarProperty Name="LineTotal" ColumnName="LineTotal" />
+          <ScalarProperty Name="RevisionNumber" ColumnName="RevisionNumber" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+          <ScalarProperty Name="ShipDate" ColumnName="ShipDate" />
+          <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+          <ScalarProperty Name="PurchaseOrderNumber" ColumnName="PurchaseOrderNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SalesPerson_view">
+      <EntityTypeMapping TypeName="mics_serverModel.SalesPerson_view">
+        <MappingFragment StoreEntitySet="SalesPerson_view">
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="SalesPersonID" ColumnName="SalesPersonID" />
+          <ScalarProperty Name="Bonus" ColumnName="Bonus" />
+          <ScalarProperty Name="SalesQuota" ColumnName="SalesQuota" />
+          <ScalarProperty Name="CommissionPct" ColumnName="CommissionPct" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SalesTerritoryList_View">
+      <EntityTypeMapping TypeName="mics_serverModel.SalesTerritoryList_View">
+        <MappingFragment StoreEntitySet="SalesTerritoryList_View">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="SalesPersonID" ColumnName="SalesPersonID" />
+          <ScalarProperty Name="TerritoryID" ColumnName="TerritoryID" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="DeleteAddress" FunctionName="mics_serverModel.Store.DeleteAddress" />
+    <FunctionImportMapping FunctionImportName="DeleteAddressesDynamic" FunctionName="mics_serverModel.Store.DeleteAddressesDynamic" />
+    <FunctionImportMapping FunctionImportName="DeleteCustomer" FunctionName="mics_serverModel.Store.DeleteCustomer" />
+    <FunctionImportMapping FunctionImportName="DeleteCustomersDynamic" FunctionName="mics_serverModel.Store.DeleteCustomersDynamic" />
+    <FunctionImportMapping FunctionImportName="DeleteEmployee" FunctionName="mics_serverModel.Store.DeleteEmployee" />
+    <FunctionImportMapping FunctionImportName="DeleteEmployeesDynamic" FunctionName="mics_serverModel.Store.DeleteEmployeesDynamic" />
+    <FunctionImportMapping FunctionImportName="DeleteLocation" FunctionName="mics_serverModel.Store.DeleteLocation" />
+    <FunctionImportMapping FunctionImportName="DeleteLocationsDynamic" FunctionName="mics_serverModel.Store.DeleteLocationsDynamic" />
+    <FunctionImportMapping FunctionImportName="DeleteOrderNumber" FunctionName="mics_serverModel.Store.DeleteOrderNumber" />
+    <FunctionImportMapping FunctionImportName="DeleteOrderNumbersDynamic" FunctionName="mics_serverModel.Store.DeleteOrderNumbersDynamic" />
+    <FunctionImportMapping FunctionImportName="DeletePayment" FunctionName="mics_serverModel.Store.DeletePayment" />
+    <FunctionImportMapping FunctionImportName="DeletePaymentMethod" FunctionName="mics_serverModel.Store.DeletePaymentMethod" />
+    <FunctionImportMapping FunctionImportName="DeletePaymentMethodsDynamic" FunctionName="mics_serverModel.Store.DeletePaymentMethodsDynamic" />
+    <FunctionImportMapping FunctionImportName="DeletePaymentsDynamic" FunctionName="mics_serverModel.Store.DeletePaymentsDynamic" />
+    <FunctionImportMapping FunctionImportName="DeleteProduct" FunctionName="mics_serverModel.Store.DeleteProduct" />
+    <FunctionImportMapping FunctionImportName="DeleteProductAdjustmentHistoriesDynamic" FunctionName="mics_serverModel.Store.DeleteProductAdjustmentHistoriesDynamic" />
+    <FunctionImportMapping FunctionImportName="DeleteProductAdjustmentHistory" FunctionName="mics_serverModel.Store.DeleteProductAdjustmentHistory" />
+    <FunctionImportMapping FunctionImportName="DeleteProductCategoriesDynamic" FunctionName="mics_serverModel.Store.DeleteProductCategoriesDynamic" />
+    <FunctionImportMapping FunctionImportName="DeleteProductCategory" FunctionName="mics_serverModel.Store.DeleteProductCategory" />
+    <FunctionImportMapping FunctionImportName="DeleteProductCostHistoriesDynamic" FunctionName="mics_serverModel.Store.DeleteProductCostHistoriesDynamic" />
+    <FunctionImportMapping FunctionImportName="DeleteProductCostHistory" FunctionName="mics_serverModel.Store.DeleteProductCostHistory" />
+    <FunctionImportMapping FunctionImportName="DeleteProductInventoriesDynamic" FunctionName="mics_serverModel.Store.DeleteProductInventoriesDynamic" />
+    <FunctionImportMapping FunctionImportName="DeleteProductInventory" FunctionName="mics_serverModel.Store.DeleteProductInventory" />
+    <FunctionImportMapping FunctionImportName="DeleteProductListPriceHistoriesDynamic" FunctionName="mics_serverModel.Store.DeleteProductListPriceHistoriesDynamic" />
+    <FunctionImportMapping FunctionImportName="DeleteProductListPriceHistory" FunctionName="mics_serverModel.Store.DeleteProductListPriceHistory" />
+    <FunctionImportMapping FunctionImportName="DeleteProductsDynamic" FunctionName="mics_serverModel.Store.DeleteProductsDynamic" />
+    <FunctionImportMapping FunctionImportName="DeleteProductSubcategoriesDynamic" FunctionName="mics_serverModel.Store.DeleteProductSubcategoriesDynamic" />
+    <FunctionImportMapping FunctionImportName="DeleteProductSubcategory" FunctionName="mics_serverModel.Store.DeleteProductSubcategory" />
+    <FunctionImportMapping FunctionImportName="DeleteProductVendor" FunctionName="mics_serverModel.Store.DeleteProductVendor" />
+    <FunctionImportMapping FunctionImportName="DeleteProductVendorsDynamic" FunctionName="mics_serverModel.Store.DeleteProductVendorsDynamic" />
+    <FunctionImportMapping FunctionImportName="DeletePurchaseInvoiceDetail" FunctionName="mics_serverModel.Store.DeletePurchaseInvoiceDetail" />
+    <FunctionImportMapping FunctionImportName="DeletePurchaseInvoiceDetailsDynamic" FunctionName="mics_serverModel.Store.DeletePurchaseInvoiceDetailsDynamic" />
+    <FunctionImportMapping FunctionImportName="DeletePurchaseInvoiceHeader" FunctionName="mics_serverModel.Store.DeletePurchaseInvoiceHeader" />
+    <FunctionImportMapping FunctionImportName="DeletePurchaseInvoiceHeadersDynamic" FunctionName="mics_serverModel.Store.DeletePurchaseInvoiceHeadersDynamic" />
+    <FunctionImportMapping FunctionImportName="DeletePurchaseOrderDetail" FunctionName="mics_serverModel.Store.DeletePurchaseOrderDetail" />
+    <FunctionImportMapping FunctionImportName="DeletePurchaseOrderDetailsDynamic" FunctionName="mics_serverModel.Store.DeletePurchaseOrderDetailsDynamic" />
+    <FunctionImportMapping FunctionImportName="DeletePurchaseOrderHeader" FunctionName="mics_serverModel.Store.DeletePurchaseOrderHeader" />
+    <FunctionImportMapping FunctionImportName="DeletePurchaseOrderHeadersDynamic" FunctionName="mics_serverModel.Store.DeletePurchaseOrderHeadersDynamic" />
+    <FunctionImportMapping FunctionImportName="DeleteSalesInvoiceDetail" FunctionName="mics_serverModel.Store.DeleteSalesInvoiceDetail" />
+    <FunctionImportMapping FunctionImportName="DeleteSalesInvoiceDetailsDynamic" FunctionName="mics_serverModel.Store.DeleteSalesInvoiceDetailsDynamic" />
+    <FunctionImportMapping FunctionImportName="DeleteSalesInvoiceHeader" FunctionName="mics_serverModel.Store.DeleteSalesInvoiceHeader" />
+    <FunctionImportMapping FunctionImportName="DeleteSalesInvoiceHeadersDynamic" FunctionName="mics_serverModel.Store.DeleteSalesInvoiceHeadersDynamic" />
+    <FunctionImportMapping FunctionImportName="DeleteSalesOrderDetail" FunctionName="mics_serverModel.Store.DeleteSalesOrderDetail" />
+    <FunctionImportMapping FunctionImportName="DeleteSalesOrderDetailsDynamic" FunctionName="mics_serverModel.Store.DeleteSalesOrderDetailsDynamic" />
+    <FunctionImportMapping FunctionImportName="DeleteSalesOrderHeader" FunctionName="mics_serverModel.Store.DeleteSalesOrderHeader" />
+    <FunctionImportMapping FunctionImportName="DeleteSalesOrderHeadersDynamic" FunctionName="mics_serverModel.Store.DeleteSalesOrderHeadersDynamic" />
+    <FunctionImportMapping FunctionImportName="DeleteSalesPerson" FunctionName="mics_serverModel.Store.DeleteSalesPerson" />
+    <FunctionImportMapping FunctionImportName="DeleteSalesPersonQuotaHistoriesDynamic" FunctionName="mics_serverModel.Store.DeleteSalesPersonQuotaHistoriesDynamic" />
+    <FunctionImportMapping FunctionImportName="DeleteSalesPersonQuotaHistory" FunctionName="mics_serverModel.Store.DeleteSalesPersonQuotaHistory" />
+    <FunctionImportMapping FunctionImportName="DeleteSalesPersonsDynamic" FunctionName="mics_serverModel.Store.DeleteSalesPersonsDynamic" />
+    <FunctionImportMapping FunctionImportName="DeleteSalesTaxRate" FunctionName="mics_serverModel.Store.DeleteSalesTaxRate" />
+    <FunctionImportMapping FunctionImportName="DeleteSalesTaxRatesDynamic" FunctionName="mics_serverModel.Store.DeleteSalesTaxRatesDynamic" />
+    <FunctionImportMapping FunctionImportName="DeleteSalesTerritoriesDynamic" FunctionName="mics_serverModel.Store.DeleteSalesTerritoriesDynamic" />
+    <FunctionImportMapping FunctionImportName="DeleteSalesTerritory" FunctionName="mics_serverModel.Store.DeleteSalesTerritory" />
+    <FunctionImportMapping FunctionImportName="DeleteSalesTerritoryHistoriesDynamic" FunctionName="mics_serverModel.Store.DeleteSalesTerritoryHistoriesDynamic" />
+    <FunctionImportMapping FunctionImportName="DeleteSalesTerritoryHistory" FunctionName="mics_serverModel.Store.DeleteSalesTerritoryHistory" />
+    <FunctionImportMapping FunctionImportName="DeleteShipMethod" FunctionName="mics_serverModel.Store.DeleteShipMethod" />
+    <FunctionImportMapping FunctionImportName="DeleteShipMethodsDynamic" FunctionName="mics_serverModel.Store.DeleteShipMethodsDynamic" />
+    <FunctionImportMapping FunctionImportName="DeleteSpecialOffer" FunctionName="mics_serverModel.Store.DeleteSpecialOffer" />
+    <FunctionImportMapping FunctionImportName="DeleteSpecialOfferProduct" FunctionName="mics_serverModel.Store.DeleteSpecialOfferProduct" />
+    <FunctionImportMapping FunctionImportName="DeleteSpecialOfferProductsDynamic" FunctionName="mics_serverModel.Store.DeleteSpecialOfferProductsDynamic" />
+    <FunctionImportMapping FunctionImportName="DeleteSpecialOffersDynamic" FunctionName="mics_serverModel.Store.DeleteSpecialOffersDynamic" />
+    <FunctionImportMapping FunctionImportName="DeleteUser" FunctionName="mics_serverModel.Store.DeleteUser" />
+    <FunctionImportMapping FunctionImportName="DeleteUsersDynamic" FunctionName="mics_serverModel.Store.DeleteUsersDynamic" />
+    <FunctionImportMapping FunctionImportName="DeleteVendor" FunctionName="mics_serverModel.Store.DeleteVendor" />
+    <FunctionImportMapping FunctionImportName="DeleteVendorsDynamic" FunctionName="mics_serverModel.Store.DeleteVendorsDynamic" />
+    <FunctionImportMapping FunctionImportName="FixAddress" FunctionName="mics_serverModel.Store.FixAddress" />
+    <FunctionImportMapping FunctionImportName="InsertAddress" FunctionName="mics_serverModel.Store.InsertAddress" />
+    <FunctionImportMapping FunctionImportName="InsertCustomer" FunctionName="mics_serverModel.Store.InsertCustomer" />
+    <FunctionImportMapping FunctionImportName="InsertEmployee" FunctionName="mics_serverModel.Store.InsertEmployee" />
+    <FunctionImportMapping FunctionImportName="InsertLocation" FunctionName="mics_serverModel.Store.InsertLocation" />
+    <FunctionImportMapping FunctionImportName="InsertOrderNumber" FunctionName="mics_serverModel.Store.InsertOrderNumber" />
+    <FunctionImportMapping FunctionImportName="InsertPayment" FunctionName="mics_serverModel.Store.InsertPayment" />
+    <FunctionImportMapping FunctionImportName="InsertPaymentMethod" FunctionName="mics_serverModel.Store.InsertPaymentMethod" />
+    <FunctionImportMapping FunctionImportName="InsertProduct" FunctionName="mics_serverModel.Store.InsertProduct" />
+    <FunctionImportMapping FunctionImportName="InsertProductAdjustmentHistory" FunctionName="mics_serverModel.Store.InsertProductAdjustmentHistory" />
+    <FunctionImportMapping FunctionImportName="InsertProductCategory" FunctionName="mics_serverModel.Store.InsertProductCategory" />
+    <FunctionImportMapping FunctionImportName="InsertProductCostHistory" FunctionName="mics_serverModel.Store.InsertProductCostHistory" />
+    <FunctionImportMapping FunctionImportName="InsertProductInventory" FunctionName="mics_serverModel.Store.InsertProductInventory" />
+    <FunctionImportMapping FunctionImportName="InsertProductListPriceHistory" FunctionName="mics_serverModel.Store.InsertProductListPriceHistory" />
+    <FunctionImportMapping FunctionImportName="InsertProductSubcategory" FunctionName="mics_serverModel.Store.InsertProductSubcategory" />
+    <FunctionImportMapping FunctionImportName="InsertProductVendor" FunctionName="mics_serverModel.Store.InsertProductVendor" />
+    <FunctionImportMapping FunctionImportName="InsertPurchaseInvoiceDetail" FunctionName="mics_serverModel.Store.InsertPurchaseInvoiceDetail" />
+    <FunctionImportMapping FunctionImportName="InsertPurchaseInvoiceHeader" FunctionName="mics_serverModel.Store.InsertPurchaseInvoiceHeader" />
+    <FunctionImportMapping FunctionImportName="InsertPurchaseOrderDetail" FunctionName="mics_serverModel.Store.InsertPurchaseOrderDetail" />
+    <FunctionImportMapping FunctionImportName="InsertPurchaseOrderHeader" FunctionName="mics_serverModel.Store.InsertPurchaseOrderHeader" />
+    <FunctionImportMapping FunctionImportName="InsertSalesInvoiceDetail" FunctionName="mics_serverModel.Store.InsertSalesInvoiceDetail" />
+    <FunctionImportMapping FunctionImportName="InsertSalesInvoiceHeader" FunctionName="mics_serverModel.Store.InsertSalesInvoiceHeader" />
+    <FunctionImportMapping FunctionImportName="InsertSalesOrderDetail" FunctionName="mics_serverModel.Store.InsertSalesOrderDetail" />
+    <FunctionImportMapping FunctionImportName="InsertSalesOrderHeader" FunctionName="mics_serverModel.Store.InsertSalesOrderHeader" />
+    <FunctionImportMapping FunctionImportName="InsertSalesPerson" FunctionName="mics_serverModel.Store.InsertSalesPerson" />
+    <FunctionImportMapping FunctionImportName="InsertSalesPersonQuotaHistory" FunctionName="mics_serverModel.Store.InsertSalesPersonQuotaHistory" />
+    <FunctionImportMapping FunctionImportName="InsertSalesTaxRate" FunctionName="mics_serverModel.Store.InsertSalesTaxRate" />
+    <FunctionImportMapping FunctionImportName="InsertSalesTerritory" FunctionName="mics_serverModel.Store.InsertSalesTerritory" />
+    <FunctionImportMapping FunctionImportName="InsertSalesTerritoryHistory" FunctionName="mics_serverModel.Store.InsertSalesTerritoryHistory" />
+    <FunctionImportMapping FunctionImportName="InsertShipMethod" FunctionName="mics_serverModel.Store.InsertShipMethod" />
+    <FunctionImportMapping FunctionImportName="InsertSpecialOffer" FunctionName="mics_serverModel.Store.InsertSpecialOffer" />
+    <FunctionImportMapping FunctionImportName="InsertSpecialOfferProduct" FunctionName="mics_serverModel.Store.InsertSpecialOfferProduct" />
+    <FunctionImportMapping FunctionImportName="InsertUpdateAddress" FunctionName="mics_serverModel.Store.InsertUpdateAddress" />
+    <FunctionImportMapping FunctionImportName="InsertUpdateCustomer" FunctionName="mics_serverModel.Store.InsertUpdateCustomer" />
+    <FunctionImportMapping FunctionImportName="InsertUpdateEmployee" FunctionName="mics_serverModel.Store.InsertUpdateEmployee" />
+    <FunctionImportMapping FunctionImportName="InsertUpdateLocation" FunctionName="mics_serverModel.Store.InsertUpdateLocation" />
+    <FunctionImportMapping FunctionImportName="InsertUpdateOrderNumber" FunctionName="mics_serverModel.Store.InsertUpdateOrderNumber" />
+    <FunctionImportMapping FunctionImportName="InsertUpdatePayment" FunctionName="mics_serverModel.Store.InsertUpdatePayment" />
+    <FunctionImportMapping FunctionImportName="InsertUpdatePaymentMethod" FunctionName="mics_serverModel.Store.InsertUpdatePaymentMethod" />
+    <FunctionImportMapping FunctionImportName="InsertUpdateProduct" FunctionName="mics_serverModel.Store.InsertUpdateProduct" />
+    <FunctionImportMapping FunctionImportName="InsertUpdateProductAdjustmentHistory" FunctionName="mics_serverModel.Store.InsertUpdateProductAdjustmentHistory" />
+    <FunctionImportMapping FunctionImportName="InsertUpdateProductCategory" FunctionName="mics_serverModel.Store.InsertUpdateProductCategory" />
+    <FunctionImportMapping FunctionImportName="InsertUpdateProductCostHistory" FunctionName="mics_serverModel.Store.InsertUpdateProductCostHistory" />
+    <FunctionImportMapping FunctionImportName="InsertUpdateProductInventory" FunctionName="mics_serverModel.Store.InsertUpdateProductInventory" />
+    <FunctionImportMapping FunctionImportName="InsertUpdateProductListPriceHistory" FunctionName="mics_serverModel.Store.InsertUpdateProductListPriceHistory" />
+    <FunctionImportMapping FunctionImportName="InsertUpdateProductSubcategory" FunctionName="mics_serverModel.Store.InsertUpdateProductSubcategory" />
+    <FunctionImportMapping FunctionImportName="InsertUpdateProductVendor" FunctionName="mics_serverModel.Store.InsertUpdateProductVendor" />
+    <FunctionImportMapping FunctionImportName="InsertUpdatePurchaseInvoiceDetail" FunctionName="mics_serverModel.Store.InsertUpdatePurchaseInvoiceDetail" />
+    <FunctionImportMapping FunctionImportName="InsertUpdatePurchaseInvoiceHeader" FunctionName="mics_serverModel.Store.InsertUpdatePurchaseInvoiceHeader" />
+    <FunctionImportMapping FunctionImportName="InsertUpdatePurchaseOrderHeader" FunctionName="mics_serverModel.Store.InsertUpdatePurchaseOrderHeader" />
+    <FunctionImportMapping FunctionImportName="InsertUpdateSalesInvoiceDetail" FunctionName="mics_serverModel.Store.InsertUpdateSalesInvoiceDetail" />
+    <FunctionImportMapping FunctionImportName="InsertUpdateSalesInvoiceHeader" FunctionName="mics_serverModel.Store.InsertUpdateSalesInvoiceHeader" />
+    <FunctionImportMapping FunctionImportName="InsertUpdateSalesOrderHeader" FunctionName="mics_serverModel.Store.InsertUpdateSalesOrderHeader" />
+    <FunctionImportMapping FunctionImportName="InsertUpdateSalesPerson" FunctionName="mics_serverModel.Store.InsertUpdateSalesPerson" />
+    <FunctionImportMapping FunctionImportName="InsertUpdateSalesPersonQuotaHistory" FunctionName="mics_serverModel.Store.InsertUpdateSalesPersonQuotaHistory" />
+    <FunctionImportMapping FunctionImportName="InsertUpdateSalesTaxRate" FunctionName="mics_serverModel.Store.InsertUpdateSalesTaxRate" />
+    <FunctionImportMapping FunctionImportName="InsertUpdateSalesTerritory" FunctionName="mics_serverModel.Store.InsertUpdateSalesTerritory" />
+    <FunctionImportMapping FunctionImportName="InsertUpdateSalesTerritoryHistory" FunctionName="mics_serverModel.Store.InsertUpdateSalesTerritoryHistory" />
+    <FunctionImportMapping FunctionImportName="InsertUpdateShipMethod" FunctionName="mics_serverModel.Store.InsertUpdateShipMethod" />
+    <FunctionImportMapping FunctionImportName="InsertUpdateSpecialOffer" FunctionName="mics_serverModel.Store.InsertUpdateSpecialOffer" />
+    <FunctionImportMapping FunctionImportName="InsertUpdateSpecialOfferProduct" FunctionName="mics_serverModel.Store.InsertUpdateSpecialOfferProduct" />
+    <FunctionImportMapping FunctionImportName="InsertUpdateUser" FunctionName="mics_serverModel.Store.InsertUpdateUser" />
+    <FunctionImportMapping FunctionImportName="InsertUpdateVendor" FunctionName="mics_serverModel.Store.InsertUpdateVendor" />
+    <FunctionImportMapping FunctionImportName="InsertUser" FunctionName="mics_serverModel.Store.InsertUser" />
+    <FunctionImportMapping FunctionImportName="InsertVendor" FunctionName="mics_serverModel.Store.InsertVendor" />
+    <FunctionImportMapping FunctionImportName="SelectAddress" FunctionName="mics_serverModel.Store.SelectAddress">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectAddress_Result">
+          <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+          <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
+          <ScalarProperty Name="AddressLine2" ColumnName="AddressLine2" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="StateProvince" ColumnName="StateProvince" />
+          <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectAddressesAll" FunctionName="mics_serverModel.Store.SelectAddressesAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectAddressesAll_Result">
+          <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+          <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
+          <ScalarProperty Name="AddressLine2" ColumnName="AddressLine2" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="StateProvince" ColumnName="StateProvince" />
+          <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectAddressesDynamic" FunctionName="mics_serverModel.Store.SelectAddressesDynamic" />
+    <FunctionImportMapping FunctionImportName="SelectAddressesPaged" FunctionName="mics_serverModel.Store.SelectAddressesPaged">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectAddressesPaged_Result">
+          <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+          <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
+          <ScalarProperty Name="AddressLine2" ColumnName="AddressLine2" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="StateProvince" ColumnName="StateProvince" />
+          <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectCustomer" FunctionName="mics_serverModel.Store.SelectCustomer">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectCustomer_Result">
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="TerritoryID" ColumnName="TerritoryID" />
+          <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+          <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="SecondPhone" ColumnName="SecondPhone" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="CreditLimit" ColumnName="CreditLimit" />
+          <ScalarProperty Name="DeliveryDay" ColumnName="DeliveryDay" />
+          <ScalarProperty Name="CustomerType" ColumnName="CustomerType" />
+          <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="BillingAddressID" ColumnName="BillingAddressID" />
+          <ScalarProperty Name="ActiveFlag" ColumnName="ActiveFlag" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectCustomerByName" FunctionName="mics_serverModel.Store.SelectCustomerByName">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectCustomerByName_Result">
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="TerritoryID" ColumnName="TerritoryID" />
+          <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+          <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="SecondPhone" ColumnName="SecondPhone" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="CreditLimit" ColumnName="CreditLimit" />
+          <ScalarProperty Name="DeliveryDay" ColumnName="DeliveryDay" />
+          <ScalarProperty Name="CustomerType" ColumnName="CustomerType" />
+          <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="BillingAddressID" ColumnName="BillingAddressID" />
+          <ScalarProperty Name="ActiveFlag" ColumnName="ActiveFlag" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectCustomerExists" FunctionName="mics_serverModel.Store.SelectCustomerExists">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectCustomerExists_Result">
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="TerritoryID" ColumnName="TerritoryID" />
+          <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+          <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="SecondPhone" ColumnName="SecondPhone" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="CreditLimit" ColumnName="CreditLimit" />
+          <ScalarProperty Name="DeliveryDay" ColumnName="DeliveryDay" />
+          <ScalarProperty Name="CustomerType" ColumnName="CustomerType" />
+          <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="BillingAddressID" ColumnName="BillingAddressID" />
+          <ScalarProperty Name="ActiveFlag" ColumnName="ActiveFlag" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectCustomersAll" FunctionName="mics_serverModel.Store.SelectCustomersAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectCustomersAll_Result">
+          <ScalarProperty Name="TerritoryName" ColumnName="TerritoryName" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="TerritoryID" ColumnName="TerritoryID" />
+          <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+          <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="SecondPhone" ColumnName="SecondPhone" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="CreditLimit" ColumnName="CreditLimit" />
+          <ScalarProperty Name="DeliveryDay" ColumnName="DeliveryDay" />
+          <ScalarProperty Name="CustomerType" ColumnName="CustomerType" />
+          <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="BillingAddressID" ColumnName="BillingAddressID" />
+          <ScalarProperty Name="ActiveFlag" ColumnName="ActiveFlag" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectCustomersDynamic" FunctionName="mics_serverModel.Store.SelectCustomersDynamic" />
+    <FunctionImportMapping FunctionImportName="SelectCustomersPaged" FunctionName="mics_serverModel.Store.SelectCustomersPaged">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectCustomersPaged_Result">
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="TerritoryID" ColumnName="TerritoryID" />
+          <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+          <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="SecondPhone" ColumnName="SecondPhone" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="CreditLimit" ColumnName="CreditLimit" />
+          <ScalarProperty Name="DeliveryDay" ColumnName="DeliveryDay" />
+          <ScalarProperty Name="CustomerType" ColumnName="CustomerType" />
+          <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="BillingAddressID" ColumnName="BillingAddressID" />
+          <ScalarProperty Name="ActiveFlag" ColumnName="ActiveFlag" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectEmployee" FunctionName="mics_serverModel.Store.SelectEmployee">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectEmployee_Result">
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+          <ScalarProperty Name="WorkPhone" ColumnName="WorkPhone" />
+          <ScalarProperty Name="HomePhone" ColumnName="HomePhone" />
+          <ScalarProperty Name="CellPhone" ColumnName="CellPhone" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectEmployeesAll" FunctionName="mics_serverModel.Store.SelectEmployeesAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectEmployeesAll_Result">
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="WorkPhone" ColumnName="WorkPhone" />
+          <ScalarProperty Name="HomePhone" ColumnName="HomePhone" />
+          <ScalarProperty Name="CellPhone" ColumnName="CellPhone" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectEmployeesDynamic" FunctionName="mics_serverModel.Store.SelectEmployeesDynamic" />
+    <FunctionImportMapping FunctionImportName="SelectEmployeesPaged" FunctionName="mics_serverModel.Store.SelectEmployeesPaged">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectEmployeesPaged_Result">
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+          <ScalarProperty Name="WorkPhone" ColumnName="WorkPhone" />
+          <ScalarProperty Name="HomePhone" ColumnName="HomePhone" />
+          <ScalarProperty Name="CellPhone" ColumnName="CellPhone" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectLocation" FunctionName="mics_serverModel.Store.SelectLocation">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectLocation_Result">
+          <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+          <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectLocationByName" FunctionName="mics_serverModel.Store.SelectLocationByName">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectLocationByName_Result">
+          <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+          <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectLocationsAll" FunctionName="mics_serverModel.Store.SelectLocationsAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectLocationsAll_Result">
+          <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+          <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectLocationsDynamic" FunctionName="mics_serverModel.Store.SelectLocationsDynamic" />
+    <FunctionImportMapping FunctionImportName="SelectLocationsPaged" FunctionName="mics_serverModel.Store.SelectLocationsPaged">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectLocationsPaged_Result">
+          <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+          <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectOrderNumber" FunctionName="mics_serverModel.Store.SelectOrderNumber">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectOrderNumber_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="today" ColumnName="today" />
+          <ScalarProperty Name="SeqNumber" ColumnName="SeqNumber" />
+          <ScalarProperty Name="OrderType" ColumnName="OrderType" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectOrderNumbersAll" FunctionName="mics_serverModel.Store.SelectOrderNumbersAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectOrderNumbersAll_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="today" ColumnName="today" />
+          <ScalarProperty Name="SeqNumber" ColumnName="SeqNumber" />
+          <ScalarProperty Name="OrderType" ColumnName="OrderType" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectOrderNumbersDynamic" FunctionName="mics_serverModel.Store.SelectOrderNumbersDynamic" />
+    <FunctionImportMapping FunctionImportName="SelectOrderNumbersPaged" FunctionName="mics_serverModel.Store.SelectOrderNumbersPaged">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectOrderNumbersPaged_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="today" ColumnName="today" />
+          <ScalarProperty Name="SeqNumber" ColumnName="SeqNumber" />
+          <ScalarProperty Name="OrderType" ColumnName="OrderType" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectPayment" FunctionName="mics_serverModel.Store.SelectPayment">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectPayment_Result">
+          <ScalarProperty Name="PaymentID" ColumnName="PaymentID" />
+          <ScalarProperty Name="InvoiceID" ColumnName="InvoiceID" />
+          <ScalarProperty Name="PaymentType" ColumnName="PaymentType" />
+          <ScalarProperty Name="PaymentDate" ColumnName="PaymentDate" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CheckNumber" ColumnName="CheckNumber" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectPaymentMethod" FunctionName="mics_serverModel.Store.SelectPaymentMethod">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectPaymentMethod_Result">
+          <ScalarProperty Name="PaymentMethodID" ColumnName="PaymentMethodID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectPaymentMethodByName" FunctionName="mics_serverModel.Store.SelectPaymentMethodByName">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectPaymentMethodByName_Result">
+          <ScalarProperty Name="PaymentMethodID" ColumnName="PaymentMethodID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectPaymentMethodsAll" FunctionName="mics_serverModel.Store.SelectPaymentMethodsAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectPaymentMethodsAll_Result">
+          <ScalarProperty Name="PaymentMethodID" ColumnName="PaymentMethodID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectPaymentMethodsDynamic" FunctionName="mics_serverModel.Store.SelectPaymentMethodsDynamic" />
+    <FunctionImportMapping FunctionImportName="SelectPaymentMethodsPaged" FunctionName="mics_serverModel.Store.SelectPaymentMethodsPaged">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectPaymentMethodsPaged_Result">
+          <ScalarProperty Name="PaymentMethodID" ColumnName="PaymentMethodID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectPaymentsAll" FunctionName="mics_serverModel.Store.SelectPaymentsAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectPaymentsAll_Result">
+          <ScalarProperty Name="PaymentID" ColumnName="PaymentID" />
+          <ScalarProperty Name="InvoiceID" ColumnName="InvoiceID" />
+          <ScalarProperty Name="PaymentType" ColumnName="PaymentType" />
+          <ScalarProperty Name="PaymentDate" ColumnName="PaymentDate" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CheckNumber" ColumnName="CheckNumber" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectPaymentsDynamic" FunctionName="mics_serverModel.Store.SelectPaymentsDynamic" />
+    <FunctionImportMapping FunctionImportName="SelectPaymentsPaged" FunctionName="mics_serverModel.Store.SelectPaymentsPaged">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectPaymentsPaged_Result">
+          <ScalarProperty Name="PaymentID" ColumnName="PaymentID" />
+          <ScalarProperty Name="InvoiceID" ColumnName="InvoiceID" />
+          <ScalarProperty Name="PaymentType" ColumnName="PaymentType" />
+          <ScalarProperty Name="PaymentDate" ColumnName="PaymentDate" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CheckNumber" ColumnName="CheckNumber" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectProduct" FunctionName="mics_serverModel.Store.SelectProduct">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectProduct_Result">
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ProductNumber" ColumnName="ProductNumber" />
+          <ScalarProperty Name="MakeFlag" ColumnName="MakeFlag" />
+          <ScalarProperty Name="FinishedGoodsFlag" ColumnName="FinishedGoodsFlag" />
+          <ScalarProperty Name="Color" ColumnName="Color" />
+          <ScalarProperty Name="SafetyStockLevel" ColumnName="SafetyStockLevel" />
+          <ScalarProperty Name="ReorderPoint" ColumnName="ReorderPoint" />
+          <ScalarProperty Name="StandardCost" ColumnName="StandardCost" />
+          <ScalarProperty Name="ListPrice" ColumnName="ListPrice" />
+          <ScalarProperty Name="Size" ColumnName="Size" />
+          <ScalarProperty Name="SizeUnitMeasureCode" ColumnName="SizeUnitMeasureCode" />
+          <ScalarProperty Name="WeightUnitMeasureCode" ColumnName="WeightUnitMeasureCode" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="DaysToManufacture" ColumnName="DaysToManufacture" />
+          <ScalarProperty Name="ProductLine" ColumnName="ProductLine" />
+          <ScalarProperty Name="Class" ColumnName="Class" />
+          <ScalarProperty Name="Style" ColumnName="Style" />
+          <ScalarProperty Name="ProductSubcategoryID" ColumnName="ProductSubcategoryID" />
+          <ScalarProperty Name="ProductModelID" ColumnName="ProductModelID" />
+          <ScalarProperty Name="SellStartDate" ColumnName="SellStartDate" />
+          <ScalarProperty Name="SellEndDate" ColumnName="SellEndDate" />
+          <ScalarProperty Name="DiscontinuedDate" ColumnName="DiscontinuedDate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="PrimaryVendorId" ColumnName="PrimaryVendorId" />
+          <ScalarProperty Name="SecondaryVendorId" ColumnName="SecondaryVendorId" />
+          <ScalarProperty Name="ActiveFlag" ColumnName="ActiveFlag" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectProductAdjustmentHistoriesAll" FunctionName="mics_serverModel.Store.SelectProductAdjustmentHistoriesAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectProductAdjustmentHistoriesAll_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="AdjustedQuantity" ColumnName="AdjustedQuantity" />
+          <ScalarProperty Name="Reason" ColumnName="Reason" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectProductAdjustmentHistoriesDynamic" FunctionName="mics_serverModel.Store.SelectProductAdjustmentHistoriesDynamic" />
+    <FunctionImportMapping FunctionImportName="SelectProductAdjustmentHistoriesPaged" FunctionName="mics_serverModel.Store.SelectProductAdjustmentHistoriesPaged">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectProductAdjustmentHistoriesPaged_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="AdjustedQuantity" ColumnName="AdjustedQuantity" />
+          <ScalarProperty Name="Reason" ColumnName="Reason" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectProductAdjustmentHistory" FunctionName="mics_serverModel.Store.SelectProductAdjustmentHistory">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectProductAdjustmentHistory_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="AdjustedQuantity" ColumnName="AdjustedQuantity" />
+          <ScalarProperty Name="Reason" ColumnName="Reason" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectProductCategoriesAll" FunctionName="mics_serverModel.Store.SelectProductCategoriesAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectProductCategoriesAll_Result">
+          <ScalarProperty Name="ProductCategoryID" ColumnName="ProductCategoryID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectProductCategoriesDynamic" FunctionName="mics_serverModel.Store.SelectProductCategoriesDynamic" />
+    <FunctionImportMapping FunctionImportName="SelectProductCategoriesPaged" FunctionName="mics_serverModel.Store.SelectProductCategoriesPaged">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectProductCategoriesPaged_Result">
+          <ScalarProperty Name="ProductCategoryID" ColumnName="ProductCategoryID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectProductCategory" FunctionName="mics_serverModel.Store.SelectProductCategory">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectProductCategory_Result">
+          <ScalarProperty Name="ProductCategoryID" ColumnName="ProductCategoryID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectProductCategoryExists" FunctionName="mics_serverModel.Store.SelectProductCategoryExists">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectProductCategoryExists_Result">
+          <ScalarProperty Name="ProductCategoryID" ColumnName="ProductCategoryID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectProductCostHistoriesAll" FunctionName="mics_serverModel.Store.SelectProductCostHistoriesAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectProductCostHistoriesAll_Result">
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="StandardCost" ColumnName="StandardCost" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectProductCostHistoriesDynamic" FunctionName="mics_serverModel.Store.SelectProductCostHistoriesDynamic" />
+    <FunctionImportMapping FunctionImportName="SelectProductCostHistoriesPaged" FunctionName="mics_serverModel.Store.SelectProductCostHistoriesPaged">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectProductCostHistoriesPaged_Result">
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="StandardCost" ColumnName="StandardCost" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectProductCostHistory" FunctionName="mics_serverModel.Store.SelectProductCostHistory">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectProductCostHistory_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="StandardCost" ColumnName="StandardCost" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectProductExists" FunctionName="mics_serverModel.Store.SelectProductExists">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectProductExists_Result">
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ProductNumber" ColumnName="ProductNumber" />
+          <ScalarProperty Name="MakeFlag" ColumnName="MakeFlag" />
+          <ScalarProperty Name="FinishedGoodsFlag" ColumnName="FinishedGoodsFlag" />
+          <ScalarProperty Name="Color" ColumnName="Color" />
+          <ScalarProperty Name="SafetyStockLevel" ColumnName="SafetyStockLevel" />
+          <ScalarProperty Name="ReorderPoint" ColumnName="ReorderPoint" />
+          <ScalarProperty Name="StandardCost" ColumnName="StandardCost" />
+          <ScalarProperty Name="ListPrice" ColumnName="ListPrice" />
+          <ScalarProperty Name="Size" ColumnName="Size" />
+          <ScalarProperty Name="SizeUnitMeasureCode" ColumnName="SizeUnitMeasureCode" />
+          <ScalarProperty Name="WeightUnitMeasureCode" ColumnName="WeightUnitMeasureCode" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="DaysToManufacture" ColumnName="DaysToManufacture" />
+          <ScalarProperty Name="ProductLine" ColumnName="ProductLine" />
+          <ScalarProperty Name="Class" ColumnName="Class" />
+          <ScalarProperty Name="Style" ColumnName="Style" />
+          <ScalarProperty Name="ProductSubcategoryID" ColumnName="ProductSubcategoryID" />
+          <ScalarProperty Name="ProductModelID" ColumnName="ProductModelID" />
+          <ScalarProperty Name="SellStartDate" ColumnName="SellStartDate" />
+          <ScalarProperty Name="SellEndDate" ColumnName="SellEndDate" />
+          <ScalarProperty Name="DiscontinuedDate" ColumnName="DiscontinuedDate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="PrimaryVendorId" ColumnName="PrimaryVendorId" />
+          <ScalarProperty Name="SecondaryVendorId" ColumnName="SecondaryVendorId" />
+          <ScalarProperty Name="ActiveFlag" ColumnName="ActiveFlag" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectProductInventoriesAll" FunctionName="mics_serverModel.Store.SelectProductInventoriesAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectProductInventoriesAll_Result">
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+          <ScalarProperty Name="Shelf" ColumnName="Shelf" />
+          <ScalarProperty Name="Bin" ColumnName="Bin" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectProductInventoriesDynamic" FunctionName="mics_serverModel.Store.SelectProductInventoriesDynamic" />
+    <FunctionImportMapping FunctionImportName="SelectProductInventoriesPaged" FunctionName="mics_serverModel.Store.SelectProductInventoriesPaged">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectProductInventoriesPaged_Result">
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+          <ScalarProperty Name="Shelf" ColumnName="Shelf" />
+          <ScalarProperty Name="Bin" ColumnName="Bin" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectProductInventory" FunctionName="mics_serverModel.Store.SelectProductInventory">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectProductInventory_Result">
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="LocationID" ColumnName="LocationID" />
+          <ScalarProperty Name="Shelf" ColumnName="Shelf" />
+          <ScalarProperty Name="Bin" ColumnName="Bin" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectProductListPriceHistoriesAll" FunctionName="mics_serverModel.Store.SelectProductListPriceHistoriesAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectProductListPriceHistoriesAll_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="ListPrice" ColumnName="ListPrice" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectProductListPriceHistoriesDynamic" FunctionName="mics_serverModel.Store.SelectProductListPriceHistoriesDynamic" />
+    <FunctionImportMapping FunctionImportName="SelectProductListPriceHistoriesPaged" FunctionName="mics_serverModel.Store.SelectProductListPriceHistoriesPaged">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectProductListPriceHistoriesPaged_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="ListPrice" ColumnName="ListPrice" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectProductListPriceHistory" FunctionName="mics_serverModel.Store.SelectProductListPriceHistory">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectProductListPriceHistory_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="ListPrice" ColumnName="ListPrice" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectProductsAll" FunctionName="mics_serverModel.Store.SelectProductsAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectProductsAll_Result">
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ProductNumber" ColumnName="ProductNumber" />
+          <ScalarProperty Name="MakeFlag" ColumnName="MakeFlag" />
+          <ScalarProperty Name="FinishedGoodsFlag" ColumnName="FinishedGoodsFlag" />
+          <ScalarProperty Name="Color" ColumnName="Color" />
+          <ScalarProperty Name="SafetyStockLevel" ColumnName="SafetyStockLevel" />
+          <ScalarProperty Name="ReorderPoint" ColumnName="ReorderPoint" />
+          <ScalarProperty Name="StandardCost" ColumnName="StandardCost" />
+          <ScalarProperty Name="ListPrice" ColumnName="ListPrice" />
+          <ScalarProperty Name="Size" ColumnName="Size" />
+          <ScalarProperty Name="SizeUnitMeasureCode" ColumnName="SizeUnitMeasureCode" />
+          <ScalarProperty Name="WeightUnitMeasureCode" ColumnName="WeightUnitMeasureCode" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="DaysToManufacture" ColumnName="DaysToManufacture" />
+          <ScalarProperty Name="ProductLine" ColumnName="ProductLine" />
+          <ScalarProperty Name="Class" ColumnName="Class" />
+          <ScalarProperty Name="Style" ColumnName="Style" />
+          <ScalarProperty Name="ProductSubcategoryID" ColumnName="ProductSubcategoryID" />
+          <ScalarProperty Name="ProductModelID" ColumnName="ProductModelID" />
+          <ScalarProperty Name="SellStartDate" ColumnName="SellStartDate" />
+          <ScalarProperty Name="SellEndDate" ColumnName="SellEndDate" />
+          <ScalarProperty Name="DiscontinuedDate" ColumnName="DiscontinuedDate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="PrimaryVendorId" ColumnName="PrimaryVendorId" />
+          <ScalarProperty Name="SecondaryVendorId" ColumnName="SecondaryVendorId" />
+          <ScalarProperty Name="ActiveFlag" ColumnName="ActiveFlag" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectProductsDynamic" FunctionName="mics_serverModel.Store.SelectProductsDynamic" />
+    <FunctionImportMapping FunctionImportName="SelectProductsLike" FunctionName="mics_serverModel.Store.SelectProductsLike">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectProductsLike_Result">
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ProductNumber" ColumnName="ProductNumber" />
+          <ScalarProperty Name="StandardCost" ColumnName="StandardCost" />
+          <ScalarProperty Name="ListPrice" ColumnName="ListPrice" />
+          <ScalarProperty Name="ProductSubcategoryID" ColumnName="ProductSubcategoryID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectProductsPaged" FunctionName="mics_serverModel.Store.SelectProductsPaged">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectProductsPaged_Result">
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ProductNumber" ColumnName="ProductNumber" />
+          <ScalarProperty Name="MakeFlag" ColumnName="MakeFlag" />
+          <ScalarProperty Name="FinishedGoodsFlag" ColumnName="FinishedGoodsFlag" />
+          <ScalarProperty Name="Color" ColumnName="Color" />
+          <ScalarProperty Name="SafetyStockLevel" ColumnName="SafetyStockLevel" />
+          <ScalarProperty Name="ReorderPoint" ColumnName="ReorderPoint" />
+          <ScalarProperty Name="StandardCost" ColumnName="StandardCost" />
+          <ScalarProperty Name="ListPrice" ColumnName="ListPrice" />
+          <ScalarProperty Name="Size" ColumnName="Size" />
+          <ScalarProperty Name="SizeUnitMeasureCode" ColumnName="SizeUnitMeasureCode" />
+          <ScalarProperty Name="WeightUnitMeasureCode" ColumnName="WeightUnitMeasureCode" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="DaysToManufacture" ColumnName="DaysToManufacture" />
+          <ScalarProperty Name="ProductLine" ColumnName="ProductLine" />
+          <ScalarProperty Name="Class" ColumnName="Class" />
+          <ScalarProperty Name="Style" ColumnName="Style" />
+          <ScalarProperty Name="ProductSubcategoryID" ColumnName="ProductSubcategoryID" />
+          <ScalarProperty Name="ProductModelID" ColumnName="ProductModelID" />
+          <ScalarProperty Name="SellStartDate" ColumnName="SellStartDate" />
+          <ScalarProperty Name="SellEndDate" ColumnName="SellEndDate" />
+          <ScalarProperty Name="DiscontinuedDate" ColumnName="DiscontinuedDate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="PrimaryVendorId" ColumnName="PrimaryVendorId" />
+          <ScalarProperty Name="SecondaryVendorId" ColumnName="SecondaryVendorId" />
+          <ScalarProperty Name="ActiveFlag" ColumnName="ActiveFlag" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectProductsPicker" FunctionName="mics_serverModel.Store.SelectProductsPicker">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectProductsPicker_Result">
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="PRODUCT_CODE" ColumnName="PRODUCT_CODE" />
+          <ScalarProperty Name="ReorderPoint" ColumnName="ReorderPoint" />
+          <ScalarProperty Name="INSTOCK" ColumnName="INSTOCK" />
+          <ScalarProperty Name="PRICE" ColumnName="PRICE" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectProductsSubCategoryPicker" FunctionName="mics_serverModel.Store.SelectProductsSubCategoryPicker">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectProductsSubCategoryPicker_Result">
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="PRODUCT_CODE" ColumnName="PRODUCT_CODE" />
+          <ScalarProperty Name="ReorderPoint" ColumnName="ReorderPoint" />
+          <ScalarProperty Name="INSTOCK" ColumnName="INSTOCK" />
+          <ScalarProperty Name="PRICE" ColumnName="PRICE" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectProductSubcategoriesAll" FunctionName="mics_serverModel.Store.SelectProductSubcategoriesAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectProductSubcategoriesAll_Result">
+          <ScalarProperty Name="ProductSubcategoryID" ColumnName="ProductSubcategoryID" />
+          <ScalarProperty Name="ProductCategoryID" ColumnName="ProductCategoryID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectProductSubcategoriesDynamic" FunctionName="mics_serverModel.Store.SelectProductSubcategoriesDynamic" />
+    <FunctionImportMapping FunctionImportName="SelectProductSubcategoriesPaged" FunctionName="mics_serverModel.Store.SelectProductSubcategoriesPaged">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectProductSubcategoriesPaged_Result">
+          <ScalarProperty Name="ProductSubcategoryID" ColumnName="ProductSubcategoryID" />
+          <ScalarProperty Name="ProductCategoryID" ColumnName="ProductCategoryID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectProductSubcategory" FunctionName="mics_serverModel.Store.SelectProductSubcategory">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectProductSubcategory_Result">
+          <ScalarProperty Name="ProductSubcategoryID" ColumnName="ProductSubcategoryID" />
+          <ScalarProperty Name="ProductCategoryID" ColumnName="ProductCategoryID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectProductSubcategoryExists" FunctionName="mics_serverModel.Store.SelectProductSubcategoryExists">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectProductSubcategoryExists_Result">
+          <ScalarProperty Name="ProductSubcategoryID" ColumnName="ProductSubcategoryID" />
+          <ScalarProperty Name="ProductCategoryID" ColumnName="ProductCategoryID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectProductVendor" FunctionName="mics_serverModel.Store.SelectProductVendor">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectProductVendor_Result">
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="VendorID" ColumnName="VendorID" />
+          <ScalarProperty Name="AverageLeadTime" ColumnName="AverageLeadTime" />
+          <ScalarProperty Name="StandardPrice" ColumnName="StandardPrice" />
+          <ScalarProperty Name="LastReceiptCost" ColumnName="LastReceiptCost" />
+          <ScalarProperty Name="LastReceiptDate" ColumnName="LastReceiptDate" />
+          <ScalarProperty Name="MinOrderQty" ColumnName="MinOrderQty" />
+          <ScalarProperty Name="MaxOrderQty" ColumnName="MaxOrderQty" />
+          <ScalarProperty Name="OnOrderQty" ColumnName="OnOrderQty" />
+          <ScalarProperty Name="UnitMeasureCode" ColumnName="UnitMeasureCode" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectProductVendorsAll" FunctionName="mics_serverModel.Store.SelectProductVendorsAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectProductVendorsAll_Result">
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="VendorID" ColumnName="VendorID" />
+          <ScalarProperty Name="AverageLeadTime" ColumnName="AverageLeadTime" />
+          <ScalarProperty Name="StandardPrice" ColumnName="StandardPrice" />
+          <ScalarProperty Name="LastReceiptCost" ColumnName="LastReceiptCost" />
+          <ScalarProperty Name="LastReceiptDate" ColumnName="LastReceiptDate" />
+          <ScalarProperty Name="MinOrderQty" ColumnName="MinOrderQty" />
+          <ScalarProperty Name="MaxOrderQty" ColumnName="MaxOrderQty" />
+          <ScalarProperty Name="OnOrderQty" ColumnName="OnOrderQty" />
+          <ScalarProperty Name="UnitMeasureCode" ColumnName="UnitMeasureCode" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectProductVendorsDynamic" FunctionName="mics_serverModel.Store.SelectProductVendorsDynamic" />
+    <FunctionImportMapping FunctionImportName="SelectProductVendorsPaged" FunctionName="mics_serverModel.Store.SelectProductVendorsPaged">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectProductVendorsPaged_Result">
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="VendorID" ColumnName="VendorID" />
+          <ScalarProperty Name="AverageLeadTime" ColumnName="AverageLeadTime" />
+          <ScalarProperty Name="StandardPrice" ColumnName="StandardPrice" />
+          <ScalarProperty Name="LastReceiptCost" ColumnName="LastReceiptCost" />
+          <ScalarProperty Name="LastReceiptDate" ColumnName="LastReceiptDate" />
+          <ScalarProperty Name="MinOrderQty" ColumnName="MinOrderQty" />
+          <ScalarProperty Name="MaxOrderQty" ColumnName="MaxOrderQty" />
+          <ScalarProperty Name="OnOrderQty" ColumnName="OnOrderQty" />
+          <ScalarProperty Name="UnitMeasureCode" ColumnName="UnitMeasureCode" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectPurchaseInvoiceDetail" FunctionName="mics_serverModel.Store.SelectPurchaseInvoiceDetail">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectPurchaseInvoiceDetail_Result">
+          <ScalarProperty Name="InvoiceID" ColumnName="InvoiceID" />
+          <ScalarProperty Name="InvoiceDetailID" ColumnName="InvoiceDetailID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectPurchaseInvoiceDetailsAll" FunctionName="mics_serverModel.Store.SelectPurchaseInvoiceDetailsAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectPurchaseInvoiceDetailsAll_Result">
+          <ScalarProperty Name="InvoiceID" ColumnName="InvoiceID" />
+          <ScalarProperty Name="InvoiceDetailID" ColumnName="InvoiceDetailID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectPurchaseInvoiceDetailsDynamic" FunctionName="mics_serverModel.Store.SelectPurchaseInvoiceDetailsDynamic" />
+    <FunctionImportMapping FunctionImportName="SelectPurchaseInvoiceDetailsGrid" FunctionName="mics_serverModel.Store.SelectPurchaseInvoiceDetailsGrid" />
+    <FunctionImportMapping FunctionImportName="SelectPurchaseInvoiceDetailsPaged" FunctionName="mics_serverModel.Store.SelectPurchaseInvoiceDetailsPaged">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectPurchaseInvoiceDetailsPaged_Result">
+          <ScalarProperty Name="InvoiceID" ColumnName="InvoiceID" />
+          <ScalarProperty Name="InvoiceDetailID" ColumnName="InvoiceDetailID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectPurchaseInvoiceHeader" FunctionName="mics_serverModel.Store.SelectPurchaseInvoiceHeader">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectPurchaseInvoiceHeader_Result">
+          <ScalarProperty Name="InvoiceID" ColumnName="InvoiceID" />
+          <ScalarProperty Name="InvoiceNumber" ColumnName="InvoiceNumber" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="PurchaseOrderID" ColumnName="PurchaseOrderID" />
+          <ScalarProperty Name="VendorID" ColumnName="VendorID" />
+          <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+          <ScalarProperty Name="SubTotal" ColumnName="SubTotal" />
+          <ScalarProperty Name="TaxAmt" ColumnName="TaxAmt" />
+          <ScalarProperty Name="Freight" ColumnName="Freight" />
+          <ScalarProperty Name="TotalDue" ColumnName="TotalDue" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectPurchaseInvoiceHeadersAll" FunctionName="mics_serverModel.Store.SelectPurchaseInvoiceHeadersAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectPurchaseInvoiceHeadersAll_Result">
+          <ScalarProperty Name="InvoiceID" ColumnName="InvoiceID" />
+          <ScalarProperty Name="InvoiceNumber" ColumnName="InvoiceNumber" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="PurchaseOrderID" ColumnName="PurchaseOrderID" />
+          <ScalarProperty Name="VendorID" ColumnName="VendorID" />
+          <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+          <ScalarProperty Name="SubTotal" ColumnName="SubTotal" />
+          <ScalarProperty Name="TaxAmt" ColumnName="TaxAmt" />
+          <ScalarProperty Name="Freight" ColumnName="Freight" />
+          <ScalarProperty Name="TotalDue" ColumnName="TotalDue" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectPurchaseInvoiceHeadersDynamic" FunctionName="mics_serverModel.Store.SelectPurchaseInvoiceHeadersDynamic" />
+    <FunctionImportMapping FunctionImportName="SelectPurchaseInvoiceHeadersPaged" FunctionName="mics_serverModel.Store.SelectPurchaseInvoiceHeadersPaged">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectPurchaseInvoiceHeadersPaged_Result">
+          <ScalarProperty Name="InvoiceID" ColumnName="InvoiceID" />
+          <ScalarProperty Name="InvoiceNumber" ColumnName="InvoiceNumber" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="PurchaseOrderID" ColumnName="PurchaseOrderID" />
+          <ScalarProperty Name="VendorID" ColumnName="VendorID" />
+          <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+          <ScalarProperty Name="SubTotal" ColumnName="SubTotal" />
+          <ScalarProperty Name="TaxAmt" ColumnName="TaxAmt" />
+          <ScalarProperty Name="Freight" ColumnName="Freight" />
+          <ScalarProperty Name="TotalDue" ColumnName="TotalDue" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectPurchaseOrderDetail" FunctionName="mics_serverModel.Store.SelectPurchaseOrderDetail">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectPurchaseOrderDetail_Result">
+          <ScalarProperty Name="PurchaseOrderID" ColumnName="PurchaseOrderID" />
+          <ScalarProperty Name="PurchaseOrderDetailID" ColumnName="PurchaseOrderDetailID" />
+          <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+          <ScalarProperty Name="OrderQty" ColumnName="OrderQty" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+          <ScalarProperty Name="NumberOfCases" ColumnName="NumberOfCases" />
+          <ScalarProperty Name="UnitPerCase" ColumnName="UnitPerCase" />
+          <ScalarProperty Name="ReceivedQty" ColumnName="ReceivedQty" />
+          <ScalarProperty Name="RejectedQty" ColumnName="RejectedQty" />
+          <ScalarProperty Name="StockedQty" ColumnName="StockedQty" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectPurchaseOrderDetailByOrderID" FunctionName="mics_serverModel.Store.SelectPurchaseOrderDetailByOrderID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectPurchaseOrderDetailByOrderID_Result">
+          <ScalarProperty Name="PurchaseOrderID" ColumnName="PurchaseOrderID" />
+          <ScalarProperty Name="PurchaseOrderDetailID" ColumnName="PurchaseOrderDetailID" />
+          <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+          <ScalarProperty Name="OrderQty" ColumnName="OrderQty" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+          <ScalarProperty Name="ReceivedQty" ColumnName="ReceivedQty" />
+          <ScalarProperty Name="RejectedQty" ColumnName="RejectedQty" />
+          <ScalarProperty Name="StockedQty" ColumnName="StockedQty" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectPurchaseOrderDetailsAll" FunctionName="mics_serverModel.Store.SelectPurchaseOrderDetailsAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectPurchaseOrderDetailsAll_Result">
+          <ScalarProperty Name="PurchaseOrderID" ColumnName="PurchaseOrderID" />
+          <ScalarProperty Name="PurchaseOrderDetailID" ColumnName="PurchaseOrderDetailID" />
+          <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+          <ScalarProperty Name="OrderQty" ColumnName="OrderQty" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+          <ScalarProperty Name="NumberOfCases" ColumnName="NumberOfCases" />
+          <ScalarProperty Name="UnitPerCase" ColumnName="UnitPerCase" />
+          <ScalarProperty Name="ReceivedQty" ColumnName="ReceivedQty" />
+          <ScalarProperty Name="RejectedQty" ColumnName="RejectedQty" />
+          <ScalarProperty Name="StockedQty" ColumnName="StockedQty" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectPurchaseOrderDetailsDynamic" FunctionName="mics_serverModel.Store.SelectPurchaseOrderDetailsDynamic" />
+    <FunctionImportMapping FunctionImportName="SelectPurchaseOrderDetailsPaged" FunctionName="mics_serverModel.Store.SelectPurchaseOrderDetailsPaged">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectPurchaseOrderDetailsPaged_Result">
+          <ScalarProperty Name="PurchaseOrderID" ColumnName="PurchaseOrderID" />
+          <ScalarProperty Name="PurchaseOrderDetailID" ColumnName="PurchaseOrderDetailID" />
+          <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+          <ScalarProperty Name="OrderQty" ColumnName="OrderQty" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+          <ScalarProperty Name="NumberOfCases" ColumnName="NumberOfCases" />
+          <ScalarProperty Name="UnitPerCase" ColumnName="UnitPerCase" />
+          <ScalarProperty Name="ReceivedQty" ColumnName="ReceivedQty" />
+          <ScalarProperty Name="RejectedQty" ColumnName="RejectedQty" />
+          <ScalarProperty Name="StockedQty" ColumnName="StockedQty" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectPurchaseOrderHeader" FunctionName="mics_serverModel.Store.SelectPurchaseOrderHeader">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectPurchaseOrderHeader_Result">
+          <ScalarProperty Name="PurchaseOrderID" ColumnName="PurchaseOrderID" />
+          <ScalarProperty Name="RevisionNumber" ColumnName="RevisionNumber" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="VendorID" ColumnName="VendorID" />
+          <ScalarProperty Name="ShipMethodID" ColumnName="ShipMethodID" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="ShipDate" ColumnName="ShipDate" />
+          <ScalarProperty Name="SubTotal" ColumnName="SubTotal" />
+          <ScalarProperty Name="TaxAmt" ColumnName="TaxAmt" />
+          <ScalarProperty Name="Freight" ColumnName="Freight" />
+          <ScalarProperty Name="TotalDue" ColumnName="TotalDue" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectPurchaseOrderHeadersAll" FunctionName="mics_serverModel.Store.SelectPurchaseOrderHeadersAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectPurchaseOrderHeadersAll_Result">
+          <ScalarProperty Name="PurchaseOrderID" ColumnName="PurchaseOrderID" />
+          <ScalarProperty Name="RevisionNumber" ColumnName="RevisionNumber" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="VendorID" ColumnName="VendorID" />
+          <ScalarProperty Name="ShipMethodID" ColumnName="ShipMethodID" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="ShipDate" ColumnName="ShipDate" />
+          <ScalarProperty Name="SubTotal" ColumnName="SubTotal" />
+          <ScalarProperty Name="TaxAmt" ColumnName="TaxAmt" />
+          <ScalarProperty Name="Freight" ColumnName="Freight" />
+          <ScalarProperty Name="TotalDue" ColumnName="TotalDue" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectPurchaseOrderHeadersDynamic" FunctionName="mics_serverModel.Store.SelectPurchaseOrderHeadersDynamic" />
+    <FunctionImportMapping FunctionImportName="SelectPurchaseOrderHeadersPaged" FunctionName="mics_serverModel.Store.SelectPurchaseOrderHeadersPaged">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectPurchaseOrderHeadersPaged_Result">
+          <ScalarProperty Name="PurchaseOrderID" ColumnName="PurchaseOrderID" />
+          <ScalarProperty Name="RevisionNumber" ColumnName="RevisionNumber" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="VendorID" ColumnName="VendorID" />
+          <ScalarProperty Name="ShipMethodID" ColumnName="ShipMethodID" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="ShipDate" ColumnName="ShipDate" />
+          <ScalarProperty Name="SubTotal" ColumnName="SubTotal" />
+          <ScalarProperty Name="TaxAmt" ColumnName="TaxAmt" />
+          <ScalarProperty Name="Freight" ColumnName="Freight" />
+          <ScalarProperty Name="TotalDue" ColumnName="TotalDue" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectSalesInvoiceDetail" FunctionName="mics_serverModel.Store.SelectSalesInvoiceDetail">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectSalesInvoiceDetail_Result">
+          <ScalarProperty Name="InvoiceDetailID" ColumnName="InvoiceDetailID" />
+          <ScalarProperty Name="InvoiceID" ColumnName="InvoiceID" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="SpecialOfferID" ColumnName="SpecialOfferID" />
+          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+          <ScalarProperty Name="UnitPriceDiscount" ColumnName="UnitPriceDiscount" />
+          <ScalarProperty Name="LineTotal" ColumnName="LineTotal" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectSalesInvoiceDetailsAll" FunctionName="mics_serverModel.Store.SelectSalesInvoiceDetailsAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectSalesInvoiceDetailsAll_Result">
+          <ScalarProperty Name="InvoiceDetailID" ColumnName="InvoiceDetailID" />
+          <ScalarProperty Name="InvoiceID" ColumnName="InvoiceID" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="SpecialOfferID" ColumnName="SpecialOfferID" />
+          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+          <ScalarProperty Name="UnitPriceDiscount" ColumnName="UnitPriceDiscount" />
+          <ScalarProperty Name="LineTotal" ColumnName="LineTotal" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectSalesInvoiceDetailsDynamic" FunctionName="mics_serverModel.Store.SelectSalesInvoiceDetailsDynamic" />
+    <FunctionImportMapping FunctionImportName="SelectSalesInvoiceDetailsPaged" FunctionName="mics_serverModel.Store.SelectSalesInvoiceDetailsPaged">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectSalesInvoiceDetailsPaged_Result">
+          <ScalarProperty Name="InvoiceDetailID" ColumnName="InvoiceDetailID" />
+          <ScalarProperty Name="InvoiceID" ColumnName="InvoiceID" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="SpecialOfferID" ColumnName="SpecialOfferID" />
+          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+          <ScalarProperty Name="UnitPriceDiscount" ColumnName="UnitPriceDiscount" />
+          <ScalarProperty Name="LineTotal" ColumnName="LineTotal" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectSalesInvoiceHeader" FunctionName="mics_serverModel.Store.SelectSalesInvoiceHeader">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectSalesInvoiceHeader_Result">
+          <ScalarProperty Name="InvoiceID" ColumnName="InvoiceID" />
+          <ScalarProperty Name="InvoiceNumber" ColumnName="InvoiceNumber" />
+          <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+          <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+          <ScalarProperty Name="SaleOrderID" ColumnName="SaleOrderID" />
+          <ScalarProperty Name="SalesPersonID" ColumnName="SalesPersonID" />
+          <ScalarProperty Name="TerritoryID" ColumnName="TerritoryID" />
+          <ScalarProperty Name="BillToAddressID" ColumnName="BillToAddressID" />
+          <ScalarProperty Name="ShipToAddressID" ColumnName="ShipToAddressID" />
+          <ScalarProperty Name="PaymentMethodID" ColumnName="PaymentMethodID" />
+          <ScalarProperty Name="SubTotal" ColumnName="SubTotal" />
+          <ScalarProperty Name="TaxAmt" ColumnName="TaxAmt" />
+          <ScalarProperty Name="Freight" ColumnName="Freight" />
+          <ScalarProperty Name="TotalDue" ColumnName="TotalDue" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectSalesInvoiceHeadersAll" FunctionName="mics_serverModel.Store.SelectSalesInvoiceHeadersAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectSalesInvoiceHeadersAll_Result">
+          <ScalarProperty Name="InvoiceID" ColumnName="InvoiceID" />
+          <ScalarProperty Name="InvoiceNumber" ColumnName="InvoiceNumber" />
+          <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+          <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+          <ScalarProperty Name="SaleOrderID" ColumnName="SaleOrderID" />
+          <ScalarProperty Name="SalesPersonID" ColumnName="SalesPersonID" />
+          <ScalarProperty Name="TerritoryID" ColumnName="TerritoryID" />
+          <ScalarProperty Name="BillToAddressID" ColumnName="BillToAddressID" />
+          <ScalarProperty Name="ShipToAddressID" ColumnName="ShipToAddressID" />
+          <ScalarProperty Name="PaymentMethodID" ColumnName="PaymentMethodID" />
+          <ScalarProperty Name="SubTotal" ColumnName="SubTotal" />
+          <ScalarProperty Name="TaxAmt" ColumnName="TaxAmt" />
+          <ScalarProperty Name="Freight" ColumnName="Freight" />
+          <ScalarProperty Name="TotalDue" ColumnName="TotalDue" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectSalesInvoiceHeadersDynamic" FunctionName="mics_serverModel.Store.SelectSalesInvoiceHeadersDynamic" />
+    <FunctionImportMapping FunctionImportName="SelectSalesInvoiceHeadersPaged" FunctionName="mics_serverModel.Store.SelectSalesInvoiceHeadersPaged">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectSalesInvoiceHeadersPaged_Result">
+          <ScalarProperty Name="InvoiceID" ColumnName="InvoiceID" />
+          <ScalarProperty Name="InvoiceNumber" ColumnName="InvoiceNumber" />
+          <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+          <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+          <ScalarProperty Name="SaleOrderID" ColumnName="SaleOrderID" />
+          <ScalarProperty Name="SalesPersonID" ColumnName="SalesPersonID" />
+          <ScalarProperty Name="TerritoryID" ColumnName="TerritoryID" />
+          <ScalarProperty Name="BillToAddressID" ColumnName="BillToAddressID" />
+          <ScalarProperty Name="ShipToAddressID" ColumnName="ShipToAddressID" />
+          <ScalarProperty Name="PaymentMethodID" ColumnName="PaymentMethodID" />
+          <ScalarProperty Name="SubTotal" ColumnName="SubTotal" />
+          <ScalarProperty Name="TaxAmt" ColumnName="TaxAmt" />
+          <ScalarProperty Name="Freight" ColumnName="Freight" />
+          <ScalarProperty Name="TotalDue" ColumnName="TotalDue" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectSalesOrderDetail" FunctionName="mics_serverModel.Store.SelectSalesOrderDetail">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectSalesOrderDetail_Result">
+          <ScalarProperty Name="SalesOrderID" ColumnName="SalesOrderID" />
+          <ScalarProperty Name="SalesOrderDetailID" ColumnName="SalesOrderDetailID" />
+          <ScalarProperty Name="CarrierTrackingNumber" ColumnName="CarrierTrackingNumber" />
+          <ScalarProperty Name="OrderQty" ColumnName="OrderQty" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="SpecialOfferID" ColumnName="SpecialOfferID" />
+          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+          <ScalarProperty Name="UnitPriceDiscount" ColumnName="UnitPriceDiscount" />
+          <ScalarProperty Name="LineTotal" ColumnName="LineTotal" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectSalesOrderDetailsAll" FunctionName="mics_serverModel.Store.SelectSalesOrderDetailsAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectSalesOrderDetailsAll_Result">
+          <ScalarProperty Name="SalesOrderID" ColumnName="SalesOrderID" />
+          <ScalarProperty Name="SalesOrderDetailID" ColumnName="SalesOrderDetailID" />
+          <ScalarProperty Name="CarrierTrackingNumber" ColumnName="CarrierTrackingNumber" />
+          <ScalarProperty Name="OrderQty" ColumnName="OrderQty" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="SpecialOfferID" ColumnName="SpecialOfferID" />
+          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+          <ScalarProperty Name="UnitPriceDiscount" ColumnName="UnitPriceDiscount" />
+          <ScalarProperty Name="LineTotal" ColumnName="LineTotal" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectSalesOrderDetailsDynamic" FunctionName="mics_serverModel.Store.SelectSalesOrderDetailsDynamic" />
+    <FunctionImportMapping FunctionImportName="SelectSalesOrderDetailsPaged" FunctionName="mics_serverModel.Store.SelectSalesOrderDetailsPaged">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectSalesOrderDetailsPaged_Result">
+          <ScalarProperty Name="SalesOrderID" ColumnName="SalesOrderID" />
+          <ScalarProperty Name="SalesOrderDetailID" ColumnName="SalesOrderDetailID" />
+          <ScalarProperty Name="CarrierTrackingNumber" ColumnName="CarrierTrackingNumber" />
+          <ScalarProperty Name="OrderQty" ColumnName="OrderQty" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="SpecialOfferID" ColumnName="SpecialOfferID" />
+          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+          <ScalarProperty Name="UnitPriceDiscount" ColumnName="UnitPriceDiscount" />
+          <ScalarProperty Name="LineTotal" ColumnName="LineTotal" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectSalesOrderHeader" FunctionName="mics_serverModel.Store.SelectSalesOrderHeader">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectSalesOrderHeader_Result">
+          <ScalarProperty Name="SalesOrderID" ColumnName="SalesOrderID" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+          <ScalarProperty Name="ShipDate" ColumnName="ShipDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="OnlineOrderFlag" ColumnName="OnlineOrderFlag" />
+          <ScalarProperty Name="SalesOrderNumber" ColumnName="SalesOrderNumber" />
+          <ScalarProperty Name="PurchaseOrderNumber" ColumnName="PurchaseOrderNumber" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="SalesPersonID" ColumnName="SalesPersonID" />
+          <ScalarProperty Name="BillToAddressID" ColumnName="BillToAddressID" />
+          <ScalarProperty Name="ShipToAddressID" ColumnName="ShipToAddressID" />
+          <ScalarProperty Name="ShipMethodID" ColumnName="ShipMethodID" />
+          <ScalarProperty Name="PaymentMethodID" ColumnName="PaymentMethodID" />
+          <ScalarProperty Name="CurrencyRateID" ColumnName="CurrencyRateID" />
+          <ScalarProperty Name="SubTotal" ColumnName="SubTotal" />
+          <ScalarProperty Name="TaxAmt" ColumnName="TaxAmt" />
+          <ScalarProperty Name="Freight" ColumnName="Freight" />
+          <ScalarProperty Name="TotalDue" ColumnName="TotalDue" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectSalesOrderHeadersAll" FunctionName="mics_serverModel.Store.SelectSalesOrderHeadersAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectSalesOrderHeadersAll_Result">
+          <ScalarProperty Name="SalesOrderID" ColumnName="SalesOrderID" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+          <ScalarProperty Name="ShipDate" ColumnName="ShipDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="OnlineOrderFlag" ColumnName="OnlineOrderFlag" />
+          <ScalarProperty Name="SalesOrderNumber" ColumnName="SalesOrderNumber" />
+          <ScalarProperty Name="PurchaseOrderNumber" ColumnName="PurchaseOrderNumber" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="SalesPersonID" ColumnName="SalesPersonID" />
+          <ScalarProperty Name="BillToAddressID" ColumnName="BillToAddressID" />
+          <ScalarProperty Name="ShipToAddressID" ColumnName="ShipToAddressID" />
+          <ScalarProperty Name="ShipMethodID" ColumnName="ShipMethodID" />
+          <ScalarProperty Name="PaymentMethodID" ColumnName="PaymentMethodID" />
+          <ScalarProperty Name="CurrencyRateID" ColumnName="CurrencyRateID" />
+          <ScalarProperty Name="SubTotal" ColumnName="SubTotal" />
+          <ScalarProperty Name="TaxAmt" ColumnName="TaxAmt" />
+          <ScalarProperty Name="Freight" ColumnName="Freight" />
+          <ScalarProperty Name="TotalDue" ColumnName="TotalDue" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectSalesOrderHeadersDynamic" FunctionName="mics_serverModel.Store.SelectSalesOrderHeadersDynamic" />
+    <FunctionImportMapping FunctionImportName="SelectSalesOrderHeadersPaged" FunctionName="mics_serverModel.Store.SelectSalesOrderHeadersPaged">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectSalesOrderHeadersPaged_Result">
+          <ScalarProperty Name="SalesOrderID" ColumnName="SalesOrderID" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+          <ScalarProperty Name="ShipDate" ColumnName="ShipDate" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="OnlineOrderFlag" ColumnName="OnlineOrderFlag" />
+          <ScalarProperty Name="SalesOrderNumber" ColumnName="SalesOrderNumber" />
+          <ScalarProperty Name="PurchaseOrderNumber" ColumnName="PurchaseOrderNumber" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="SalesPersonID" ColumnName="SalesPersonID" />
+          <ScalarProperty Name="BillToAddressID" ColumnName="BillToAddressID" />
+          <ScalarProperty Name="ShipToAddressID" ColumnName="ShipToAddressID" />
+          <ScalarProperty Name="ShipMethodID" ColumnName="ShipMethodID" />
+          <ScalarProperty Name="PaymentMethodID" ColumnName="PaymentMethodID" />
+          <ScalarProperty Name="CurrencyRateID" ColumnName="CurrencyRateID" />
+          <ScalarProperty Name="SubTotal" ColumnName="SubTotal" />
+          <ScalarProperty Name="TaxAmt" ColumnName="TaxAmt" />
+          <ScalarProperty Name="Freight" ColumnName="Freight" />
+          <ScalarProperty Name="TotalDue" ColumnName="TotalDue" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectSalesPerson" FunctionName="mics_serverModel.Store.SelectSalesPerson">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectSalesPerson_Result">
+          <ScalarProperty Name="SalesPersonID" ColumnName="SalesPersonID" />
+          <ScalarProperty Name="TerritoryID" ColumnName="TerritoryID" />
+          <ScalarProperty Name="SalesQuota" ColumnName="SalesQuota" />
+          <ScalarProperty Name="Bonus" ColumnName="Bonus" />
+          <ScalarProperty Name="CommissionPct" ColumnName="CommissionPct" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectSalesPersonQuotaHistoriesAll" FunctionName="mics_serverModel.Store.SelectSalesPersonQuotaHistoriesAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectSalesPersonQuotaHistoriesAll_Result">
+          <ScalarProperty Name="SalesPersonID" ColumnName="SalesPersonID" />
+          <ScalarProperty Name="QuotaDate" ColumnName="QuotaDate" />
+          <ScalarProperty Name="SalesQuota" ColumnName="SalesQuota" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectSalesPersonQuotaHistoriesDynamic" FunctionName="mics_serverModel.Store.SelectSalesPersonQuotaHistoriesDynamic" />
+    <FunctionImportMapping FunctionImportName="SelectSalesPersonQuotaHistoriesPaged" FunctionName="mics_serverModel.Store.SelectSalesPersonQuotaHistoriesPaged">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectSalesPersonQuotaHistoriesPaged_Result">
+          <ScalarProperty Name="SalesPersonID" ColumnName="SalesPersonID" />
+          <ScalarProperty Name="QuotaDate" ColumnName="QuotaDate" />
+          <ScalarProperty Name="SalesQuota" ColumnName="SalesQuota" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectSalesPersonQuotaHistory" FunctionName="mics_serverModel.Store.SelectSalesPersonQuotaHistory">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectSalesPersonQuotaHistory_Result">
+          <ScalarProperty Name="SalesPersonID" ColumnName="SalesPersonID" />
+          <ScalarProperty Name="QuotaDate" ColumnName="QuotaDate" />
+          <ScalarProperty Name="SalesQuota" ColumnName="SalesQuota" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectSalesPersonsAll" FunctionName="mics_serverModel.Store.SelectSalesPersonsAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectSalesPersonsAll_Result">
+          <ScalarProperty Name="SalesPersonID" ColumnName="SalesPersonID" />
+          <ScalarProperty Name="TerritoryID" ColumnName="TerritoryID" />
+          <ScalarProperty Name="SalesQuota" ColumnName="SalesQuota" />
+          <ScalarProperty Name="Bonus" ColumnName="Bonus" />
+          <ScalarProperty Name="CommissionPct" ColumnName="CommissionPct" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectSalesPersonsDynamic" FunctionName="mics_serverModel.Store.SelectSalesPersonsDynamic" />
+    <FunctionImportMapping FunctionImportName="SelectSalesPersonsPaged" FunctionName="mics_serverModel.Store.SelectSalesPersonsPaged">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectSalesPersonsPaged_Result">
+          <ScalarProperty Name="SalesPersonID" ColumnName="SalesPersonID" />
+          <ScalarProperty Name="TerritoryID" ColumnName="TerritoryID" />
+          <ScalarProperty Name="SalesQuota" ColumnName="SalesQuota" />
+          <ScalarProperty Name="Bonus" ColumnName="Bonus" />
+          <ScalarProperty Name="CommissionPct" ColumnName="CommissionPct" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectSalesTaxRate" FunctionName="mics_serverModel.Store.SelectSalesTaxRate">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectSalesTaxRate_Result">
+          <ScalarProperty Name="SalesTaxRateID" ColumnName="SalesTaxRateID" />
+          <ScalarProperty Name="StateProvinceID" ColumnName="StateProvinceID" />
+          <ScalarProperty Name="TaxType" ColumnName="TaxType" />
+          <ScalarProperty Name="TaxRate" ColumnName="TaxRate" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectSalesTaxRatesAll" FunctionName="mics_serverModel.Store.SelectSalesTaxRatesAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectSalesTaxRatesAll_Result">
+          <ScalarProperty Name="SalesTaxRateID" ColumnName="SalesTaxRateID" />
+          <ScalarProperty Name="StateProvinceID" ColumnName="StateProvinceID" />
+          <ScalarProperty Name="TaxType" ColumnName="TaxType" />
+          <ScalarProperty Name="TaxRate" ColumnName="TaxRate" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectSalesTaxRatesDynamic" FunctionName="mics_serverModel.Store.SelectSalesTaxRatesDynamic" />
+    <FunctionImportMapping FunctionImportName="SelectSalesTaxRatesPaged" FunctionName="mics_serverModel.Store.SelectSalesTaxRatesPaged">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectSalesTaxRatesPaged_Result">
+          <ScalarProperty Name="SalesTaxRateID" ColumnName="SalesTaxRateID" />
+          <ScalarProperty Name="StateProvinceID" ColumnName="StateProvinceID" />
+          <ScalarProperty Name="TaxType" ColumnName="TaxType" />
+          <ScalarProperty Name="TaxRate" ColumnName="TaxRate" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectSalesTerritoriesAll" FunctionName="mics_serverModel.Store.SelectSalesTerritoriesAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectSalesTerritoriesAll_Result">
+          <ScalarProperty Name="TerritoryID" ColumnName="TerritoryID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CountryRegionCode" ColumnName="CountryRegionCode" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectSalesTerritoriesDynamic" FunctionName="mics_serverModel.Store.SelectSalesTerritoriesDynamic" />
+    <FunctionImportMapping FunctionImportName="SelectSalesTerritoriesPaged" FunctionName="mics_serverModel.Store.SelectSalesTerritoriesPaged">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectSalesTerritoriesPaged_Result">
+          <ScalarProperty Name="TerritoryID" ColumnName="TerritoryID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CountryRegionCode" ColumnName="CountryRegionCode" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectSalesTerritory" FunctionName="mics_serverModel.Store.SelectSalesTerritory">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectSalesTerritory_Result">
+          <ScalarProperty Name="TerritoryID" ColumnName="TerritoryID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CountryRegionCode" ColumnName="CountryRegionCode" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectSalesTerritoryAll" FunctionName="mics_serverModel.Store.SelectSalesTerritoryAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectSalesTerritoryAll_Result">
+          <ScalarProperty Name="TerritoryID" ColumnName="TerritoryID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CountryRegionCode" ColumnName="CountryRegionCode" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectSalesTerritoryHistoriesAll" FunctionName="mics_serverModel.Store.SelectSalesTerritoryHistoriesAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectSalesTerritoryHistoriesAll_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="SalesPersonID" ColumnName="SalesPersonID" />
+          <ScalarProperty Name="TerritoryID" ColumnName="TerritoryID" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectSalesTerritoryHistoriesDynamic" FunctionName="mics_serverModel.Store.SelectSalesTerritoryHistoriesDynamic" />
+    <FunctionImportMapping FunctionImportName="SelectSalesTerritoryHistoriesPaged" FunctionName="mics_serverModel.Store.SelectSalesTerritoryHistoriesPaged">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectSalesTerritoryHistoriesPaged_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="SalesPersonID" ColumnName="SalesPersonID" />
+          <ScalarProperty Name="TerritoryID" ColumnName="TerritoryID" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectSalesTerritoryHistory" FunctionName="mics_serverModel.Store.SelectSalesTerritoryHistory">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectSalesTerritoryHistory_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="SalesPersonID" ColumnName="SalesPersonID" />
+          <ScalarProperty Name="TerritoryID" ColumnName="TerritoryID" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectShipMethod" FunctionName="mics_serverModel.Store.SelectShipMethod">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectShipMethod_Result">
+          <ScalarProperty Name="ShipMethodID" ColumnName="ShipMethodID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ShipBase" ColumnName="ShipBase" />
+          <ScalarProperty Name="ShipRate" ColumnName="ShipRate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectShipMethodsAll" FunctionName="mics_serverModel.Store.SelectShipMethodsAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectShipMethodsAll_Result">
+          <ScalarProperty Name="ShipMethodID" ColumnName="ShipMethodID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ShipBase" ColumnName="ShipBase" />
+          <ScalarProperty Name="ShipRate" ColumnName="ShipRate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectShipMethodsDynamic" FunctionName="mics_serverModel.Store.SelectShipMethodsDynamic" />
+    <FunctionImportMapping FunctionImportName="SelectShipMethodsPaged" FunctionName="mics_serverModel.Store.SelectShipMethodsPaged">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectShipMethodsPaged_Result">
+          <ScalarProperty Name="ShipMethodID" ColumnName="ShipMethodID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ShipBase" ColumnName="ShipBase" />
+          <ScalarProperty Name="ShipRate" ColumnName="ShipRate" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectSpecialOffer" FunctionName="mics_serverModel.Store.SelectSpecialOffer">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectSpecialOffer_Result">
+          <ScalarProperty Name="SpecialOfferID" ColumnName="SpecialOfferID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="DiscountPct" ColumnName="DiscountPct" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="MinQty" ColumnName="MinQty" />
+          <ScalarProperty Name="MaxQty" ColumnName="MaxQty" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectSpecialOfferProduct" FunctionName="mics_serverModel.Store.SelectSpecialOfferProduct">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectSpecialOfferProduct_Result">
+          <ScalarProperty Name="SpecialOfferID" ColumnName="SpecialOfferID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectSpecialOfferProductsAll" FunctionName="mics_serverModel.Store.SelectSpecialOfferProductsAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectSpecialOfferProductsAll_Result">
+          <ScalarProperty Name="SpecialOfferID" ColumnName="SpecialOfferID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectSpecialOfferProductsDynamic" FunctionName="mics_serverModel.Store.SelectSpecialOfferProductsDynamic" />
+    <FunctionImportMapping FunctionImportName="SelectSpecialOfferProductsPaged" FunctionName="mics_serverModel.Store.SelectSpecialOfferProductsPaged">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectSpecialOfferProductsPaged_Result">
+          <ScalarProperty Name="SpecialOfferID" ColumnName="SpecialOfferID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectSpecialOffersAll" FunctionName="mics_serverModel.Store.SelectSpecialOffersAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectSpecialOffersAll_Result">
+          <ScalarProperty Name="SpecialOfferID" ColumnName="SpecialOfferID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="DiscountPct" ColumnName="DiscountPct" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="MinQty" ColumnName="MinQty" />
+          <ScalarProperty Name="MaxQty" ColumnName="MaxQty" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectSpecialOffersDynamic" FunctionName="mics_serverModel.Store.SelectSpecialOffersDynamic" />
+    <FunctionImportMapping FunctionImportName="SelectSpecialOffersPaged" FunctionName="mics_serverModel.Store.SelectSpecialOffersPaged">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectSpecialOffersPaged_Result">
+          <ScalarProperty Name="SpecialOfferID" ColumnName="SpecialOfferID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="DiscountPct" ColumnName="DiscountPct" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="MinQty" ColumnName="MinQty" />
+          <ScalarProperty Name="MaxQty" ColumnName="MaxQty" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectUser" FunctionName="mics_serverModel.Store.SelectUser">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectUser_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectUsersAll" FunctionName="mics_serverModel.Store.SelectUsersAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectUsersAll_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectUsersDynamic" FunctionName="mics_serverModel.Store.SelectUsersDynamic" />
+    <FunctionImportMapping FunctionImportName="SelectUsersPaged" FunctionName="mics_serverModel.Store.SelectUsersPaged">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectUsersPaged_Result">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectVendor" FunctionName="mics_serverModel.Store.SelectVendor">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectVendor_Result">
+          <ScalarProperty Name="VendorID" ColumnName="VendorID" />
+          <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+          <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+          <ScalarProperty Name="CreditRating" ColumnName="CreditRating" />
+          <ScalarProperty Name="PreferredVendorStatus" ColumnName="PreferredVendorStatus" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="ActiveFlag" ColumnName="ActiveFlag" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="AltPhone" ColumnName="AltPhone" />
+          <ScalarProperty Name="Terms" ColumnName="Terms" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectVendorExists" FunctionName="mics_serverModel.Store.SelectVendorExists">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectVendorExists_Result">
+          <ScalarProperty Name="VendorID" ColumnName="VendorID" />
+          <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+          <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+          <ScalarProperty Name="CreditRating" ColumnName="CreditRating" />
+          <ScalarProperty Name="PreferredVendorStatus" ColumnName="PreferredVendorStatus" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="ActiveFlag" ColumnName="ActiveFlag" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="AltPhone" ColumnName="AltPhone" />
+          <ScalarProperty Name="Terms" ColumnName="Terms" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectVendorsAll" FunctionName="mics_serverModel.Store.SelectVendorsAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectVendorsAll_Result">
+          <ScalarProperty Name="VendorID" ColumnName="VendorID" />
+          <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+          <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+          <ScalarProperty Name="CreditRating" ColumnName="CreditRating" />
+          <ScalarProperty Name="PreferredVendorStatus" ColumnName="PreferredVendorStatus" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="ActiveFlag" ColumnName="ActiveFlag" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="AltPhone" ColumnName="AltPhone" />
+          <ScalarProperty Name="Terms" ColumnName="Terms" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectVendorsDynamic" FunctionName="mics_serverModel.Store.SelectVendorsDynamic" />
+    <FunctionImportMapping FunctionImportName="SelectVendorsPaged" FunctionName="mics_serverModel.Store.SelectVendorsPaged">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.SelectVendorsPaged_Result">
+          <ScalarProperty Name="VendorID" ColumnName="VendorID" />
+          <ScalarProperty Name="AddressID" ColumnName="AddressID" />
+          <ScalarProperty Name="AccountNumber" ColumnName="AccountNumber" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+          <ScalarProperty Name="CreditRating" ColumnName="CreditRating" />
+          <ScalarProperty Name="PreferredVendorStatus" ColumnName="PreferredVendorStatus" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="ActiveFlag" ColumnName="ActiveFlag" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="AltPhone" ColumnName="AltPhone" />
+          <ScalarProperty Name="Terms" ColumnName="Terms" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="mics_serverModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="mics_serverModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="mics_serverModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_generate_inserts" FunctionName="mics_serverModel.Store.sp_generate_inserts" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="mics_serverModel.Store.sp_helpdiagramdefinition" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="mics_serverModel.Store.sp_helpdiagrams" />
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="mics_serverModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="mics_serverModel.Store.sp_upgraddiagrams" />
+    <FunctionImportMapping FunctionImportName="UpdateAddress" FunctionName="mics_serverModel.Store.UpdateAddress" />
+    <FunctionImportMapping FunctionImportName="UpdateCustomer" FunctionName="mics_serverModel.Store.UpdateCustomer" />
+    <FunctionImportMapping FunctionImportName="UpdateEmployee" FunctionName="mics_serverModel.Store.UpdateEmployee" />
+    <FunctionImportMapping FunctionImportName="UpdateInventory" FunctionName="mics_serverModel.Store.UpdateInventory" />
+    <FunctionImportMapping FunctionImportName="UpdateLocation" FunctionName="mics_serverModel.Store.UpdateLocation" />
+    <FunctionImportMapping FunctionImportName="UpdateOrderNumber" FunctionName="mics_serverModel.Store.UpdateOrderNumber" />
+    <FunctionImportMapping FunctionImportName="UpdatePayment" FunctionName="mics_serverModel.Store.UpdatePayment" />
+    <FunctionImportMapping FunctionImportName="UpdatePaymentMethod" FunctionName="mics_serverModel.Store.UpdatePaymentMethod" />
+    <FunctionImportMapping FunctionImportName="UpdateProduct" FunctionName="mics_serverModel.Store.UpdateProduct" />
+    <FunctionImportMapping FunctionImportName="UpdateProductAdjustmentHistory" FunctionName="mics_serverModel.Store.UpdateProductAdjustmentHistory" />
+    <FunctionImportMapping FunctionImportName="UpdateProductCategory" FunctionName="mics_serverModel.Store.UpdateProductCategory" />
+    <FunctionImportMapping FunctionImportName="UpdateProductCostHistory" FunctionName="mics_serverModel.Store.UpdateProductCostHistory" />
+    <FunctionImportMapping FunctionImportName="UpdateProductInventory" FunctionName="mics_serverModel.Store.UpdateProductInventory" />
+    <FunctionImportMapping FunctionImportName="UpdateProductListPriceHistory" FunctionName="mics_serverModel.Store.UpdateProductListPriceHistory" />
+    <FunctionImportMapping FunctionImportName="UpdateProductSubcategory" FunctionName="mics_serverModel.Store.UpdateProductSubcategory" />
+    <FunctionImportMapping FunctionImportName="UpdateProductVendor" FunctionName="mics_serverModel.Store.UpdateProductVendor" />
+    <FunctionImportMapping FunctionImportName="UpdatePurchaseInvoiceDetail" FunctionName="mics_serverModel.Store.UpdatePurchaseInvoiceDetail" />
+    <FunctionImportMapping FunctionImportName="UpdatePurchaseInvoiceHeader" FunctionName="mics_serverModel.Store.UpdatePurchaseInvoiceHeader" />
+    <FunctionImportMapping FunctionImportName="UpdatePurchaseOrderDetail" FunctionName="mics_serverModel.Store.UpdatePurchaseOrderDetail" />
+    <FunctionImportMapping FunctionImportName="UpdatePurchaseOrderHeader" FunctionName="mics_serverModel.Store.UpdatePurchaseOrderHeader" />
+    <FunctionImportMapping FunctionImportName="UpdateSalesInvoiceDetail" FunctionName="mics_serverModel.Store.UpdateSalesInvoiceDetail" />
+    <FunctionImportMapping FunctionImportName="UpdateSalesInvoiceHeader" FunctionName="mics_serverModel.Store.UpdateSalesInvoiceHeader" />
+    <FunctionImportMapping FunctionImportName="UpdateSalesOrderDetail" FunctionName="mics_serverModel.Store.UpdateSalesOrderDetail" />
+    <FunctionImportMapping FunctionImportName="UpdateSalesOrderHeader" FunctionName="mics_serverModel.Store.UpdateSalesOrderHeader" />
+    <FunctionImportMapping FunctionImportName="UpdateSalesPerson" FunctionName="mics_serverModel.Store.UpdateSalesPerson" />
+    <FunctionImportMapping FunctionImportName="UpdateSalesPersonQuotaHistory" FunctionName="mics_serverModel.Store.UpdateSalesPersonQuotaHistory" />
+    <FunctionImportMapping FunctionImportName="UpdateSalesTaxRate" FunctionName="mics_serverModel.Store.UpdateSalesTaxRate" />
+    <FunctionImportMapping FunctionImportName="UpdateSalesTerritory" FunctionName="mics_serverModel.Store.UpdateSalesTerritory" />
+    <FunctionImportMapping FunctionImportName="UpdateSalesTerritoryHistory" FunctionName="mics_serverModel.Store.UpdateSalesTerritoryHistory" />
+    <FunctionImportMapping FunctionImportName="UpdateShipMethod" FunctionName="mics_serverModel.Store.UpdateShipMethod" />
+    <FunctionImportMapping FunctionImportName="UpdateSpecialOffer" FunctionName="mics_serverModel.Store.UpdateSpecialOffer" />
+    <FunctionImportMapping FunctionImportName="UpdateSpecialOfferProduct" FunctionName="mics_serverModel.Store.UpdateSpecialOfferProduct" />
+    <FunctionImportMapping FunctionImportName="UpdateUser" FunctionName="mics_serverModel.Store.UpdateUser" />
+    <FunctionImportMapping FunctionImportName="UpdateVendor" FunctionName="mics_serverModel.Store.UpdateVendor" />
+    <FunctionImportMapping FunctionImportName="ViewSalesPersonsAll" FunctionName="mics_serverModel.Store.ViewSalesPersonsAll">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.ViewSalesPersonsAll_Result">
+          <ScalarProperty Name="SalesPersonID" ColumnName="SalesPersonID" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="SalesQuota" ColumnName="SalesQuota" />
+          <ScalarProperty Name="Bonus" ColumnName="Bonus" />
+          <ScalarProperty Name="CommissionPct" ColumnName="CommissionPct" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ViewSalesTerritoryList" FunctionName="mics_serverModel.Store.ViewSalesTerritoryList">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mics_serverModel.ViewSalesTerritoryList_Result">
+          <ScalarProperty Name="TerritoryID" ColumnName="TerritoryID" />
+          <ScalarProperty Name="SalesPersonID" ColumnName="SalesPersonID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+          <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

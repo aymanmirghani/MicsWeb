@@ -1,0 +1,4 @@
+AMB.MainActivity, AMB;md59bc4a11cba7c0e98b00dc1d3f8dc1d1e.MainActivity
+AMB.MainActivity, AMB, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md59bc4a11cba7c0e98b00dc1d3f8dc1d1e.MainActivity
+AMB.MainActivity;md59bc4a11cba7c0e98b00dc1d3f8dc1d1e.MainActivity
+amb.MainActivity;md59bc4a11cba7c0e98b00dc1d3f8dc1d1e.MainActivity
